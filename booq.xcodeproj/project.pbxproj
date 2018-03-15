@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5906C0E3205A74FC009EAB05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E2205A74FC009EAB05 /* AppDelegate.swift */; };
+		5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E4205A74FC009EAB05 /* FirstViewController.swift */; };
+		5906C0E7205A74FC009EAB05 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E6205A74FC009EAB05 /* SecondViewController.swift */; };
+		5906C0EA205A74FC009EAB05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5906C0E8205A74FC009EAB05 /* Main.storyboard */; };
+		5906C0EC205A74FC009EAB05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5906C0EB205A74FC009EAB05 /* Assets.xcassets */; };
+		5906C0EF205A74FC009EAB05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5906C0ED205A74FC009EAB05 /* LaunchScreen.storyboard */; };
+		5906C0FA205A74FC009EAB05 /* booqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0F9205A74FC009EAB05 /* booqTests.swift */; };
+		5906C105205A74FC009EAB05 /* booqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C104205A74FC009EAB05 /* booqUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5906C0F6205A74FC009EAB05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5906C0D7205A74FC009EAB05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5906C0DE205A74FC009EAB05;
+			remoteInfo = booq;
+		};
+		5906C101205A74FC009EAB05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5906C0D7205A74FC009EAB05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5906C0DE205A74FC009EAB05;
+			remoteInfo = booq;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5906C0DF205A74FC009EAB05 /* booq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = booq.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5906C0E2205A74FC009EAB05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5906C0E4205A74FC009EAB05 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		5906C0E6205A74FC009EAB05 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5906C0E9205A74FC009EAB05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5906C0EB205A74FC009EAB05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5906C0EE205A74FC009EAB05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5906C0F0205A74FC009EAB05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5906C0F5205A74FC009EAB05 /* booqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5906C0F9205A74FC009EAB05 /* booqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booqTests.swift; sourceTree = "<group>"; };
+		5906C0FB205A74FC009EAB05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5906C100205A74FC009EAB05 /* booqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5906C104205A74FC009EAB05 /* booqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booqUITests.swift; sourceTree = "<group>"; };
+		5906C106205A74FC009EAB05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5906C0DC205A74FC009EAB05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5906C0F2205A74FC009EAB05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5906C0FD205A74FC009EAB05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5906C0D6205A74FC009EAB05 = {
+			isa = PBXGroup;
+			children = (
+				5906C0E1205A74FC009EAB05 /* booq */,
+				5906C0F8205A74FC009EAB05 /* booqTests */,
+				5906C103205A74FC009EAB05 /* booqUITests */,
+				5906C0E0205A74FC009EAB05 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5906C0E0205A74FC009EAB05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5906C0DF205A74FC009EAB05 /* booq.app */,
+				5906C0F5205A74FC009EAB05 /* booqTests.xctest */,
+				5906C100205A74FC009EAB05 /* booqUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5906C0E1205A74FC009EAB05 /* booq */ = {
+			isa = PBXGroup;
+			children = (
+				5906C0E2205A74FC009EAB05 /* AppDelegate.swift */,
+				5906C0E4205A74FC009EAB05 /* FirstViewController.swift */,
+				5906C0E6205A74FC009EAB05 /* SecondViewController.swift */,
+				5906C0E8205A74FC009EAB05 /* Main.storyboard */,
+				5906C0EB205A74FC009EAB05 /* Assets.xcassets */,
+				5906C0ED205A74FC009EAB05 /* LaunchScreen.storyboard */,
+				5906C0F0205A74FC009EAB05 /* Info.plist */,
+			);
+			path = booq;
+			sourceTree = "<group>";
+		};
+		5906C0F8205A74FC009EAB05 /* booqTests */ = {
+			isa = PBXGroup;
+			children = (
+				5906C0F9205A74FC009EAB05 /* booqTests.swift */,
+				5906C0FB205A74FC009EAB05 /* Info.plist */,
+			);
+			path = booqTests;
+			sourceTree = "<group>";
+		};
+		5906C103205A74FC009EAB05 /* booqUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5906C104205A74FC009EAB05 /* booqUITests.swift */,
+				5906C106205A74FC009EAB05 /* Info.plist */,
+			);
+			path = booqUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5906C0DE205A74FC009EAB05 /* booq */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5906C109205A74FC009EAB05 /* Build configuration list for PBXNativeTarget "booq" */;
+			buildPhases = (
+				5906C0DB205A74FC009EAB05 /* Sources */,
+				5906C0DC205A74FC009EAB05 /* Frameworks */,
+				5906C0DD205A74FC009EAB05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = booq;
+			productName = booq;
+			productReference = 5906C0DF205A74FC009EAB05 /* booq.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5906C0F4205A74FC009EAB05 /* booqTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5906C10C205A74FC009EAB05 /* Build configuration list for PBXNativeTarget "booqTests" */;
+			buildPhases = (
+				5906C0F1205A74FC009EAB05 /* Sources */,
+				5906C0F2205A74FC009EAB05 /* Frameworks */,
+				5906C0F3205A74FC009EAB05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5906C0F7205A74FC009EAB05 /* PBXTargetDependency */,
+			);
+			name = booqTests;
+			productName = booqTests;
+			productReference = 5906C0F5205A74FC009EAB05 /* booqTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5906C0FF205A74FC009EAB05 /* booqUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5906C10F205A74FC009EAB05 /* Build configuration list for PBXNativeTarget "booqUITests" */;
+			buildPhases = (
+				5906C0FC205A74FC009EAB05 /* Sources */,
+				5906C0FD205A74FC009EAB05 /* Frameworks */,
+				5906C0FE205A74FC009EAB05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5906C102205A74FC009EAB05 /* PBXTargetDependency */,
+			);
+			name = booqUITests;
+			productName = booqUITests;
+			productReference = 5906C100205A74FC009EAB05 /* booqUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5906C0D7205A74FC009EAB05 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = nakatayuki;
+				TargetAttributes = {
+					5906C0DE205A74FC009EAB05 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5906C0F4205A74FC009EAB05 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5906C0DE205A74FC009EAB05;
+					};
+					5906C0FF205A74FC009EAB05 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5906C0DE205A74FC009EAB05;
+					};
+				};
+			};
+			buildConfigurationList = 5906C0DA205A74FC009EAB05 /* Build configuration list for PBXProject "booq" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5906C0D6205A74FC009EAB05;
+			productRefGroup = 5906C0E0205A74FC009EAB05 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5906C0DE205A74FC009EAB05 /* booq */,
+				5906C0F4205A74FC009EAB05 /* booqTests */,
+				5906C0FF205A74FC009EAB05 /* booqUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5906C0DD205A74FC009EAB05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5906C0EF205A74FC009EAB05 /* LaunchScreen.storyboard in Resources */,
+				5906C0EC205A74FC009EAB05 /* Assets.xcassets in Resources */,
+				5906C0EA205A74FC009EAB05 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5906C0F3205A74FC009EAB05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5906C0FE205A74FC009EAB05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5906C0DB205A74FC009EAB05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5906C0E7205A74FC009EAB05 /* SecondViewController.swift in Sources */,
+				5906C0E3205A74FC009EAB05 /* AppDelegate.swift in Sources */,
+				5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5906C0F1205A74FC009EAB05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5906C0FA205A74FC009EAB05 /* booqTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5906C0FC205A74FC009EAB05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5906C105205A74FC009EAB05 /* booqUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5906C0F7205A74FC009EAB05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5906C0DE205A74FC009EAB05 /* booq */;
+			targetProxy = 5906C0F6205A74FC009EAB05 /* PBXContainerItemProxy */;
+		};
+		5906C102205A74FC009EAB05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5906C0DE205A74FC009EAB05 /* booq */;
+			targetProxy = 5906C101205A74FC009EAB05 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5906C0E8205A74FC009EAB05 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5906C0E9205A74FC009EAB05 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5906C0ED205A74FC009EAB05 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5906C0EE205A74FC009EAB05 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5906C107205A74FC009EAB05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5906C108205A74FC009EAB05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5906C10A205A74FC009EAB05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KKXY5S9W2;
+				INFOPLIST_FILE = booq/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eggplant.com.booq;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5906C10B205A74FC009EAB05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KKXY5S9W2;
+				INFOPLIST_FILE = booq/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eggplant.com.booq;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5906C10D205A74FC009EAB05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KKXY5S9W2;
+				INFOPLIST_FILE = booqTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eggplant.com.booqTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/booq.app/booq";
+			};
+			name = Debug;
+		};
+		5906C10E205A74FC009EAB05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KKXY5S9W2;
+				INFOPLIST_FILE = booqTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eggplant.com.booqTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/booq.app/booq";
+			};
+			name = Release;
+		};
+		5906C110205A74FC009EAB05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KKXY5S9W2;
+				INFOPLIST_FILE = booqUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eggplant.com.booqUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = booq;
+			};
+			name = Debug;
+		};
+		5906C111205A74FC009EAB05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3KKXY5S9W2;
+				INFOPLIST_FILE = booqUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eggplant.com.booqUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = booq;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5906C0DA205A74FC009EAB05 /* Build configuration list for PBXProject "booq" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5906C107205A74FC009EAB05 /* Debug */,
+				5906C108205A74FC009EAB05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5906C109205A74FC009EAB05 /* Build configuration list for PBXNativeTarget "booq" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5906C10A205A74FC009EAB05 /* Debug */,
+				5906C10B205A74FC009EAB05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5906C10C205A74FC009EAB05 /* Build configuration list for PBXNativeTarget "booqTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5906C10D205A74FC009EAB05 /* Debug */,
+				5906C10E205A74FC009EAB05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5906C10F205A74FC009EAB05 /* Build configuration list for PBXNativeTarget "booqUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5906C110205A74FC009EAB05 /* Debug */,
+				5906C111205A74FC009EAB05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5906C0D7205A74FC009EAB05 /* Project object */;
+}
