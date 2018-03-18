@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F60EEA96D73D9F6568A7F29 /* Pods_booqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B887F231D0BD828BF8F019F0 /* Pods_booqTests.framework */; };
 		5906C0E3205A74FC009EAB05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E2205A74FC009EAB05 /* AppDelegate.swift */; };
 		5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E4205A74FC009EAB05 /* FirstViewController.swift */; };
 		5906C0E7205A74FC009EAB05 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E6205A74FC009EAB05 /* SecondViewController.swift */; };
@@ -15,6 +16,9 @@
 		5906C0EF205A74FC009EAB05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5906C0ED205A74FC009EAB05 /* LaunchScreen.storyboard */; };
 		5906C0FA205A74FC009EAB05 /* booqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0F9205A74FC009EAB05 /* booqTests.swift */; };
 		5906C105205A74FC009EAB05 /* booqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C104205A74FC009EAB05 /* booqUITests.swift */; };
+		592E354A205E65AD004F567D /* RealmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E3549205E65AD004F567D /* RealmModels.swift */; };
+		5E48118E3C50E33009689B80 /* Pods_booqUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576F5D7CE050DB7C389DB135 /* Pods_booqUITests.framework */; };
+		750EB8164211C9508F4C6775 /* Pods_booq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9211D73A479752DE371EE95 /* Pods_booq.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B099AB237E83C3BA64F8BD9 /* Pods-booqUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booqUITests/Pods-booqUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3CE7209D4AC3ACDAE02A4854 /* Pods-booqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booqTests/Pods-booqTests.debug.xcconfig"; sourceTree = "<group>"; };
+		55301A4AE66AA9751A02844C /* Pods-booq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booq/Pods-booq.debug.xcconfig"; sourceTree = "<group>"; };
+		576F5D7CE050DB7C389DB135 /* Pods_booqUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booqUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5906C0DF205A74FC009EAB05 /* booq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = booq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5906C0E2205A74FC009EAB05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5906C0E4205A74FC009EAB05 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +57,12 @@
 		5906C100205A74FC009EAB05 /* booqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5906C104205A74FC009EAB05 /* booqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booqUITests.swift; sourceTree = "<group>"; };
 		5906C106205A74FC009EAB05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		592E3549205E65AD004F567D /* RealmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmModels.swift; path = /Users/nasutaro211/Desktop/Booq/booq/booq/RealmModels.swift; sourceTree = "<absolute>"; };
+		5A04AC1CC95823DF2722D095 /* Pods-booqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booqTests/Pods-booqTests.release.xcconfig"; sourceTree = "<group>"; };
+		63DE85F12333A950983E05DE /* Pods-booqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booqUITests/Pods-booqUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B887F231D0BD828BF8F019F0 /* Pods_booqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9211D73A479752DE371EE95 /* Pods_booq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51521EBE9C731B538B81912 /* Pods-booq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booq.release.xcconfig"; path = "Pods/Target Support Files/Pods-booq/Pods-booq.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				750EB8164211C9508F4C6775 /* Pods_booq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F60EEA96D73D9F6568A7F29 /* Pods_booqTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E48118E3C50E33009689B80 /* Pods_booqUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +100,8 @@
 				5906C0F8205A74FC009EAB05 /* booqTests */,
 				5906C103205A74FC009EAB05 /* booqUITests */,
 				5906C0E0205A74FC009EAB05 /* Products */,
+				FD83012A62193297BB34A3D5 /* Pods */,
+				904E2CC193318B9C0249CB2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +118,7 @@
 		5906C0E1205A74FC009EAB05 /* booq */ = {
 			isa = PBXGroup;
 			children = (
+				592E3549205E65AD004F567D /* RealmModels.swift */,
 				5906C0E2205A74FC009EAB05 /* AppDelegate.swift */,
 				5906C0E4205A74FC009EAB05 /* FirstViewController.swift */,
 				5906C0E6205A74FC009EAB05 /* SecondViewController.swift */,
@@ -128,6 +148,29 @@
 			path = booqUITests;
 			sourceTree = "<group>";
 		};
+		904E2CC193318B9C0249CB2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9211D73A479752DE371EE95 /* Pods_booq.framework */,
+				B887F231D0BD828BF8F019F0 /* Pods_booqTests.framework */,
+				576F5D7CE050DB7C389DB135 /* Pods_booqUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD83012A62193297BB34A3D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55301A4AE66AA9751A02844C /* Pods-booq.debug.xcconfig */,
+				C51521EBE9C731B538B81912 /* Pods-booq.release.xcconfig */,
+				3CE7209D4AC3ACDAE02A4854 /* Pods-booqTests.debug.xcconfig */,
+				5A04AC1CC95823DF2722D095 /* Pods-booqTests.release.xcconfig */,
+				63DE85F12333A950983E05DE /* Pods-booqUITests.debug.xcconfig */,
+				1B099AB237E83C3BA64F8BD9 /* Pods-booqUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5906C109205A74FC009EAB05 /* Build configuration list for PBXNativeTarget "booq" */;
 			buildPhases = (
+				6063488E16152CE530EE70CF /* [CP] Check Pods Manifest.lock */,
 				5906C0DB205A74FC009EAB05 /* Sources */,
 				5906C0DC205A74FC009EAB05 /* Frameworks */,
 				5906C0DD205A74FC009EAB05 /* Resources */,
+				0C4E7FBE544EA9F3853700A6 /* [CP] Embed Pods Frameworks */,
+				F377E0E90374CD71574CA441 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5906C10C205A74FC009EAB05 /* Build configuration list for PBXNativeTarget "booqTests" */;
 			buildPhases = (
+				7C2C66E7F11EE68D48339FC6 /* [CP] Check Pods Manifest.lock */,
 				5906C0F1205A74FC009EAB05 /* Sources */,
 				5906C0F2205A74FC009EAB05 /* Frameworks */,
 				5906C0F3205A74FC009EAB05 /* Resources */,
+				D80B2935F3F112AE04B2678B /* [CP] Embed Pods Frameworks */,
+				F77745278F8DD6ADE91EBA93 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5906C10F205A74FC009EAB05 /* Build configuration list for PBXNativeTarget "booqUITests" */;
 			buildPhases = (
+				3B58B54D76B05E469ACA0EBD /* [CP] Check Pods Manifest.lock */,
 				5906C0FC205A74FC009EAB05 /* Sources */,
 				5906C0FD205A74FC009EAB05 /* Frameworks */,
 				5906C0FE205A74FC009EAB05 /* Resources */,
+				0999F0F7C4FFB686B2C7D744 /* [CP] Embed Pods Frameworks */,
+				E0E59C0C232480314383F000 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,12 +309,165 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0999F0F7C4FFB686B2C7D744 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booqUITests/Pods-booqUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0C4E7FBE544EA9F3853700A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-booq/Pods-booq-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booq/Pods-booq-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B58B54D76B05E469ACA0EBD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-booqUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6063488E16152CE530EE70CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-booq-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C2C66E7F11EE68D48339FC6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-booqTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D80B2935F3F112AE04B2678B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booqTests/Pods-booqTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0E59C0C232480314383F000 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booqUITests/Pods-booqUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F377E0E90374CD71574CA441 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booq/Pods-booq-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F77745278F8DD6ADE91EBA93 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-booqTests/Pods-booqTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5906C0DB205A74FC009EAB05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5906C0E7205A74FC009EAB05 /* SecondViewController.swift in Sources */,
+				592E354A205E65AD004F567D /* RealmModels.swift in Sources */,
 				5906C0E3205A74FC009EAB05 /* AppDelegate.swift in Sources */,
 				5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */,
 			);
@@ -428,6 +633,7 @@
 		};
 		5906C10A205A74FC009EAB05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55301A4AE66AA9751A02844C /* Pods-booq.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,6 +649,7 @@
 		};
 		5906C10B205A74FC009EAB05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C51521EBE9C731B538B81912 /* Pods-booq.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -458,6 +665,7 @@
 		};
 		5906C10D205A74FC009EAB05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CE7209D4AC3ACDAE02A4854 /* Pods-booqTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +683,7 @@
 		};
 		5906C10E205A74FC009EAB05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A04AC1CC95823DF2722D095 /* Pods-booqTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +701,7 @@
 		};
 		5906C110205A74FC009EAB05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63DE85F12333A950983E05DE /* Pods-booqUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -508,6 +718,7 @@
 		};
 		5906C111205A74FC009EAB05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B099AB237E83C3BA64F8BD9 /* Pods-booqUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

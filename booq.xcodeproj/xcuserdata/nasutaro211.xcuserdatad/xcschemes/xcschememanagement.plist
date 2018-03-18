@@ -7,7 +7,25 @@
 		<key>booq.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>5906C0DE205A74FC009EAB05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5906C0F4205A74FC009EAB05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5906C0FF205A74FC009EAB05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
