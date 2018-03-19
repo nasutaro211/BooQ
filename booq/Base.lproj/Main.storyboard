@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="748" y="-321.58920539730138"/>
         </scene>
-        <!--View Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="Tig-cP-EpB">
             <objects>
-                <viewController id="rVk-E0-lyd" sceneMemberID="viewController">
+                <viewController id="rVk-E0-lyd" customClass="RegistrationViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PGw-sA-FCs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

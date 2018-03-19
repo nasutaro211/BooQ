@@ -7,6 +7,7 @@ target 'booq' do
 
   # Pods for booq
   pod 'RealmSwift'
+  pod 'Alamofire'
 
   target 'booqTests' do
     inherit! :search_paths
