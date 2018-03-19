@@ -14,7 +14,7 @@ class Book: Object {
         return "ISBN"
     }
     //カラムの設定
-    dynamic var ISBN = 1111111111111
+    @objc dynamic var ISBN = "1111111111111"
     //問題s
     let questions = List<Question>()
 }
@@ -25,11 +25,11 @@ class Question: Object {
         return "questionID"
     }
     //カラムの設定
-    dynamic var questionID = 0
-    dynamic var questionStr = ""
-    dynamic var registeredDay = Date
-    dynamic var nextEmergenceDay = Date
-    dynamic var consecutiveCorrectTimes = 0
+    @objc dynamic var questionID = 0
+    @objc dynamic var questionStr = ""
+    @objc dynamic var registeredDay = Date()
+    @objc dynamic var nextEmergenceDay = Date()
+    @objc dynamic var consecutiveCorrectTimes = 0
     //この問題が登録された本
     let book = LinkingObjects(fromType: Book.self, property: "questions").first
     //答えs
@@ -43,8 +43,8 @@ class Answer: Object {
         return "answerID"
     }
     //カラムの設定
-    dynamic var answerID = 0
-    dynamic var answerStr = ""
+    @objc dynamic var answerID = 0
+    @objc dynamic var answerStr = ""
     //この答えが登録された問い
     let question = LinkingObjects(fromType: Question.self, property: "answers").first
 }

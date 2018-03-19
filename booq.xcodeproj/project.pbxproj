@@ -17,6 +17,8 @@
 		5906C0FA205A74FC009EAB05 /* booqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0F9205A74FC009EAB05 /* booqTests.swift */; };
 		5906C105205A74FC009EAB05 /* booqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C104205A74FC009EAB05 /* booqUITests.swift */; };
 		592E354A205E65AD004F567D /* RealmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E3549205E65AD004F567D /* RealmModels.swift */; };
+		592E354C205F5443004F567D /* BooksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E354B205F5443004F567D /* BooksCollectionViewCell.swift */; };
+		592E3550205F648E004F567D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E354F205F648D004F567D /* RegistrationViewController.swift */; };
 		5E48118E3C50E33009689B80 /* Pods_booqUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576F5D7CE050DB7C389DB135 /* Pods_booqUITests.framework */; };
 		750EB8164211C9508F4C6775 /* Pods_booq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9211D73A479752DE371EE95 /* Pods_booq.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		5906C104205A74FC009EAB05 /* booqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booqUITests.swift; sourceTree = "<group>"; };
 		5906C106205A74FC009EAB05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		592E3549205E65AD004F567D /* RealmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmModels.swift; path = /Users/nasutaro211/Desktop/Booq/booq/booq/RealmModels.swift; sourceTree = "<absolute>"; };
+		592E354B205F5443004F567D /* BooksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionViewCell.swift; sourceTree = "<group>"; };
+		592E354F205F648D004F567D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		5A04AC1CC95823DF2722D095 /* Pods-booqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booqTests/Pods-booqTests.release.xcconfig"; sourceTree = "<group>"; };
 		63DE85F12333A950983E05DE /* Pods-booqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booqUITests/Pods-booqUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B887F231D0BD828BF8F019F0 /* Pods_booqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,7 +127,9 @@
 				5906C0E4205A74FC009EAB05 /* FirstViewController.swift */,
 				5906C0E6205A74FC009EAB05 /* SecondViewController.swift */,
 				5906C0E8205A74FC009EAB05 /* Main.storyboard */,
+				592E354B205F5443004F567D /* BooksCollectionViewCell.swift */,
 				5906C0EB205A74FC009EAB05 /* Assets.xcassets */,
+				592E354F205F648D004F567D /* RegistrationViewController.swift */,
 				5906C0ED205A74FC009EAB05 /* LaunchScreen.storyboard */,
 				5906C0F0205A74FC009EAB05 /* Info.plist */,
 			);
@@ -466,9 +472,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				592E3550205F648E004F567D /* RegistrationViewController.swift in Sources */,
 				5906C0E7205A74FC009EAB05 /* SecondViewController.swift in Sources */,
 				592E354A205E65AD004F567D /* RealmModels.swift in Sources */,
 				5906C0E3205A74FC009EAB05 /* AppDelegate.swift in Sources */,
+				592E354C205F5443004F567D /* BooksCollectionViewCell.swift in Sources */,
 				5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
