@@ -46,6 +46,7 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
                         print(self.books[0].title)
                     }
                     self.showBookInfoResult(self.books)
+                    
                 }
             }
         }
@@ -56,7 +57,13 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
             self.performSegue(withIdentifier: "toResultView", sender: bookinfos)
         }
     }
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResultView"{
+            let resultView = segue.destination as! SearchResultViewController
+            resultView.books = sender as! Array<VolumeInfo>
+        }
+    }
     
     
     
