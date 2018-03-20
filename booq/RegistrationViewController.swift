@@ -6,29 +6,65 @@
 //
 
 import UIKit
+import Alamofire
 
-class RegistrationViewController: UIViewController {
-
+class RegistrationViewController: UIViewController,UISearchBarDelegate {
+    @IBOutlet var searchBar: UISearchBar!
+    var books:[VolumeInfo] = []
+    
     override func viewDidLoad() {
+        searchBar.delegate = self
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.bringDataToBooksWith(searchBar.text!)
+        
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    func bringDataToBooksWith(_ q:String){
+        guard let encodedKeyword = q.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) else {
+            print("無効なURL")
+            return
+        }
+        let url = "https://www.googleapis.com/books/v1/volumes?q=" + encodedKeyword
+            Alamofire.request(url).response { response in
+                if let data = response.data, let responseData:ResponseData = try? JSONDecoder().decode(ResponseData.self, from: data){
+                    
+                    for item in responseData.items{
+                        self.books.append(item.volumeInfo)
+                    }
+                    if self.books.count != 0{
+                        print(self.books[0].title)
+                    }
+                    self.showBookInfoResult(self.books)
+                }
+            }
+        }
+    
+    func showBookInfoResult(_ bookinfos : [VolumeInfo] ) {
+        // メインスレッドで処理を実行する
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toResultView", sender: bookinfos)
+        }
+    }
+    
+    
+    
+    
+    
 
+    
+    
+    
+    
+    
 }

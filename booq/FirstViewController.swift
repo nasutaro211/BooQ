@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Alamofire
 
 class FirstViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     @IBOutlet var booksCollectionView: UICollectionView!
@@ -38,6 +39,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
