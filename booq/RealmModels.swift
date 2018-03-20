@@ -15,6 +15,7 @@ class Book: Object {
     }
     //カラムの設定
     @objc dynamic var ISBN = "1111111111111"
+    @objc dynamic var imageLink = "http://illustrain.com/img/work/2016/illustrain10-hon01.png"
     //問題s
     let questions = List<Question>()
 }

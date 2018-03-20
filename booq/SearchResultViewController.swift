@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SearchResultViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBAction func didPushRegistrationButton(_ sender: Any) {
         let button = sender as! UIButton
-        print(books[button.tag].title)
+        let realm = try! Realm()
+        let book = Book()
+        book.ISBN = books[button.tag].isbn!
+        if let imageLinks = books[button.tag].imageLinks, let imageLink = imageLinks["thumbnail"]{
+            book.imageLink = imageLink
+        }
+        try! realm.write {
+            realm.add(book)
+        }
+        performSegue(withIdentifier: "returnTabBar", sender: nil)
     }
     
     
@@ -26,7 +36,7 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell") as! ResultableViewCell
-        cell.titleLabel.text = books[indexPath.row].isbn
+        cell.titleLabel.text = books[indexPath.row].title
         cell.registrationButton.tag = indexPath.row
         return cell
     }

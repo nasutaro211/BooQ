@@ -42,7 +42,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="bookCell" id="gxX-bt-dkG" customClass="BooksCollectionViewCell" customModule="booq" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="bookCell" reuseIdentifier="bookCell" id="gxX-bt-dkG" customClass="BooksCollectionViewCell" customModule="booq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -201,7 +201,7 @@
                                     <navigationItem title="本を登録" id="COL-7t-W6C">
                                         <barButtonItem key="leftBarButtonItem" title="×" id="LI6-7W-gwe">
                                             <connections>
-                                                <segue destination="49e-Tb-3d3" kind="show" id="eGm-uF-QA8"/>
+                                                <segue destination="49e-Tb-3d3" kind="show" identifier="returnTabBar" id="www-ET-ZxN"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -280,6 +280,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eGm-uF-QA8"/>
+        <segue reference="www-ET-ZxN"/>
     </inferredMetricsTieBreakers>
 </document>
