@@ -11,11 +11,9 @@ import UIKit
 class ResultableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var registrationButton: UIButton!
+
     
-    @IBAction func didPushRegistrationButton(_ sender: Any) {
-        print("どうしよう")
-        print(registrationButton.tag)
-    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

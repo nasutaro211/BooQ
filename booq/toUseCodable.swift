@@ -9,11 +9,11 @@ import Foundation
 
 struct ResponseData:Codable {
     let totalItems:Int
-    let items:[Item]
+    var items:[Item]
 }
 
 struct Item:Codable{
-    let volumeInfo:VolumeInfo
+    var volumeInfo:VolumeInfo
 }
 
 struct VolumeInfo:Codable {
@@ -22,6 +22,7 @@ struct VolumeInfo:Codable {
     let publishedDate:String?
     let industryIdentifiers:[IndustryIdentifier]?
     let imageLinks:[String:String]?
+    var isbn:String?
 }
 
 struct IndustryIdentifier:Codable {

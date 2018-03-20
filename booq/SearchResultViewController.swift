@@ -9,6 +9,14 @@
 import UIKit
 
 class SearchResultViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    @IBAction func didPushRegistrationButton(_ sender: Any) {
+        let button = sender as! UIButton
+        print(books[button.tag].title)
+    }
+    
+    
+    
     var books:[VolumeInfo] = []
     
     
@@ -18,7 +26,7 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell") as! ResultableViewCell
-        cell.titleLabel.text = books[indexPath.row].title
+        cell.titleLabel.text = books[indexPath.row].isbn
         cell.registrationButton.tag = indexPath.row
         return cell
     }

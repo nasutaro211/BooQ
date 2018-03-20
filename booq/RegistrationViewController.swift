@@ -27,7 +27,7 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.bringDataToBooksWith(searchBar.text!)
         
-
+        
     }
     
     func bringDataToBooksWith(_ q:String){
@@ -35,21 +35,45 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
             print("無効なURL")
             return
         }
-        let url = "https://www.googleapis.com/books/v1/volumes?q=" + encodedKeyword
-            Alamofire.request(url).response { response in
-                if let data = response.data, let responseData:ResponseData = try? JSONDecoder().decode(ResponseData.self, from: data){
-                    
-                    for item in responseData.items{
-                        self.books.append(item.volumeInfo)
+        let url = "https://www.googleapis.com/books/v1/volumes?q=" + encodedKeyword + "&printType=books&maxResultsGET https://www.googleapis.com/books/v1/volumes?q=flowers&projection=lite=30"
+        Alamofire.request(url).response { response in
+            if let data = response.data, let responseData:ResponseData = try? JSONDecoder().decode(ResponseData.self, from: data){
+                
+                for item in responseData.items{
+                    //
+                    if let identifiers = item.volumeInfo.industryIdentifiers{
+                        if self.checkContainISBN(identifers: identifiers){
+                            var itemCopy = item
+                            itemCopy.volumeInfo.isbn = self.returnISBN(identifers: identifiers)
+                            self.books.append(itemCopy.volumeInfo)
+                        }
+                    }else{
                     }
-                    if self.books.count != 0{
-                        print(self.books[0].title)
-                    }
-                    self.showBookInfoResult(self.books)
-                    
+                }
+                self.showBookInfoResult(self.books)
+            }
+        }
+    }
+    
+    func checkContainISBN(identifers: [IndustryIdentifier]?) -> Bool{
+        if identifers != nil{
+            for identifer in identifers!{
+                if identifer.type == "ISBN_13"{
+                    return true
                 }
             }
         }
+        return false
+    }
+    
+    func returnISBN(identifers: [IndustryIdentifier]?) -> String{
+        for identifer in identifers!{
+            if identifer.type == "ISBN_13"{
+                return identifer.identifier
+            }
+        }
+        return ""
+    }
     
     func showBookInfoResult(_ bookinfos : [VolumeInfo] ) {
         // メインスレッドで処理を実行する
