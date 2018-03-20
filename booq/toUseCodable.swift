@@ -17,11 +17,11 @@ struct Item:Codable{
 }
 
 struct VolumeInfo:Codable {
-    let title:String
-    let authors:[String]
-    let publishedDate:String
-    let industryIdentifiers:[IndustryIdentifier]
-    let imageLinks:[String:String]
+    let title:String?
+    let authors:[String]?
+    let publishedDate:String?
+    let industryIdentifiers:[IndustryIdentifier]?
+    let imageLinks:[String:String]?
 }
 
 struct IndustryIdentifier:Codable {
