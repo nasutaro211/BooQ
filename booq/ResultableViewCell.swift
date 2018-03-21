@@ -11,7 +11,7 @@ import UIKit
 class ResultableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var registrationButton: UIButton!
-
+    @IBOutlet var bookImageView: UIImageView!
     
     
     override func awakeFromNib() {

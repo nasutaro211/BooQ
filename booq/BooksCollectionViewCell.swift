@@ -10,5 +10,6 @@ import UIKit
 
 class BooksCollectionViewCell: UICollectionViewCell {
     @IBOutlet var isbnLabel: UILabel!
+    @IBOutlet var bookImageView: UIImageView!
     
 }
