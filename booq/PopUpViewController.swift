@@ -11,6 +11,7 @@ import UIKit
 class PopUpViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     var theBook:Book!
+    @IBOutlet var bookImageView: UIImageView!
     @IBAction func toQstnRgstView(_ sender: Any) {
         performSegue(withIdentifier: "toQstnRgstView", sender: theBook)
     }
@@ -23,7 +24,12 @@ class PopUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = theBook.ISBN
+        titleLabel.text = theBook.title
+        let url = URL(string: theBook.imageLink)
+        let data = try? Data(contentsOf: url!)
+        let image = UIImage(data: data!)
+        bookImageView.image = image
+        
 
         // Do any additional setup after loading the view.
     }

@@ -27,7 +27,7 @@ class Question: Object {
         return "questionID"
     }
     //カラムの設定
-    @objc dynamic var questionID = 0
+    @objc dynamic var questionID = ""
     @objc dynamic var questionStr = ""
     @objc dynamic var registeredDay = Date()
     @objc dynamic var nextEmergenceDay = Date()

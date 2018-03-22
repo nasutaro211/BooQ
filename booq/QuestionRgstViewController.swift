@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class QuestionRgstViewController: UIViewController {
     @IBOutlet var bookImageView: UIImageView!
@@ -14,6 +15,8 @@ class QuestionRgstViewController: UIViewController {
     @IBOutlet var questionTextField: UITextView!
     @IBOutlet var answerTextField: UITextView!
     var theBook: Book!
+    var question = ""
+    var answers:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,24 @@ class QuestionRgstViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func rgstQ(){
+        let realm = try! Realm()
+        do{
+            try realm.write {
+                let question = Question()
+                let book = realm.object(ofType: Book.self, forPrimaryKey: theBook.ISBN)
+                if questionTextField.text != nil{question.questionStr = questionTextField.text!}
+                
+                
+                book?.questions.append(question)
+                realm.add(question)
+            }
+        }catch let error{
+            print(error)
+        }
+        
     }
     
 

@@ -43,13 +43,12 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         booksCollectionView.dataSource = self
         let realm = try! Realm()
         books = realm.objects(Book.self)
-        let test = realm.object(ofType: Book.self, forPrimaryKey: "9784334719418")
-        print(test)
-////        初期化のための下三行
-//        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
-//            try! FileManager.default.removeItem(at: fileURL)
-//        }
+        //初期化のための下三行
+        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
+            try! FileManager.default.removeItem(at: fileURL)
+        }
 
+        
         
         
         super.viewDidLoad()
