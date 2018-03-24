@@ -40,6 +40,8 @@ class QuestionRgstViewController: UIViewController {
             //どちらも埋まっている時
             answers.append(answerTextField.text)
             rgstQ()
+            answerTextField.text = ""
+            questionTextField.text = ""
         }else{
             //どちらかが空白の時
         }
