@@ -229,6 +229,9 @@
                                         <rect key="frame" x="126" y="539" width="123" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="問題を続けて登録"/>
+                                        <connections>
+                                            <action selector="didPushRgstAndCntnue:" destination="Zs8-EJ-CBf" eventType="touchUpInside" id="rfI-7n-owz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fI6-Ct-baa">
                                         <rect key="frame" x="141" y="577" width="92" height="30"/>

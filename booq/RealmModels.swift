@@ -30,13 +30,12 @@ class Question: Object {
     @objc dynamic var questionID = ""
     @objc dynamic var questionStr = ""
     @objc dynamic var registeredDay = Date()
-    @objc dynamic var nextEmergenceDay = Date()
+    @objc dynamic var nextEmergenceDay = "yyyyMMdd"
     @objc dynamic var consecutiveCorrectTimes = 0
-    //この問題が登録された本
-    let book = LinkingObjects(fromType: Book.self, property: "questions").first
     //答えs
     let answers = List<Answer>()
-    
+    //この問題が登録された本
+    let book = LinkingObjects(fromType: Book.self, property: "questions").first
 }
 
 class Answer: Object {
@@ -45,7 +44,7 @@ class Answer: Object {
         return "answerID"
     }
     //カラムの設定
-    @objc dynamic var answerID = 0
+    @objc dynamic var answerID = ""
     @objc dynamic var answerStr = ""
     //この答えが登録された問い
     let question = LinkingObjects(fromType: Question.self, property: "answers").first
