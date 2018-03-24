@@ -7,12 +7,39 @@
 //
 
 import UIKit
+import RealmSwift
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    @IBOutlet var tableView: UITableView!
+    var questions: Results<Question>!
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return questions.count
+    }
+
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
+        cell.questionLabel.text = questions[indexPath.row].questionStr
+        print(questions[indexPath.row])
+        let url = URL(string: questions[indexPath.row].books.first!.imageLink)
+        let data = try? Data(contentsOf: url!)
+        let image = UIImage(data: data!)
+        cell.bookImageView.image = image
+        return cell
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let realm = try! Realm()
+        questions = realm.objects(Question.self)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {

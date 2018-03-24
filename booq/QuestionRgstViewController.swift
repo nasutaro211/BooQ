@@ -36,16 +36,12 @@ class QuestionRgstViewController: UIViewController {
     }
     
     @IBAction func didPushRgstAndCntnue(_ sender: Any) {
-        if questionTextField.text != "" && answerTextField.text != "" {
-            //どちらも埋まっている時
-            answers.append(answerTextField.text)
-            rgstQ()
-            answerTextField.text = ""
-            questionTextField.text = ""
-        }else{
-            //どちらかが空白の時
-        }
-        
+        pushRgst()
+    }
+    
+    @IBAction func didPushRgstAndEnd(_ sender: Any) {
+        pushRgst()
+        performSegue(withIdentifier: "RgstEnd", sender: nil)
     }
     
     
@@ -57,9 +53,11 @@ class QuestionRgstViewController: UIViewController {
             try realm.write {
                 let book = realm.object(ofType: Book.self, forPrimaryKey: theBook.ISBN)
                 let question = Question()
+                var i = 0
                 for answer in answers{
                     let answerObject = Answer()
-                    answerObject.answerID = returnTimestamp()
+                    answerObject.answerID = returnTimestamp() + String(i)
+                    i = i + 1
                     answerObject.answerStr = answer
                     realm.add(answerObject)
                     question.answers.append(answerObject)
@@ -90,6 +88,18 @@ class QuestionRgstViewController: UIViewController {
         formatter.dateFormat = "yyyyMMdd"
         let str = formatter.string(from: date)
         return str
+    }
+    
+    func pushRgst(){
+        if questionTextField.text != "" && answerTextField.text != "" {
+            //どちらも埋まっている時
+            answers.append(answerTextField.text)
+            rgstQ()
+            answerTextField.text = ""
+            questionTextField.text = ""
+        }else{
+            //どちらかが空白の時
+        }
     }
     
 

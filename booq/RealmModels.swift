@@ -35,7 +35,7 @@ class Question: Object {
     //答えs
     let answers = List<Answer>()
     //この問題が登録された本
-    let book = LinkingObjects(fromType: Book.self, property: "questions").first
+    let books = LinkingObjects(fromType: Book.self, property: "questions")
 }
 
 class Answer: Object {
