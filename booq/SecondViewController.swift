@@ -23,11 +23,11 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
         cell.questionLabel.text = questions[indexPath.row].questionStr
-        print(questions[indexPath.row])
         let url = URL(string: questions[indexPath.row].books.first!.imageLink)
         let data = try? Data(contentsOf: url!)
         let image = UIImage(data: data!)
         cell.bookImageView.image = image
+        cell.showAnswerButton.tag = indexPath.row
         return cell
     }
     

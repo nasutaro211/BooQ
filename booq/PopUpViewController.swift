@@ -15,9 +15,19 @@ class PopUpViewController: UIViewController {
     @IBAction func toQstnRgstView(_ sender: Any) {
         performSegue(withIdentifier: "toQstnRgstView", sender: theBook)
     }
+    @IBAction func toBookQuestionView(_ sender: Any) {
+        performSegue(withIdentifier: "toBookQuestionView", sender: theBook)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //問題を登録
         if segue.identifier == "toQstnRgstView"{
             let destination = segue.destination as! QuestionRgstViewController
+            destination.theBook = sender as! Book
+        }
+        //問題一覧
+        if segue.identifier == "toBookQuestionView"{
+            let destination = segue.destination as! BookQestionViewController
             destination.theBook = sender as! Book
         }
     }
