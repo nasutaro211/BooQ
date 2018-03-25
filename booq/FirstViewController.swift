@@ -10,10 +10,12 @@ import UIKit
 import RealmSwift
 import Alamofire
 
-class FirstViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
+class FirstViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     @IBOutlet var booksCollectionView: UICollectionView!
     @IBOutlet var nothingBooksAlertLabel: UILabel!
     var books: Results<Book>!
+    var margin = CGFloat(10)//viewDidLoadで端末のviewサイズに合わせて動的に変える
+    var contentSize = CGFloat(50)//viewDidLoadで端末のviewサイズに合わせて動的に変える,too.
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (books.count != 0){
@@ -24,13 +26,29 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! BooksCollectionViewCell
-        cell.isbnLabel.text = books[indexPath.row].ISBN
         let url = URL(string: books[indexPath.row].imageLink)
         let data = try? Data(contentsOf: url!)
         let image = UIImage(data: data!)
         cell.bookImageView.image = image
         return cell
     }
+    
+    //コンテンツサイズ
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: contentSize*2, height: contentSize*3)
+    }
+    //枠との差
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+    }
+    //二列になった時の縦との距離
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return margin
+    }
+    //横のitem同士の距離
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return margin
+    }  
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "modal", sender: books[indexPath.row])
@@ -49,14 +67,21 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         print(Realm.Configuration.defaultConfiguration.fileURL)
         let realm = try! Realm()
         books = realm.objects(Book.self)
-        test()
-
+        
+        //collectionCIewLayoutをいじる
+        let width = UIScreen.main.bounds.size.width
+        let higth = UIScreen.main.bounds.size.width
+        
+        margin = width/18
+        contentSize = (width-3*margin)/6
         
         
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "modal"{

@@ -49,13 +49,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G82-1t-zIn">
-                                                    <rect key="frame" x="0.0" y="64" width="123" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0qB-Zf-fzV">
                                                     <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -64,7 +57,6 @@
                                         </view>
                                         <connections>
                                             <outlet property="bookImageView" destination="0qB-Zf-fzV" id="oqW-QN-z6g"/>
-                                            <outlet property="isbnLabel" destination="G82-1t-zIn" id="bmT-16-dIq"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
