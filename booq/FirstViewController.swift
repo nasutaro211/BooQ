@@ -43,11 +43,11 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
     }
     //二列になった時の縦との距離
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return margin
+        return margin/2
     }
     //横のitem同士の距離
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return margin
+        return margin/2
     }  
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -70,10 +70,11 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         
         //collectionCIewLayoutをいじる
         let width = UIScreen.main.bounds.size.width
-        let higth = UIScreen.main.bounds.size.width
+        let higth = UIScreen.main.bounds.size.height
         
         margin = width/18
         contentSize = (width-3*margin)/6
+        
         
         
         
