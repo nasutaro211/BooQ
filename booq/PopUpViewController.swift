@@ -37,7 +37,12 @@ class PopUpViewController: UIViewController {
         titleLabel.text = theBook.title
         let url = URL(string: theBook.imageLink)
         let data = try? Data(contentsOf: url!)
-        let image = UIImage(data: data!)
+        var image = UIImage()
+        if data != nil{
+            image = UIImage(data:data!)!
+        }else{
+            //端末に保存されている画像を表示&Labelでタイトルを表示
+        }
         bookImageView.image = image
         
 

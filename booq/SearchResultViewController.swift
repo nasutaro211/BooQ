@@ -44,19 +44,17 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell") as! ResultableViewCell
         cell.titleLabel.text = books[indexPath.row].title
         cell.registrationButton.tag = indexPath.row
-        let bookImageView = UIImageView()
         if let imageLinks = books[indexPath.row].imageLinks, let imageLink = imageLinks["thumbnail"]{
             let url = URL(string: imageLink)
             let data = try? Data(contentsOf: url!)
             let img = UIImage(data:data!);
-            bookImageView.image = img
+            cell.bookImageView.image = img
         }else{
             let url = URL(string: "http://illustrain.com/img/work/2016/illustrain10-hon01.png")
             let data = try? Data(contentsOf: url!)
             let img = UIImage(data:data!);
-            bookImageView.image = img
+            cell.bookImageView.image = img
         }
-        cell.bookImageView = bookImageView
         return cell
     }
     
@@ -65,6 +63,8 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
     override func viewDidLoad() {
         resultTableView.delegate = self
         resultTableView.dataSource = self
+        resultTableView.rowHeight = UITableViewAutomaticDimension
+        resultTableView.estimatedRowHeight = 20
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

@@ -11,6 +11,9 @@ import RealmSwift
 import Alamofire
 
 class FirstViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
+    @IBOutlet var rgstButton: RoundedButtonm!
+    
     @IBOutlet var booksCollectionView: UICollectionView!
     @IBOutlet var nothingBooksAlertLabel: UILabel!
     var books: Results<Book>!
@@ -28,7 +31,12 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! BooksCollectionViewCell
         let url = URL(string: books[indexPath.row].imageLink)
         let data = try? Data(contentsOf: url!)
-        let image = UIImage(data: data!)
+        var image = UIImage()
+        if data != nil{
+            image = UIImage(data:data!)!
+        }else{
+            //端末に保存されている画像を表示&Labelでタイトルを表示
+        }
         cell.bookImageView.image = image
         return cell
     }
@@ -43,11 +51,11 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
     }
     //二列になった時の縦との距離
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return margin/2
+        return margin
     }
     //横のitem同士の距離
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return margin/2
+        return margin
     }  
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -73,7 +81,16 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         let higth = UIScreen.main.bounds.size.height
         
         margin = width/18
-        contentSize = (width-3*margin)/6
+        contentSize = (width-4*margin)/6
+        
+        //ボタンの影をつける
+        rgstButton.layer.masksToBounds = false
+        
+        rgstButton.layer.shadowColor = UIColor.black.cgColor
+        rgstButton.layer.shadowOpacity = 0.5 // 透明度
+        rgstButton.layer.shadowOffset = CGSize(width: 5, height: 5) // 距離
+        rgstButton.layer.shadowRadius = 5 // ぼかし量
+
         
         
         
