@@ -85,10 +85,9 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         
         //ボタンの影をつける
         rgstButton.layer.masksToBounds = false
-        
         rgstButton.layer.shadowColor = UIColor.black.cgColor
         rgstButton.layer.shadowOpacity = 0.5 // 透明度
-        rgstButton.layer.shadowOffset = CGSize(width: 5, height: 5) // 距離
+        rgstButton.layer.shadowOffset = CGSize(width: 0, height: 5) // 距離
         rgstButton.layer.shadowRadius = 5 // ぼかし量
 
         

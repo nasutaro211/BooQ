@@ -31,7 +31,8 @@ class PopUpViewController: UIViewController {
             destination.theBook = sender as! Book
         }
     }
-    
+    @IBOutlet var seeButton: RoundedButtonm!
+    @IBOutlet var rgstButton: RoundedButtonm!
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = theBook.title
@@ -44,6 +45,23 @@ class PopUpViewController: UIViewController {
             //端末に保存されている画像を表示&Labelでタイトルを表示
         }
         bookImageView.image = image
+//        let width = UIScreen.main.bounds.size.width
+//        var margin = width/18
+//        var contentSize = (width-4*margin)/6
+//        bookImageView.frame = CGRect(x: margin*2, y: margin*3, width: contentSize*2, height: contentSize*3)
+        
+        //ボタンの影をつける
+        rgstButton.layer.masksToBounds = false
+        rgstButton.layer.shadowColor = UIColor.black.cgColor
+        rgstButton.layer.shadowOpacity = 0.5 // 透明度
+        rgstButton.layer.shadowOffset = CGSize(width: 0, height: 5) // 距離
+        rgstButton.layer.shadowRadius = 5 // ぼかし量
+        //ボタンの影をつける
+        seeButton.layer.masksToBounds = false
+        seeButton.layer.shadowColor = UIColor.black.cgColor
+        seeButton.layer.shadowOpacity = 0.5 // 透明度
+        seeButton.layer.shadowOffset = CGSize(width: 0, height: 7) // 距離
+        seeButton.layer.shadowRadius = 5 // ぼかし量
         
 
         // Do any additional setup after loading the view.

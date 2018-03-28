@@ -11,9 +11,9 @@ import RealmSwift
 
 class QuestionRgstViewController: UIViewController {
     @IBOutlet var bookImageView: UIImageView!
-    @IBOutlet var bookTitleLabel: UILabel!
     @IBOutlet var questionTextField: UITextView!
     @IBOutlet var answerTextField: UITextView!
+    @IBOutlet var bookTitleLabel: UILabel!
     var theBook: Book!
     var question = ""
     var answers:[String] = []
@@ -23,7 +23,12 @@ class QuestionRgstViewController: UIViewController {
         
         let url = URL(string: theBook.imageLink)
         let data = try? Data(contentsOf: url!)
-        let image = UIImage(data: data!)
+        var image = UIImage()
+        if data != nil{
+            image = UIImage(data:data!)!
+        }else{
+            //端末に保存されている画像を表示&Labelでタイトルを表示
+        }
         bookImageView.image  = image
         bookTitleLabel.text = theBook.title
 

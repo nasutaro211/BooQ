@@ -32,6 +32,10 @@ class RoundedButtonm: UIButton {
         }
     }
     
+//    var cornerRadius = 5{
+//        didset
+//    }
+    
     
 //    layer.cornerRadius = 10
 //    layer.masksToBounds = false

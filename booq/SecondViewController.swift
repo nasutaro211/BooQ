@@ -40,6 +40,8 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         questions = realm.objects(Question.self)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 20
     }
 
     override func didReceiveMemoryWarning() {
