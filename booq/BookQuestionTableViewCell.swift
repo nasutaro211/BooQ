@@ -9,9 +9,15 @@
 import UIKit
 
 class BookQuestionTableViewCell: UITableViewCell {
+    
+    @IBOutlet var questionLabel: UILabel!
     @IBOutlet var bookImageView: UIImageView!
     @IBOutlet var showAnswerButton: UIButton!
-    @IBOutlet var questionLabel: UILabel!
+    
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

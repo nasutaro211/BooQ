@@ -24,11 +24,10 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookQuestionCell", for: indexPath) as! BookQuestionTableViewCell
         cell.questionLabel.text = questions[indexPath.row].questionStr
-        print(questions[indexPath.row])
         let url = URL(string: questions[indexPath.row].books.first!.imageLink)
         let data = try? Data(contentsOf: url!)
         let image = UIImage(data: data!)
-        cell.imageView?.image = image
+        cell.bookImageView.image = image
         cell.showAnswerButton.tag = indexPath.row
         return cell
     }
@@ -39,9 +38,12 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let realm = try! Realm()
         questions = theBook.questions
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 20
     }
     
 
