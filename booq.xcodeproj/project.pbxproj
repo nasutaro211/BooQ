@@ -23,6 +23,7 @@
 		595BA32B206623140024E71B /* BookQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BA32A206623140024E71B /* BookQuestionTableViewCell.swift */; };
 		595BA32D2066239E0024E71B /* BookQestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BA32C2066239E0024E71B /* BookQestionViewController.swift */; };
 		595BA32F2068F65C0024E71B /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BA32E2068F65C0024E71B /* RoundedButton.swift */; };
+		59D330A1206C8A5D0027A56C /* RgstPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D330A0206C8A5C0027A56C /* RgstPopUpViewController.swift */; };
 		59F45F3B2060AC65003F4C0F /* toUseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F45F3A2060AC64003F4C0F /* toUseCodable.swift */; };
 		59F45F3D2060FCC7003F4C0F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F45F3C2060FCC7003F4C0F /* SearchResultViewController.swift */; };
 		59F45F3F2060FE22003F4C0F /* ResultableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F45F3E2060FE22003F4C0F /* ResultableViewCell.swift */; };
@@ -75,6 +76,7 @@
 		595BA32A206623140024E71B /* BookQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		595BA32C2066239E0024E71B /* BookQestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQestionViewController.swift; sourceTree = "<group>"; };
 		595BA32E2068F65C0024E71B /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		59D330A0206C8A5C0027A56C /* RgstPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RgstPopUpViewController.swift; path = /Users/nasutaro211/Desktop/Booq/booq/booq/RgstPopUpViewController.swift; sourceTree = "<absolute>"; };
 		59F45F3A2060AC64003F4C0F /* toUseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = toUseCodable.swift; path = /Users/nasutaro211/Desktop/Booq/booq/booq/toUseCodable.swift; sourceTree = "<absolute>"; };
 		59F45F3C2060FCC7003F4C0F /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		59F45F3E2060FE22003F4C0F /* ResultableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		5906C0E1205A74FC009EAB05 /* booq */ = {
 			isa = PBXGroup;
 			children = (
+				59D330A0206C8A5C0027A56C /* RgstPopUpViewController.swift */,
 				59F45F3A2060AC64003F4C0F /* toUseCodable.swift */,
 				592E3549205E65AD004F567D /* RealmModels.swift */,
 				5906C0E2205A74FC009EAB05 /* AppDelegate.swift */,
@@ -512,6 +515,7 @@
 				59F45F41206222C6003F4C0F /* PopUpViewController.swift in Sources */,
 				5906C0E3205A74FC009EAB05 /* AppDelegate.swift in Sources */,
 				59F45F4320622AA5003F4C0F /* QuestionRgstViewController.swift in Sources */,
+				59D330A1206C8A5D0027A56C /* RgstPopUpViewController.swift in Sources */,
 				592E354C205F5443004F567D /* BooksCollectionViewCell.swift in Sources */,
 				593DA8C22066129000AFF879 /* QuestionTableViewCell.swift in Sources */,
 				59F45F3D2060FCC7003F4C0F /* SearchResultViewController.swift in Sources */,

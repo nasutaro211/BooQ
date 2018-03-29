@@ -11,6 +11,10 @@ import RealmSwift
 
 class SearchResultViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    var books:[VolumeInfo] = []
+    
+    
+    
     @IBAction func didPushRegistrationButton(_ sender: Any) {
         let button = sender as! UIButton
         let realm = try! Realm()
@@ -31,9 +35,21 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
         performSegue(withIdentifier: "returnTabBar", sender: nil)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showRgstPopUpView", sender: books[indexPath.row])
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showRgstPopUpView"?:
+            let destination = segue.destination as! RgstPopUpViewController
+            destination.theBook = sender as! VolumeInfo
+            break
+        default:
+            break
+        }
+    }
     
-    var books:[VolumeInfo] = []
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
