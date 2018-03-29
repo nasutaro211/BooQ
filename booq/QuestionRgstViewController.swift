@@ -17,6 +17,7 @@ class QuestionRgstViewController: UIViewController {
     var theBook: Book!
     var question = ""
     var answers:[String] = []
+    var from = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,24 @@ class QuestionRgstViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func pushedPeke(_ sender: Any) {
+        back()
+    }
+    
+    func back(){
+        switch from {
+        case "PopUpView":
+            performSegue(withIdentifier: "RgstEnd", sender: nil)
+            break
+        case "BookQuestionView":
+            performSegue(withIdentifier: "seeQuestion", sender: theBook)
+            break
+        default:
+            break
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,7 +64,7 @@ class QuestionRgstViewController: UIViewController {
     
     @IBAction func didPushRgstAndEnd(_ sender: Any) {
         pushRgst()
-        performSegue(withIdentifier: "RgstEnd", sender: nil)
+        back()
     }
     
     
@@ -104,6 +122,17 @@ class QuestionRgstViewController: UIViewController {
             questionTextField.text = ""
         }else{
             //どちらかが空白の時
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "seeQuestion"?:
+            let destination = segue.destination as! BookQestionViewController
+            destination.theBook = sender as! Book
+            break
+        default:
+            break
         }
     }
     

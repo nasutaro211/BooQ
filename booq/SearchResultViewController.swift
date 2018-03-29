@@ -44,6 +44,11 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell") as! ResultableViewCell
         cell.titleLabel.text = books[indexPath.row].title
         cell.registrationButton.tag = indexPath.row
+        if books[indexPath.row].authors != nil{
+            cell.authorLabel.text = books[indexPath.row].authors![0]
+        }else{
+            cell.authorLabel.text = ""
+        }
         if let imageLinks = books[indexPath.row].imageLinks, let imageLink = imageLinks["thumbnail"]{
             let url = URL(string: imageLink)
             let data = try? Data(contentsOf: url!)

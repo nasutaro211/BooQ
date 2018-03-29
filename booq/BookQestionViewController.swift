@@ -14,6 +14,21 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
     var questions: List<Question>!
     var theBook: Book!
 
+    @IBAction func toQuestionRgstVIew(_ sender: Any) {
+        performSegue(withIdentifier: "AddQuestion", sender: theBook)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "AddQuestion"?:
+            let questionRgstView = segue.destination as! QuestionRgstViewController
+            questionRgstView.theBook = sender as! Book
+            questionRgstView.from = "BookQuestionView"
+            break
+        default:
+            break
+        }
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,7 +53,6 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let realm = try! Realm()
         questions = theBook.questions
         tableView.delegate = self
         tableView.dataSource = self

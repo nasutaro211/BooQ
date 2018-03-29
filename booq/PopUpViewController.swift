@@ -24,6 +24,7 @@ class PopUpViewController: UIViewController {
         if segue.identifier == "toQstnRgstView"{
             let destination = segue.destination as! QuestionRgstViewController
             destination.theBook = sender as! Book
+            destination.from = "PopUpView"
         }
         //問題一覧
         if segue.identifier == "toBookQuestionView"{

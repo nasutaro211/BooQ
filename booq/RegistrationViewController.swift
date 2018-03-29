@@ -26,8 +26,6 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.bringDataToBooksWith(searchBar.text!)
-        
-        
     }
     
     func bringDataToBooksWith(_ q:String){
