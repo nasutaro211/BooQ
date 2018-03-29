@@ -406,6 +406,7 @@
                         <viewLayoutGuide key="safeArea" id="GdK-Wl-AHZ"/>
                     </view>
                     <connections>
+                        <outlet property="alertLabel" destination="WZV-2S-BY3" id="O0I-l0-qhd"/>
                         <outlet property="tableView" destination="CCU-Q3-wAc" id="kjT-e7-AuT"/>
                         <segue destination="Zs8-EJ-CBf" kind="show" identifier="AddQuestion" id="tax-2p-wjV"/>
                     </connections>
@@ -1081,6 +1082,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="alertLave" destination="Bwx-Lc-2pS" id="G4a-82-9yV"/>
                         <outlet property="tableView" destination="DcE-Z8-PMO" id="lki-W2-In9"/>
                     </connections>
                 </viewController>
@@ -1113,7 +1115,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J2z-bn-C9x"/>
+        <segue reference="gEl-Px-OKV"/>
         <segue reference="tax-2p-wjV"/>
         <segue reference="bOC-jA-7oN"/>
     </inferredMetricsTieBreakers>

@@ -14,6 +14,8 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
     var questions: List<Question>!
     var theBook: Book!
 
+    @IBOutlet var alertLabel: UILabel!
+    
     @IBAction func toQuestionRgstVIew(_ sender: Any) {
         performSegue(withIdentifier: "AddQuestion", sender: theBook)
     }
@@ -32,6 +34,7 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if questions.count != 0 {alertLabel.isHidden = true}
         return questions.count
     }
     

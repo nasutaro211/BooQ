@@ -11,11 +11,13 @@ import RealmSwift
 
 class SecondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBOutlet var alertLave: UILabel!
     @IBOutlet var tableView: UITableView!
     var questions: Results<Question>!
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if questions.count != 0{alertLave.isHidden == true}
         return questions.count
     }
 
