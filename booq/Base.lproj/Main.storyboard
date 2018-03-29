@@ -54,6 +54,32 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0qB-Zf-fzV">
                                                     <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQg-NV-CNj" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
+                                                    <rect key="frame" x="83" y="0.0" width="40" height="40"/>
+                                                    <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="HWV-WE-BOa"/>
+                                                        <constraint firstAttribute="width" secondItem="TQg-NV-CNj" secondAttribute="height" multiplier="1:1" id="vdv-lS-tcA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="40"/>
+                                                    <state key="normal" title="×">
+                                                        <color key="titleColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds " value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number">
+                                                            <string key="keyPath">layer.cornerRadius 
+</string>
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="deleteButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="ISe-Xe-VhQ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -61,9 +87,12 @@
                                             <constraint firstAttribute="bottom" secondItem="0qB-Zf-fzV" secondAttribute="bottom" id="NdW-cI-J2t"/>
                                             <constraint firstAttribute="trailing" secondItem="0qB-Zf-fzV" secondAttribute="trailing" id="QuT-g6-2xk"/>
                                             <constraint firstItem="0qB-Zf-fzV" firstAttribute="top" secondItem="gxX-bt-dkG" secondAttribute="top" id="TXX-nZ-lt3"/>
+                                            <constraint firstItem="TQg-NV-CNj" firstAttribute="top" secondItem="0qB-Zf-fzV" secondAttribute="top" id="fnH-w2-mcF"/>
+                                            <constraint firstItem="TQg-NV-CNj" firstAttribute="trailing" secondItem="0qB-Zf-fzV" secondAttribute="trailing" id="pzk-3b-ZC3"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="bookImageView" destination="0qB-Zf-fzV" id="oqW-QN-z6g"/>
+                                            <outlet property="pekeButton" destination="TQg-NV-CNj" id="GJF-A6-RaG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -113,7 +142,14 @@
                                     <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="本棚" id="YyY-2D-iPz"/>
+                                    <navigationItem title="本棚" id="YyY-2D-iPz">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="2At-YH-NDp">
+                                            <color key="tintColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <connections>
+                                                <action selector="editButton:" destination="9pv-A4-QxB" id="gZg-QU-WQv"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -261,6 +297,7 @@
                         <outlet property="bookImageView" destination="Xpy-Yd-98y" id="Vul-IH-YNc"/>
                         <outlet property="rgstButton" destination="pha-wK-7nP" id="OKr-hV-eZb"/>
                         <outlet property="seeButton" destination="0wx-S8-6ad" id="mkc-nS-aMI"/>
+                        <outlet property="titileLabel" destination="c8x-vQ-vGg" id="hVd-Yq-umA"/>
                         <outlet property="titleLabel" destination="c8x-vQ-vGg" id="z5y-RV-amD"/>
                         <segue destination="Zs8-EJ-CBf" kind="show" identifier="toQstnRgstView" id="JUo-dO-6QH"/>
                         <segue destination="h6F-p8-wgw" kind="show" identifier="toBookQuestionView" id="O7s-wY-4ZT"/>
@@ -946,7 +983,6 @@
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1086,8 +1122,9 @@
                         <outlet property="tableView" destination="DcE-Z8-PMO" id="lki-W2-In9"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="-1867.0164917541231"/>
+            <point key="canvasLocation" x="2655" y="278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1115,8 +1152,8 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gEl-Px-OKV"/>
+        <segue reference="dxX-MH-poP"/>
         <segue reference="tax-2p-wjV"/>
-        <segue reference="bOC-jA-7oN"/>
+        <segue reference="O7s-wY-4ZT"/>
     </inferredMetricsTieBreakers>
 </document>

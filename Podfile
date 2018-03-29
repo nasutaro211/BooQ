@@ -8,6 +8,7 @@ target 'booq' do
   # Pods for booq
   pod 'RealmSwift'
   pod 'Alamofire'
+  pod 'SDWebImage'
 
   target 'booqTests' do
     inherit! :search_paths

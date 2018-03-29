@@ -10,4 +10,5 @@ import UIKit
 
 class BooksCollectionViewCell: UICollectionViewCell {
     @IBOutlet var bookImageView: UIImageView!    
+    @IBOutlet var pekeButton: UIButton!
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SDWebImage
 
 class SearchResultViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -22,7 +23,9 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
         try realm.write {
             let book = Book()
             book.ISBN = books[button.tag].isbn!
-            if books[button.tag].title != nil{book.title = books[button.tag].title!}
+            if books[button.tag].title != nil {
+                book.title = books[button.tag].title!
+            }
             if let imageLinks = books[button.tag].imageLinks, let imageLink = imageLinks["thumbnail"]{
                 book.imageLink = imageLink
             }
@@ -66,15 +69,9 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
             cell.authorLabel.text = ""
         }
         if let imageLinks = books[indexPath.row].imageLinks, let imageLink = imageLinks["thumbnail"]{
-            let url = URL(string: imageLink)
-            let data = try? Data(contentsOf: url!)
-            let img = UIImage(data:data!);
-            cell.bookImageView.image = img
+            cell.bookImageView.sd_setImage(with: URL(string:imageLink), completed: nil)
         }else{
-            let url = URL(string: "http://illustrain.com/img/work/2016/illustrain10-hon01.png")
-            let data = try? Data(contentsOf: url!)
-            let img = UIImage(data:data!);
-            cell.bookImageView.image = img
+            cell.bookImageView.sd_setImage(with: URL(string: "http://illustrain.com/img/work/2016/illustrain10-hon01.png"), completed: nil)
         }
         return cell
     }

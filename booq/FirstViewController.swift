@@ -9,14 +9,18 @@
 import UIKit
 import RealmSwift
 import Alamofire
+import SDWebImage
 
-class FirstViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+
+var imageDictionary:Dictionary<String,UIImageView> = Dictionary<String,UIImageView>()
+
+class FirstViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITabBarControllerDelegate,UITabBarDelegate {
     
     @IBOutlet var rgstButton: RoundedButtonm!
-    
     @IBOutlet var booksCollectionView: UICollectionView!
     @IBOutlet var nothingBooksAlertLabel: UILabel!
     var books: Results<Book>!
+    var canEditCollectionView = false
     var margin = CGFloat(10)//viewDidLoadで端末のviewサイズに合わせて動的に変える
     var contentSize = CGFloat(50)//viewDidLoadで端末のviewサイズに合わせて動的に変える,too.
 
@@ -27,18 +31,46 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         return books.count
     }
     
+    @IBAction func deleteButton(_ sender: Any) {
+        let button = sender as! UIButton
+        let realm = try! Realm()
+        var deletedBook = realm.object(ofType: Book.self, forPrimaryKey: books[button.tag].ISBN)
+        var deletedQuestions = deletedBook?.questions
+        var deletedAnswers:[List<Answer>] = []
+        for question in deletedQuestions!{
+            deletedAnswers.append(question.answers)
+        }
+        try! realm.write {
+            for a in deletedAnswers{
+                realm.delete(a)
+            }
+            realm.delete(deletedBook!.questions)
+            realm.delete(deletedBook!)
+     }
+        booksCollectionView.reloadData()
+        
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! BooksCollectionViewCell
-        let url = URL(string: books[indexPath.row].imageLink)
-        let data = try? Data(contentsOf: url!)
-        var image = UIImage()
-        if data != nil{
-            image = UIImage(data:data!)!
+        cell.bookImageView.sd_setImage(with: URL(string: books[indexPath.row].imageLink), completed: nil)
+        cell.pekeButton.tag = indexPath.row
+        if canEditCollectionView {
+            cell.pekeButton.isHidden = false
         }else{
-            //端末に保存されている画像を表示&Labelでタイトルを表示
+            cell.pekeButton.isHidden = true
         }
-        cell.bookImageView.image = image
         return cell
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if let destination = viewController as? SecondViewController {
+            destination.tableView.reloadData()
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     //コンテンツサイズ
@@ -62,6 +94,10 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         performSegue(withIdentifier: "modal", sender: books[indexPath.row])
     }
     
+    @IBAction func editButton(_ sender: Any) {
+        canEditCollectionView = !canEditCollectionView
+        booksCollectionView.reloadData()
+    }
     
 
     override func viewDidLoad() {
@@ -76,6 +112,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         let realm = try! Realm()
         books = realm.objects(Book.self)
         
+        
         //collectionCIewLayoutをいじる
         let width = UIScreen.main.bounds.size.width
         let higth = UIScreen.main.bounds.size.height
@@ -89,10 +126,26 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         rgstButton.layer.shadowOpacity = 0.5 // 透明度
         rgstButton.layer.shadowOffset = CGSize(width: 0, height: 5) // 距離
         rgstButton.layer.shadowRadius = 5 // ぼかし量
-
         
         
-        
+        //imageをDictionaryに保存
+        if imageDictionary.count <= books.count{
+            if imageDictionary.count == 0{
+                //一番最初
+            for book in books{
+                let url = URL(string: book.imageLink)
+                var imageView = UIImageView()
+                imageView.sd_setImage(with: url, completed: nil)
+                imageDictionary[book.ISBN] = imageView
+            }
+            }else{
+                //登録後
+                let url = URL(string: books.last!.imageLink)
+                var imageView = UIImageView()
+                imageView.sd_setImage(with: url, completed: nil)
+                imageDictionary[books.last!.ISBN] = imageView
+            }
+        }
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

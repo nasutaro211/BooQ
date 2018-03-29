@@ -18,6 +18,7 @@ class PopUpViewController: UIViewController {
     @IBAction func toBookQuestionView(_ sender: Any) {
         performSegue(withIdentifier: "toBookQuestionView", sender: theBook)
     }
+    @IBOutlet var titileLabel: UILabel!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //問題を登録
@@ -36,20 +37,8 @@ class PopUpViewController: UIViewController {
     @IBOutlet var rgstButton: RoundedButtonm!
     override func viewDidLoad() {
         super.viewDidLoad()
+        bookImageView.sd_setImage(with:URL(string: theBook.imageLink), completed: nil)
         titleLabel.text = theBook.title
-        let url = URL(string: theBook.imageLink)
-        let data = try? Data(contentsOf: url!)
-        var image = UIImage()
-        if data != nil{
-            image = UIImage(data:data!)!
-        }else{
-            //端末に保存されている画像を表示&Labelでタイトルを表示
-        }
-        bookImageView.image = image
-//        let width = UIScreen.main.bounds.size.width
-//        var margin = width/18
-//        var contentSize = (width-4*margin)/6
-//        bookImageView.frame = CGRect(x: margin*2, y: margin*3, width: contentSize*2, height: contentSize*3)
         
         //ボタンの影をつける
         rgstButton.layer.masksToBounds = false

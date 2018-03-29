@@ -73,6 +73,7 @@
 		592E354B205F5443004F567D /* BooksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionViewCell.swift; sourceTree = "<group>"; };
 		592E354F205F648D004F567D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		593DA8C12066129000AFF879 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		594A296D206CE938002F83A1 /* ProjectName-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ProjectName-Bridging-Header.h"; path = "/Users/nasutaro211/Desktop/Booq/booq/booq/ProjectName-Bridging-Header.h"; sourceTree = "<absolute>"; };
 		595BA32A206623140024E71B /* BookQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		595BA32C2066239E0024E71B /* BookQestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQestionViewController.swift; sourceTree = "<group>"; };
 		595BA32E2068F65C0024E71B /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -142,6 +143,7 @@
 		5906C0E1205A74FC009EAB05 /* booq */ = {
 			isa = PBXGroup;
 			children = (
+				594A296D206CE938002F83A1 /* ProjectName-Bridging-Header.h */,
 				59D330A0206C8A5C0027A56C /* RgstPopUpViewController.swift */,
 				59F45F3A2060AC64003F4C0F /* toUseCodable.swift */,
 				592E3549205E65AD004F567D /* RealmModels.swift */,
@@ -371,12 +373,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

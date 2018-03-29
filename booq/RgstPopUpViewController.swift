@@ -29,6 +29,9 @@ class RgstPopUpViewController: UIViewController {
         if(theBook.title != nil){titleLabel.text = theBook.title}
         if(theBook.authors != nil){authorLabel.text = theBook.authors![0]}else{authorLabel.text = ""}
         if(theBook.publishedDate != nil){publishedDate.text = theBook.publishedDate}
+        var url:URL = URL(string: "http://illustrain.com/img/work/2016/illustrain10-hon01.png")!
+        if(theBook.imageLinks != nil && theBook.imageLinks!["thumbnail"] != nil){url = URL(string: theBook.imageLinks!["thumbnail"]!)!}
+        bookImageView.sd_setImage(with: url, completed: nil)
     }
     
     override func didReceiveMemoryWarning() {

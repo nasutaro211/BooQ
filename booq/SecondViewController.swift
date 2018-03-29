@@ -9,15 +9,22 @@
 import UIKit
 import RealmSwift
 
-class SecondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class SecondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITabBarControllerDelegate {
     
     @IBOutlet var alertLave: UILabel!
     @IBOutlet var tableView: UITableView!
     var questions: Results<Question>!
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if let destination = viewController as? SecondViewController {
+                destination.tableView.reloadData()
+        }
+    }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if questions.count != 0{alertLave.isHidden == true}
+        if questions.count != 0
+        {alertLave.isHidden = true}
         return questions.count
     }
 
@@ -25,10 +32,7 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
         cell.questionLabel.text = questions[indexPath.row].questionStr
-        let url = URL(string: questions[indexPath.row].books.first!.imageLink)
-        let data = try? Data(contentsOf: url!)
-        let image = UIImage(data: data!)
-        cell.bookImageView.image = image
+        cell.bookImageView.sd_setImage(with: URL(string: questions[indexPath.row].books.first!.imageLink), completed: nil)
         cell.showAnswerButton.tag = indexPath.row
         return cell
     }
