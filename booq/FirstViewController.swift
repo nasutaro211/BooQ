@@ -12,7 +12,7 @@ import Alamofire
 import SDWebImage
 
 
-var imageDictionary:Dictionary<String,UIImageView> = Dictionary<String,UIImageView>()
+//var imageDictionary:Dictionary<String,UIImageView> = Dictionary<String,UIImageView>()
 
 class FirstViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITabBarControllerDelegate,UITabBarDelegate {
     
@@ -62,11 +62,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         return cell
     }
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let destination = viewController as? SecondViewController {
-            destination.tableView.reloadData()
-        }
-    }
+
     
     
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
@@ -116,9 +112,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         //collectionCIewLayoutをいじる
         let width = UIScreen.main.bounds.size.width
         let higth = UIScreen.main.bounds.size.height
-        
         margin = width/18
-        contentSize = (width-4*margin)/6
+        contentSize = (width-4*margin)/7
         
         //ボタンの影をつける
         rgstButton.layer.masksToBounds = false
@@ -128,24 +123,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
         rgstButton.layer.shadowRadius = 5 // ぼかし量
         
         
-        //imageをDictionaryに保存
-        if imageDictionary.count <= books.count{
-            if imageDictionary.count == 0{
-                //一番最初
-            for book in books{
-                let url = URL(string: book.imageLink)
-                var imageView = UIImageView()
-                imageView.sd_setImage(with: url, completed: nil)
-                imageDictionary[book.ISBN] = imageView
-            }
-            }else{
-                //登録後
-                let url = URL(string: books.last!.imageLink)
-                var imageView = UIImageView()
-                imageView.sd_setImage(with: url, completed: nil)
-                imageDictionary[books.last!.ISBN] = imageView
-            }
-        }
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

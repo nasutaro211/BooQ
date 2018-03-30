@@ -980,51 +980,34 @@
             </objects>
             <point key="canvasLocation" x="3746.4000000000001" y="-894.60269865067471"/>
         </scene>
-        <!--Second-->
+        <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="87" y="312" width="202" height="43"/>
+                                <rect key="frame" x="87" y="280" width="202" height="43"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="363" width="215" height="17"/>
+                                <rect key="frame" x="80" y="331" width="215" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJA-AH-X2E">
-                                <rect key="frame" x="0.0" y="15" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="QJ2-oR-RjO"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="問題一覧" id="Bi6-NH-Mya"/>
-                                </items>
-                            </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpU-82-M6N">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="15"/>
-                                <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="bt0-nL-fW5"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DcE-Z8-PMO">
-                                <rect key="frame" x="0.0" y="59" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllQuestionCell" rowHeight="159" id="HQh-za-ixN" customClass="QuestionTableViewCell" customModule="booq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="159"/>
@@ -1088,7 +1071,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="何も問題が登録されていません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwx-Lc-2pS">
-                                <rect key="frame" x="66" y="206.5" width="243" height="21"/>
+                                <rect key="frame" x="66" y="185.5" width="243" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1096,19 +1079,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="gpU-82-M6N" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="1Qc-53-wO8"/>
-                            <constraint firstItem="UJA-AH-X2E" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="3TP-eR-gvp"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstItem="gpU-82-M6N" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="LQ1-ZY-xg2"/>
                             <constraint firstItem="Bwx-Lc-2pS" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" multiplier="0.65" id="Onv-yd-6bK"/>
                             <constraint firstItem="DcE-Z8-PMO" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="QB8-Fc-pMD"/>
                             <constraint firstItem="DcE-Z8-PMO" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="ZOs-kQ-ohZ"/>
-                            <constraint firstItem="UJA-AH-X2E" firstAttribute="top" secondItem="gpU-82-M6N" secondAttribute="bottom" id="dH1-Jc-kKz"/>
-                            <constraint firstItem="UJA-AH-X2E" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="e8q-rK-7fh"/>
-                            <constraint firstAttribute="trailing" secondItem="gpU-82-M6N" secondAttribute="trailing" id="gWE-uQ-Aey"/>
+                            <constraint firstItem="DcE-Z8-PMO" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="gAa-tJ-oCk"/>
+                            <constraint firstItem="DcE-Z8-PMO" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="hJi-Kd-ynD"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="DcE-Z8-PMO" secondAttribute="trailing" id="jxL-S2-igp"/>
-                            <constraint firstItem="DcE-Z8-PMO" firstAttribute="top" secondItem="UJA-AH-X2E" secondAttribute="bottom" id="kng-Pv-1El"/>
                             <constraint firstItem="DcE-Z8-PMO" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="li6-x3-ANs"/>
                             <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
@@ -1116,7 +1094,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" id="mP5-di-3g0"/>
                     <connections>
                         <outlet property="alertLave" destination="Bwx-Lc-2pS" id="G4a-82-9yV"/>
                         <outlet property="tableView" destination="DcE-Z8-PMO" id="lki-W2-In9"/>
@@ -1124,7 +1102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2655" y="278"/>
+            <point key="canvasLocation" x="2992.8000000000002" y="277.51124437781112"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1139,12 +1117,37 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="Cau-hE-eHf" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Second-->
+        <scene sceneID="ZxZ-ve-TyN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cau-hE-eHf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="6vV-zc-nE5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.73333333333333328" green="0.59999999999999998" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="TFF-Jt-oxa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="avB-pc-8av" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2223" y="278"/>
         </scene>
     </scenes>
     <resources>
@@ -1152,7 +1155,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dxX-MH-poP"/>
+        <segue reference="IEk-sq-IAz"/>
         <segue reference="tax-2p-wjV"/>
         <segue reference="O7s-wY-4ZT"/>
     </inferredMetricsTieBreakers>

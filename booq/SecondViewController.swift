@@ -15,11 +15,6 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet var tableView: UITableView!
     var questions: Results<Question>!
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let destination = viewController as? SecondViewController {
-                destination.tableView.reloadData()
-        }
-    }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,16 +33,51 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //qeustionsをとる
         let realm = try! Realm()
         questions = realm.objects(Question.self)
+        //tableviewのデータとcellの大きさ
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
+        //EditButton生成
+        self.navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "問題一覧"
+        navigationItem.rightBarButtonItem = editButtonItem
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        //override前の処理を継続してさせる
+        super.setEditing(editing, animated: animated)
+        //tableViewの編集モードを切り替える
+        tableView.isEditing = editing
+    }
+    
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//
+//        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "削除") { (action, index) -> Void in
+//            let realm = try! Realm()
+//            try! realm.write {
+//                realm.delete(self.questions[indexPath.row])
+//            }
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//        deleteButton.backgroundColor = UIColor.red
+//        
+//        return [deleteButton]
+//    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(self.questions[indexPath.row])
+        }
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
     override func didReceiveMemoryWarning() {
