@@ -25,9 +25,13 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            searchBar.isUserInteractionEnabled = true
+        }
         self.bringDataToBooksWith(searchBar.text!)
     }
-    
+
     func bringDataToBooksWith(_ q:String){
         guard let encodedKeyword = q.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) else {
             print("無効なURL")
@@ -36,19 +40,20 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
         let url = "https://www.googleapis.com/books/v1/volumes?q=" + encodedKeyword + "&printType=books&maxResults=30"
         Alamofire.request(url).response { response in
             if let data = response.data, let responseData:ResponseData = try? JSONDecoder().decode(ResponseData.self, from: data){
-                
                 for item in responseData.items{
-                    //
                     if let identifiers = item.volumeInfo.industryIdentifiers{
+                        //isbnがついていたらappend
                         if self.checkContainISBN(identifers: identifiers){
                             var itemCopy = item
                             itemCopy.volumeInfo.isbn = self.returnISBN(identifers: identifiers)
                             self.books.append(itemCopy.volumeInfo)
                         }
-                    }else{
                     }
                 }
                 self.showBookInfoResult(self.books)
+            }else{
+                //ここでないよラベル表示
+                print("ないよ")
             }
         }
     }

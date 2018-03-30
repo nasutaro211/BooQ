@@ -22,6 +22,8 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
         do{
         try realm.write {
             let book = Book()
+            //すでにあったら脱出
+            guard realm.object(ofType: Book.self, forPrimaryKey: books[button.tag].isbn!) == nil else{return}
             book.ISBN = books[button.tag].isbn!
             if books[button.tag].title != nil {
                 book.title = books[button.tag].title!
@@ -29,7 +31,6 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
             if let imageLinks = books[button.tag].imageLinks, let imageLink = imageLinks["thumbnail"]{
                 book.imageLink = imageLink
             }
-            print(book.ISBN)
             realm.add(book)
         }
         }catch let error{

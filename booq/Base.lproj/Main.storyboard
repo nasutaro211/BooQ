@@ -234,7 +234,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggu-iw-ZRK">
-                                        <rect key="frame" x="265" y="8" width="46" height="51.5"/>
+                                        <rect key="frame" x="265" y="8" width="46" height="45.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="Egv-Au-cff"/>
                                         </constraints>
@@ -262,6 +262,12 @@
                                             <action selector="toQstnRgstView:" destination="4nk-ow-LtO" eventType="touchUpInside" id="e8H-fc-V9V"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORa-1a-lIa">
+                                        <rect key="frame" x="169" y="114.5" width="130" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.88235294117647056" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -274,11 +280,15 @@
                                     <constraint firstItem="pha-wK-7nP" firstAttribute="width" secondItem="F2I-bB-Yaw" secondAttribute="width" multiplier="0.75" id="GQS-0o-7KO"/>
                                     <constraint firstItem="c8x-vQ-vGg" firstAttribute="top" secondItem="Ggu-iw-ZRK" secondAttribute="bottom" constant="14" id="MAh-3K-Vji"/>
                                     <constraint firstItem="0wx-S8-6ad" firstAttribute="top" secondItem="pha-wK-7nP" secondAttribute="bottom" constant="10" id="U9v-Ac-pfP"/>
+                                    <constraint firstItem="ORa-1a-lIa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c8x-vQ-vGg" secondAttribute="bottom" constant="20" id="dB7-Ig-IiY"/>
                                     <constraint firstItem="Xpy-Yd-98y" firstAttribute="centerY" secondItem="F2I-bB-Yaw" secondAttribute="centerY" constant="-90" id="ege-tX-AWX"/>
+                                    <constraint firstItem="c8x-vQ-vGg" firstAttribute="top" secondItem="Ggu-iw-ZRK" secondAttribute="bottom" constant="20" id="egv-Ir-OWh"/>
                                     <constraint firstItem="0wx-S8-6ad" firstAttribute="width" secondItem="F2I-bB-Yaw" secondAttribute="width" multiplier="0.75" id="gzD-KR-dZq"/>
                                     <constraint firstItem="Ggu-iw-ZRK" firstAttribute="trailing" secondItem="F2I-bB-Yaw" secondAttribute="trailingMargin" id="i7C-Ei-bt4"/>
                                     <constraint firstItem="Ggu-iw-ZRK" firstAttribute="top" secondItem="F2I-bB-Yaw" secondAttribute="topMargin" id="pQB-bg-yNG"/>
                                     <constraint firstAttribute="trailing" secondItem="c8x-vQ-vGg" secondAttribute="trailing" constant="20" id="thm-du-hb7"/>
+                                    <constraint firstItem="ORa-1a-lIa" firstAttribute="trailing" secondItem="c8x-vQ-vGg" secondAttribute="trailing" id="wBj-Rw-vVa"/>
+                                    <constraint firstItem="ORa-1a-lIa" firstAttribute="leading" secondItem="c8x-vQ-vGg" secondAttribute="leading" id="ygg-og-A2k"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -294,6 +304,7 @@
                         <viewLayoutGuide key="safeArea" id="vS6-Al-LTI"/>
                     </view>
                     <connections>
+                        <outlet property="authorLabel" destination="ORa-1a-lIa" id="iTw-xc-XuI"/>
                         <outlet property="bookImageView" destination="Xpy-Yd-98y" id="Vul-IH-YNc"/>
                         <outlet property="rgstButton" destination="pha-wK-7nP" id="OKr-hV-eZb"/>
                         <outlet property="seeButton" destination="0wx-S8-6ad" id="mkc-nS-aMI"/>
@@ -305,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nU6-5P-MFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="-2883"/>
+            <point key="canvasLocation" x="1032.8" y="-2883.5082458770617"/>
         </scene>
         <!--Book Qestion View Controller-->
         <scene sceneID="HJQ-hQ-CVI">
@@ -1155,8 +1166,8 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IEk-sq-IAz"/>
+        <segue reference="gEl-Px-OKV"/>
         <segue reference="tax-2p-wjV"/>
-        <segue reference="O7s-wY-4ZT"/>
+        <segue reference="bOC-jA-7oN"/>
     </inferredMetricsTieBreakers>
 </document>

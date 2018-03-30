@@ -45,6 +45,7 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
+        tableView.isEditing = false
         //EditButton生成
         self.navigationController?.isNavigationBarHidden = false
         navigationItem.title = "問題一覧"
@@ -78,6 +79,13 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
             realm.delete(self.questions[indexPath.row])
         }
         tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if tableView.isEditing {
+            return .delete
+        }
+        return .none
     }
 
     override func didReceiveMemoryWarning() {

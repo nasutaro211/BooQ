@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Alamofire
 
 class PopUpViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     var theBook:Book!
+    @IBOutlet var authorLabel: UILabel!
+    
     @IBOutlet var bookImageView: UIImageView!
     @IBAction func toQstnRgstView(_ sender: Any) {
         performSegue(withIdentifier: "toQstnRgstView", sender: theBook)
@@ -39,6 +42,8 @@ class PopUpViewController: UIViewController {
         super.viewDidLoad()
         bookImageView.sd_setImage(with:URL(string: theBook.imageLink), completed: nil)
         titleLabel.text = theBook.title
+        //author所得して表示
+        
         
         //ボタンの影をつける
         rgstButton.layer.masksToBounds = false

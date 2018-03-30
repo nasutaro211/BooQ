@@ -61,6 +61,7 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
+        
     }
     
 
