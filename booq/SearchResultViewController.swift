@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import SDWebImage
+import Flurry_iOS_SDK
 
 class SearchResultViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -41,6 +42,7 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
         }catch let error{
             print(error)
         }
+        Flurry.logEvent("AddBook")
         performSegue(withIdentifier: "returnTabBar", sender: nil)
     }
     

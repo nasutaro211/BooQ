@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.0)
+  - Flurry-iOS-SDK/FlurrySDK (8.4.0)
   - Realm (3.3.1):
     - Realm/Headers (= 3.3.1)
   - Realm/Headers (3.3.1)
@@ -11,15 +12,17 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Flurry-iOS-SDK/FlurrySDK
   - RealmSwift
   - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Flurry-iOS-SDK: 0c4488af4e4289e2678f81755d3e9c204c0e8bba
   Realm: 63ebf4903b446b0bdf2131244eb1e1549925c724
   RealmSwift: f28fe8507bdfb8f1c924962401b83e7b9d7abb5c
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-PODFILE CHECKSUM: 87947aacf7b69b88b7eda92adf9a8b7b38561e7f
+PODFILE CHECKSUM: c50b189f316f3b35af98350a6403f98cf13456f7
 
 COCOAPODS: 1.4.0

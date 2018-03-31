@@ -9,6 +9,8 @@ target 'booq' do
   pod 'RealmSwift'
   pod 'Alamofire'
   pod 'SDWebImage'
+  pod 'Flurry-iOS-SDK/FlurrySDK'
+
 
   target 'booqTests' do
     inherit! :search_paths

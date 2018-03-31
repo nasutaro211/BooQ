@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Flurry_iOS_SDK
 
 class QuestionRgstViewController: UIViewController {
     @IBOutlet var bookImageView: UIImageView!
@@ -128,6 +129,7 @@ class QuestionRgstViewController: UIViewController {
         }catch let error{
             print(error)
         }
+        Flurry.logEvent("rgstQCalled")
     }
     
     func returnTimestamp()->String{

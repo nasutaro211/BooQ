@@ -14,6 +14,7 @@
 
 import UIKit
 import RealmSwift
+import Flurry_iOS_SDK
 
 class RgstPopUpViewController: UIViewController {
     @IBOutlet var publishedDate: UILabel!
@@ -58,6 +59,7 @@ class RgstPopUpViewController: UIViewController {
         }catch let error{
             print(error)
         }
+        Flurry.logEvent("AddBook")
         performSegue(withIdentifier: "backToTab", sender: nil)
         
     }
