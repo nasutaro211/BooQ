@@ -38,9 +38,7 @@ class QuestionRgstViewController: UIViewController {
         }
         bookImageView.image  = image
         bookTitleLabel.text = theBook.title
-        
-        navigationBar.title = "問題を登録"
-        
+                
         //キーボードを閉じる
         // 仮のサイズでツールバー生成
         let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
