@@ -262,7 +262,7 @@
                                             <action selector="toQstnRgstView:" destination="4nk-ow-LtO" eventType="touchUpInside" id="e8H-fc-V9V"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORa-1a-lIa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORa-1a-lIa">
                                         <rect key="frame" x="169" y="114.5" width="130" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -316,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nU6-5P-MFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032.8" y="-2883.5082458770617"/>
+            <point key="canvasLocation" x="1102" y="-2543"/>
         </scene>
         <!--Book Qestion View Controller-->
         <scene sceneID="HJQ-hQ-CVI">
@@ -1166,7 +1166,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gEl-Px-OKV"/>
+        <segue reference="zW1-XZ-iPw"/>
         <segue reference="tax-2p-wjV"/>
         <segue reference="bOC-jA-7oN"/>
     </inferredMetricsTieBreakers>

@@ -31,6 +31,11 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
             if let imageLinks = books[button.tag].imageLinks, let imageLink = imageLinks["thumbnail"]{
                 book.imageLink = imageLink
             }
+            if let authors = books[button.tag].authors{
+                for author in authors{
+                    book.authors = book.authors + author + "\n" 
+                }
+            }
             realm.add(book)
         }
         }catch let error{

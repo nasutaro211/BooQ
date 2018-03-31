@@ -26,7 +26,7 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.isUserInteractionEnabled = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             searchBar.isUserInteractionEnabled = true
         }
         self.bringDataToBooksWith(searchBar.text!)

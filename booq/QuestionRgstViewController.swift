@@ -23,6 +23,7 @@ class QuestionRgstViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    @IBOutlet var navigationBar: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,8 @@ class QuestionRgstViewController: UIViewController {
         }
         bookImageView.image  = image
         bookTitleLabel.text = theBook.title
+        
+        navigationBar.title = "問題を登録"
         
         //キーボードを閉じる
         // 仮のサイズでツールバー生成

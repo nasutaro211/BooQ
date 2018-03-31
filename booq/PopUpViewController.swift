@@ -42,8 +42,7 @@ class PopUpViewController: UIViewController {
         super.viewDidLoad()
         bookImageView.sd_setImage(with:URL(string: theBook.imageLink), completed: nil)
         titleLabel.text = theBook.title
-        //author所得して表示
-        
+        authorLabel.text = theBook.authors
         
         //ボタンの影をつける
         rgstButton.layer.masksToBounds = false

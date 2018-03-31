@@ -104,7 +104,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
 //            try! FileManager.default.removeItem(at: fileURL)
 //        }
         //dafault.realmの確認
-        print(Realm.Configuration.defaultConfiguration.fileURL)
         let realm = try! Realm()
         books = realm.objects(Book.self)
         
