@@ -44,19 +44,6 @@ class PopUpViewController: UIViewController {
         titleLabel.text = theBook.title
         authorLabel.text = theBook.authors
         
-        //ボタンの影をつける
-        rgstButton.layer.masksToBounds = false
-        rgstButton.layer.shadowColor = UIColor.black.cgColor
-        rgstButton.layer.shadowOpacity = 0.5 // 透明度
-        rgstButton.layer.shadowOffset = CGSize(width: 0, height: 5) // 距離
-        rgstButton.layer.shadowRadius = 5 // ぼかし量
-        //ボタンの影をつける
-        seeButton.layer.masksToBounds = false
-        seeButton.layer.shadowColor = UIColor.black.cgColor
-        seeButton.layer.shadowOpacity = 0.5 // 透明度
-        seeButton.layer.shadowOffset = CGSize(width: 0, height: 7) // 距離
-        seeButton.layer.shadowRadius = 5 // ぼかし量
-        
 
         // Do any additional setup after loading the view.
     }

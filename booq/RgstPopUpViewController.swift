@@ -48,6 +48,7 @@ class RgstPopUpViewController: UIViewController {
         let realm = try! Realm()
         do{
             try realm.write {
+                guard realm.object(ofType: Book.self, forPrimaryKey: theBook.isbn) == nil else{return}
                 let book = Book()
                 book.ISBN = theBook.isbn!
                 if theBook.title != nil{book.title = theBook.title!}

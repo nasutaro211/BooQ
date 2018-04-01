@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import Flurry_iOS_SDK
 
-class QuestionRgstViewController: UIViewController {
+class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollViewDelegate{
     @IBOutlet var bookImageView: UIImageView!
     @IBOutlet var questionTextField: UITextView!
     @IBOutlet var answerTextField: UITextView!
@@ -19,16 +19,17 @@ class QuestionRgstViewController: UIViewController {
     var question = ""
     var answers:[String] = []
     var from = ""
-    
+    var txtActiveView = UITextView()
+    @IBOutlet var scrollView: UIScrollView!
     @IBAction func tapScreen(_ sender: Any) {
         self.view.endEditing(true)
     }
     
-    @IBOutlet var navigationBar: UINavigationItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scrollView.delegate = self
+        questionTextField.delegate = self
+        answerTextField.delegate = self
         let url = URL(string: theBook.imageLink)
         let data = try? Data(contentsOf: url!)
         var image = UIImage()
@@ -67,6 +68,38 @@ class QuestionRgstViewController: UIViewController {
             }
         }
     }
+    
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        txtActiveView = textView
+        return true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(QuestionRgstViewController.handleKeyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(QuestionRgstViewController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+
+    @objc func handleKeyboardWillShowNotification(_ notification: Notification) {
+        
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let myBoundSize: CGSize = UIScreen.main.bounds.size
+        var txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
+        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+
+        if txtLimit >= kbdLimit {
+            scrollView.contentOffset.y = txtLimit - kbdLimit
+        }
+    }
+    
+    @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
+        scrollView.contentOffset.y = 0
+    }
+
     
     
     @IBAction func pushedPeke(_ sender: Any) {

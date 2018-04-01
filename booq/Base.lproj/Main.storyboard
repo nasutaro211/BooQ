@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -207,7 +207,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wx-S8-6ad" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
                                         <rect key="frame" x="40" y="371" width="239" height="56.5"/>
                                         <color key="backgroundColor" red="0.73333333333333328" green="0.59999999999999998" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="問題を見る">
                                             <color key="titleColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -221,7 +221,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8x-vQ-vGg">
-                                        <rect key="frame" x="169.5" y="73.5" width="129.5" height="21"/>
+                                        <rect key="frame" x="169.5" y="73.5" width="129.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -249,7 +249,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pha-wK-7nP" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
                                         <rect key="frame" x="40" y="304.5" width="239" height="56.5"/>
                                         <color key="backgroundColor" red="0.43921568630000002" green="0.56862745100000001" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="問題を登録">
                                             <color key="titleColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -569,12 +569,18 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXd-xB-i9a">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXd-xB-i9a" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
                                         <rect key="frame" x="47" y="470" width="281" height="67"/>
                                         <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="問題を続けて登録">
                                             <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="didPushRgstAndCntnue:" destination="Zs8-EJ-CBf" eventType="touchUpInside" id="rfI-7n-owz"/>
                                         </connections>
@@ -582,9 +588,15 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fI6-Ct-baa" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
                                         <rect key="frame" x="47" y="547" width="281" height="67"/>
                                         <color key="backgroundColor" red="0.43921568630000002" green="0.56862745100000001" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="登録して終了">
                                             <color key="titleColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="didPushRgstAndEnd:" destination="Zs8-EJ-CBf" eventType="touchUpInside" id="3wt-GX-8eJ"/>
                                         </connections>
@@ -646,6 +658,7 @@
                         <outlet property="bookImageView" destination="TAC-ws-Rmc" id="Oue-Dj-h9i"/>
                         <outlet property="bookTitleLabel" destination="Puo-5T-dDs" id="Qpb-38-Fgs"/>
                         <outlet property="questionTextField" destination="fJp-hU-Na5" id="8nT-zm-3yi"/>
+                        <outlet property="scrollView" destination="Zz1-a5-GJe" id="RhH-qA-OyQ"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="RgstEnd" id="zW1-XZ-iPw"/>
                         <segue destination="h6F-p8-wgw" kind="show" identifier="seeQuestion" id="bOC-jA-7oN"/>
                     </connections>
@@ -686,6 +699,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="NHH-iA-UCa" kind="show" id="v0b-ea-EUe"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvr-vk-WQS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="15"/>
@@ -740,7 +756,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aF9-En-5mc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652" y="-715.59220389805103"/>
+            <point key="canvasLocation" x="1753" y="-388"/>
+        </scene>
+        <!--Bar Code View Controller-->
+        <scene sceneID="6j1-M2-ya9">
+            <objects>
+                <viewController id="NHH-iA-UCa" customClass="BarCodeViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dxC-a0-3gb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="J8X-wW-aQH"/>
+                    </view>
+                    <connections>
+                        <segue destination="Tqy-5s-38B" kind="presentation" identifier="toAddBookView" modalTransitionStyle="crossDissolve" id="BuD-xS-PTs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Dz-fD-GzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2794.4000000000001" y="-318.89055472263868"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="CrE-VU-One">
@@ -794,7 +828,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjK-1v-HaG">
-                                                    <rect key="frame" x="136" y="44" width="224" height="21"/>
+                                                    <rect key="frame" x="136" y="44" width="224" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="224" id="QaY-Ie-KdD"/>
                                                     </constraints>
@@ -890,7 +924,7 @@
                                 <rect key="frame" x="28" y="100" width="319" height="467"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00x-cK-z8n">
-                                        <rect key="frame" x="170" y="74" width="129" height="21"/>
+                                        <rect key="frame" x="170" y="74" width="129" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -917,13 +951,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWT-rM-P6u">
-                                        <rect key="frame" x="169" y="118" width="130" height="21"/>
+                                        <rect key="frame" x="169" y="117.5" width="130" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="publishedDate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkQ-JX-iTj">
-                                        <rect key="frame" x="169" y="159" width="130" height="21"/>
+                                        <rect key="frame" x="169" y="158" width="130" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1166,8 +1200,9 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zW1-XZ-iPw"/>
-        <segue reference="tax-2p-wjV"/>
+        <segue reference="dxX-MH-poP"/>
+        <segue reference="BuD-xS-PTs"/>
+        <segue reference="JUo-dO-6QH"/>
         <segue reference="bOC-jA-7oN"/>
     </inferredMetricsTieBreakers>
 </document>

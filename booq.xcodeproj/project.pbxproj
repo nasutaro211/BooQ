@@ -16,6 +16,7 @@
 		5906C0EF205A74FC009EAB05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5906C0ED205A74FC009EAB05 /* LaunchScreen.storyboard */; };
 		5906C0FA205A74FC009EAB05 /* booqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0F9205A74FC009EAB05 /* booqTests.swift */; };
 		5906C105205A74FC009EAB05 /* booqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C104205A74FC009EAB05 /* booqUITests.swift */; };
+		590E06BD2070766D007EB025 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590E06BC2070766D007EB025 /* BarCodeViewController.swift */; };
 		592E354A205E65AD004F567D /* RealmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E3549205E65AD004F567D /* RealmModels.swift */; };
 		592E354C205F5443004F567D /* BooksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E354B205F5443004F567D /* BooksCollectionViewCell.swift */; };
 		592E3550205F648E004F567D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E354F205F648D004F567D /* RegistrationViewController.swift */; };
@@ -70,6 +71,7 @@
 		5906C100205A74FC009EAB05 /* booqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5906C104205A74FC009EAB05 /* booqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booqUITests.swift; sourceTree = "<group>"; };
 		5906C106205A74FC009EAB05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		590E06BC2070766D007EB025 /* BarCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		592E3549205E65AD004F567D /* RealmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmModels.swift; path = /Users/nasutaro211/Desktop/Booq/booq/booq/RealmModels.swift; sourceTree = "<absolute>"; };
 		592E354B205F5443004F567D /* BooksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionViewCell.swift; sourceTree = "<group>"; };
 		592E354F205F648D004F567D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				5906C0E6205A74FC009EAB05 /* SecondViewController.swift */,
 				593DA8C12066129000AFF879 /* QuestionTableViewCell.swift */,
 				5906C0E8205A74FC009EAB05 /* Main.storyboard */,
+				590E06BC2070766D007EB025 /* BarCodeViewController.swift */,
 				595BA32E2068F65C0024E71B /* RoundedButton.swift */,
 				595BA32A206623140024E71B /* BookQuestionTableViewCell.swift */,
 				595BA32C2066239E0024E71B /* BookQestionViewController.swift */,
@@ -528,6 +531,7 @@
 				59D330A1206C8A5D0027A56C /* RgstPopUpViewController.swift in Sources */,
 				592E354C205F5443004F567D /* BooksCollectionViewCell.swift in Sources */,
 				593DA8C22066129000AFF879 /* QuestionTableViewCell.swift in Sources */,
+				590E06BD2070766D007EB025 /* BarCodeViewController.swift in Sources */,
 				59F45F3D2060FCC7003F4C0F /* SearchResultViewController.swift in Sources */,
 				5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */,
 			);

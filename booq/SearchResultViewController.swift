@@ -81,6 +81,7 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
         }else{
             cell.bookImageView.sd_setImage(with: URL(string: "http://illustrain.com/img/work/2016/illustrain10-hon01.png"), completed: nil)
         }
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
     }
     
