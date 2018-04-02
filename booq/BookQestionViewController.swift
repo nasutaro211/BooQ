@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class BookQestionViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+class BookQestionViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate{
     @IBOutlet var tableView: UITableView!
     var questions: List<Question>!
     var theBook: Book!
@@ -27,6 +27,10 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
             questionRgstView.theBook = sender as! Book
             questionRgstView.from = "BookQuestionView"
             break
+        case "toDeleteQuestionView":
+            let destination = segue.destination as! DeletePopUpViewController
+            destination.theQuestion = sender as! Question
+            destination.from = "BookQuestionViewController"
         default:
             break
         }
@@ -61,7 +65,21 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
-        
+        // UILongPressGestureRecognizer宣言
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.cellLongPressed(recognizer:)))//Selector(("cellLongPressed:")))
+        longPressRecognizer.delegate = self
+        tableView.addGestureRecognizer(longPressRecognizer)
+    }
+    
+    @objc func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        // 押された位置でcellのPathを取得
+        let point = recognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        if indexPath == nil {
+        } else if recognizer.state == UIGestureRecognizerState.began  {
+            // 長押しされた場合の処理
+            performSegue(withIdentifier: "toDeleteQuestionView", sender: questions[(indexPath?.row)!])
+        }
     }
     
 

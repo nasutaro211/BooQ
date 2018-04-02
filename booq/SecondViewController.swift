@@ -7,23 +7,23 @@
 //
 
 import UIKit
+import Flurry_iOS_SDK
 import RealmSwift
 
-class SecondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITabBarControllerDelegate {
+class SecondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITabBarControllerDelegate,UIGestureRecognizerDelegate {
     
     @IBOutlet var alertLave: UILabel!
     @IBOutlet var tableView: UITableView!
     var questions: Results<Question>!
     
 
-    
+    //いつもの１
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if questions.count != 0
         {alertLave.isHidden = true}
         return questions.count
     }
-
-    
+    //いつもの２
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
         cell.questionLabel.text = questions[indexPath.row].questionStr
@@ -31,10 +31,7 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.showAnswerButton.tag = indexPath.row
         return cell
     }
-    
-    
-    
-
+    //いつもの０
     override func viewDidLoad() {
         super.viewDidLoad()
         //qeustionsをとる
@@ -49,14 +46,42 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         //EditButton生成
         self.navigationController?.isNavigationBarHidden = false
         navigationItem.title = "問題一覧"
-        navigationItem.rightBarButtonItem = editButtonItem
+        // UILongPressGestureRecognizer宣言
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.cellLongPressed(recognizer:)))//Selector(("cellLongPressed:")))
+        longPressRecognizer.delegate = self
+        tableView.addGestureRecognizer(longPressRecognizer)
+        //Flurry
+        Flurry.logEvent("seeAllQuestions")
+    }
+    //消して戻った時用
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        //override前の処理を継続してさせる
-        super.setEditing(editing, animated: animated)
-        //tableViewの編集モードを切り替える
-        tableView.isEditing = editing
+    @objc func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        
+        // 押された位置でcellのPathを取得
+        let point = recognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        if indexPath == nil {
+            
+        } else if recognizer.state == UIGestureRecognizerState.began  {
+            // 長押しされた場合の処理
+            performSegue(withIdentifier: "toDeleteQuestionView", sender: questions[(indexPath?.row)!])
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "toDeleteQuestionView":
+            let destination = segue.destination as! DeletePopUpViewController
+            destination.theQuestion = sender as! Question
+            destination.from = "SecondViewController"
+        default:
+            return
+        }
     }
     
 //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

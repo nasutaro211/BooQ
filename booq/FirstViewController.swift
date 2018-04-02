@@ -99,6 +99,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
     override func viewDidLoad() {
         booksCollectionView.delegate = self
         booksCollectionView.dataSource = self
+        
         //初期化のための下三行
 //        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
 //            try! FileManager.default.removeItem(at: fileURL)

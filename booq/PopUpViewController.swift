@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Flurry_iOS_SDK
 
 class PopUpViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
@@ -19,6 +20,7 @@ class PopUpViewController: UIViewController {
         performSegue(withIdentifier: "toQstnRgstView", sender: theBook)
     }
     @IBAction func toBookQuestionView(_ sender: Any) {
+        Flurry.logEvent("LookBookQuestion")
         performSegue(withIdentifier: "toBookQuestionView", sender: theBook)
     }
     @IBOutlet var titileLabel: UILabel!

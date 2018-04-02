@@ -45,7 +45,7 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
-            view.layer.addSublayer(videoPreviewLayer!)
+            view.layer.insertSublayer(videoPreviewLayer!, below: nil)
             // ビデオキャプチャ開始
             captureSession?.startRunning()
             // バーコードの読み取り枠を作成(読み込んだ時のdelegate methodで表示させる準備)
@@ -62,6 +62,7 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             print(error)
             return
         }
+
     }
     
     // 映像からmetadataを取得した場合に呼び出されるデリゲートメソット"

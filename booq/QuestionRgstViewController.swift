@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 import Flurry_iOS_SDK
+import SDWebImage
+
 
 class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollViewDelegate{
     @IBOutlet var bookImageView: UIImageView!
@@ -21,24 +23,18 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     var from = ""
     var txtActiveView = UITextView()
     @IBOutlet var scrollView: UIScrollView!
+    
+    //キーボード以外タッチしたらキーボード消える
     @IBAction func tapScreen(_ sender: Any) {
         self.view.endEditing(true)
     }
-    
+    //読み込み時
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
         questionTextField.delegate = self
         answerTextField.delegate = self
-        let url = URL(string: theBook.imageLink)
-        let data = try? Data(contentsOf: url!)
-        var image = UIImage()
-        if data != nil{
-            image = UIImage(data:data!)!
-        }else{
-            //端末に保存されている画像を表示&Labelでタイトルを表示
-        }
-        bookImageView.image  = image
+        bookImageView.sd_setImage(with: URL(string:theBook.imageLink), completed: nil)
         bookTitleLabel.text = theBook.title
                 
         //キーボードを閉じる
@@ -54,11 +50,11 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         questionTextField.inputAccessoryView = kbToolBar
         answerTextField.inputAccessoryView = kbToolBar
     }
-    
+    //完了ボタンが押された時
     @objc func commitButtonTapped (){
         self.view.endEditing(true)
     }
-    
+    //おそらくいらない
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         for touch: UITouch in touches {
@@ -68,13 +64,12 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
             }
         }
     }
-    
-    
+    //キーボードに隠れなくするべきtextViewを代入
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         txtActiveView = textView
         return true
     }
-    
+    //???キーボードに隠れなくする系
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -84,7 +79,6 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     }
 
     @objc func handleKeyboardWillShowNotification(_ notification: Notification) {
-        
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let myBoundSize: CGSize = UIScreen.main.bounds.size
