@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Flurry_iOS_SDK
 import RealmSwift
 
 class BookQestionViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate{
@@ -80,6 +81,27 @@ class BookQestionViewController: UIViewController,UITableViewDataSource,UITableV
             // 長押しされた場合の処理
             performSegue(withIdentifier: "toDeleteQuestionView", sender: questions[(indexPath?.row)!])
         }
+    }
+    
+    
+    @IBAction func showAnswer(_ sender: Any) {
+        //答えの表示からファイト！多分tagの番号のセルをとってなんとかするのが一番よ
+        let button = sender as! UIButton
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as! BookQuestionTableViewCell
+        if cell.answerTextView.text == "答え ▼"{
+            cell.answerTextView.text = "答え ▶︎ " + questions[indexPath.row].answers[0].answerStr
+            //cellの高さをUpdaete
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            let param = ["book":questions[indexPath.row].books.first!.title,"Question":questions[indexPath.row].questionStr,"Answer":questions[indexPath.row].answers[0].answerStr]
+            Flurry.logEvent("showAnAnswer",withParameters: param)
+        }else{
+            cell.answerTextView.text = "答え ▼"
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+
     }
     
 

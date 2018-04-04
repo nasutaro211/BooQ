@@ -10,6 +10,9 @@ import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
 
+    @IBOutlet var answerButtonButtomConstrain: NSLayoutConstraint!
+
+    @IBOutlet var answerTextView: UITextView!
     @IBOutlet var showAnswerButton: UIButton!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var bookImageView: UIImageView!

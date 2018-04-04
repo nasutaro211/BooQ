@@ -29,6 +29,7 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.questionLabel.text = questions[indexPath.row].questionStr
         cell.bookImageView.sd_setImage(with: URL(string: questions[indexPath.row].books.first!.imageLink), completed: nil)
         cell.showAnswerButton.tag = indexPath.row
+        cell.selectionStyle = .none
         return cell
     }
     //いつもの０
@@ -41,7 +42,7 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 20
+        tableView.estimatedRowHeight = 50
         tableView.isEditing = false
         //EditButton生成
         self.navigationController?.isNavigationBarHidden = false
@@ -112,6 +113,27 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
         return .none
     }
+    
+    
+    
+    @IBAction func showAnswer(_ sender: Any) {
+        //答えの表示からファイト！多分tagの番号のセルをとってなんとかするのが一番よ
+        let button = sender as! UIButton
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as! QuestionTableViewCell
+        if cell.answerTextView.text == "答え ▼"{
+            cell.answerTextView.text = "答え ▶︎ " + questions[indexPath.row].answers[0].answerStr
+            //cellの高さをUpdaete
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            let param = ["book":questions[indexPath.row].books.first!.title,"Question":questions[indexPath.row].questionStr,"Answer":questions[indexPath.row].answers[0].answerStr]
+            Flurry.logEvent("showAnAnswer",withParameters: param)
+        }else{
+            cell.answerTextView.text = "答え ▼"
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+   }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

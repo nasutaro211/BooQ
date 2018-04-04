@@ -34,6 +34,8 @@
 		59F45F3F2060FE22003F4C0F /* ResultableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F45F3E2060FE22003F4C0F /* ResultableViewCell.swift */; };
 		59F45F41206222C6003F4C0F /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F45F40206222C6003F4C0F /* PopUpViewController.swift */; };
 		59F45F4320622AA5003F4C0F /* QuestionRgstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F45F4220622AA5003F4C0F /* QuestionRgstViewController.swift */; };
+		59F992A220752C3D0054E272 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F992A120752C3D0054E272 /* PaddingLabel.swift */; };
+		59F992A420753C2D0054E272 /* TopToButtomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F992A320753C2D0054E272 /* TopToButtomSegue.swift */; };
 		5E48118E3C50E33009689B80 /* Pods_booqUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576F5D7CE050DB7C389DB135 /* Pods_booqUITests.framework */; };
 		750EB8164211C9508F4C6775 /* Pods_booq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9211D73A479752DE371EE95 /* Pods_booq.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +95,8 @@
 		59F45F3E2060FE22003F4C0F /* ResultableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableViewCell.swift; sourceTree = "<group>"; };
 		59F45F40206222C6003F4C0F /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		59F45F4220622AA5003F4C0F /* QuestionRgstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRgstViewController.swift; sourceTree = "<group>"; };
+		59F992A120752C3D0054E272 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		59F992A320753C2D0054E272 /* TopToButtomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopToButtomSegue.swift; sourceTree = "<group>"; };
 		5A04AC1CC95823DF2722D095 /* Pods-booqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booqTests/Pods-booqTests.release.xcconfig"; sourceTree = "<group>"; };
 		63DE85F12333A950983E05DE /* Pods-booqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booqUITests/Pods-booqUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B887F231D0BD828BF8F019F0 /* Pods_booqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,7 @@
 		5906C0D6205A74FC009EAB05 = {
 			isa = PBXGroup;
 			children = (
+				59F992A120752C3D0054E272 /* PaddingLabel.swift */,
 				5906C0E1205A74FC009EAB05 /* booq */,
 				5906C0F8205A74FC009EAB05 /* booqTests */,
 				5906C103205A74FC009EAB05 /* booqUITests */,
@@ -173,6 +178,7 @@
 				59F45F3E2060FE22003F4C0F /* ResultableViewCell.swift */,
 				59F45F40206222C6003F4C0F /* PopUpViewController.swift */,
 				59F45F4220622AA5003F4C0F /* QuestionRgstViewController.swift */,
+				59F992A320753C2D0054E272 /* TopToButtomSegue.swift */,
 				59F45F3C2060FCC7003F4C0F /* SearchResultViewController.swift */,
 				592E354B205F5443004F567D /* BooksCollectionViewCell.swift */,
 				5906C0EB205A74FC009EAB05 /* Assets.xcassets */,
@@ -535,6 +541,7 @@
 				592E354A205E65AD004F567D /* RealmModels.swift in Sources */,
 				59F45F3B2060AC65003F4C0F /* toUseCodable.swift in Sources */,
 				5960B1DF206F931C00129CCA /* flurry_user_sessions.swift in Sources */,
+				59F992A220752C3D0054E272 /* PaddingLabel.swift in Sources */,
 				595BA32B206623140024E71B /* BookQuestionTableViewCell.swift in Sources */,
 				59F45F41206222C6003F4C0F /* PopUpViewController.swift in Sources */,
 				5906C0E3205A74FC009EAB05 /* AppDelegate.swift in Sources */,
@@ -546,6 +553,7 @@
 				5928A94D2071C264001EF617 /* TabBarController.swift in Sources */,
 				59F45F3D2060FCC7003F4C0F /* SearchResultViewController.swift in Sources */,
 				5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */,
+				59F992A420753C2D0054E272 /* TopToButtomSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

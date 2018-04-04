@@ -14,6 +14,7 @@ class BookQuestionTableViewCell: UITableViewCell {
     @IBOutlet var bookImageView: UIImageView!
     @IBOutlet var showAnswerButton: UIButton!
     
+    @IBOutlet var answerTextView: UITextView!
     
     
     
