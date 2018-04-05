@@ -14,7 +14,6 @@ class PopUpViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     var theBook:Book!
     @IBOutlet var authorLabel: UILabel!
-    
     @IBOutlet var bookImageView: UIImageView!
     @IBAction func toQstnRgstView(_ sender: Any) {
         performSegue(withIdentifier: "toQstnRgstView", sender: theBook)

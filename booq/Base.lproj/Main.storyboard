@@ -359,7 +359,8 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="答え ▼" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="baP-V6-B9m">
                                                     <rect key="frame" x="67" y="59" width="282.5" height="89"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -414,7 +415,7 @@
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="zdX-Ks-EVx">
                                             <color key="tintColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
-                                                <segue destination="49e-Tb-3d3" kind="show" id="gEl-Px-OKV"/>
+                                                <segue destination="49e-Tb-3d3" kind="show" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="gEl-Px-OKV"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="oX7-hC-8Fp">
@@ -532,13 +533,13 @@
                                 <rect key="frame" x="0.0" y="98" width="375" height="569"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="答え" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUq-hw-qII">
-                                        <rect key="frame" x="30" y="207" width="35" height="21"/>
+                                        <rect key="frame" x="30" y="206.5" width="35" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r70-C1-XIH">
-                                        <rect key="frame" x="30" y="238" width="315" height="55"/>
+                                        <rect key="frame" x="30" y="237" width="315" height="55"/>
                                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="kW8-DP-iaa"/>
@@ -547,20 +548,20 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0O-62-2AC">
-                                        <rect key="frame" x="253" y="301" width="92" height="30"/>
+                                        <rect key="frame" x="253" y="300" width="92" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="92" id="wC0-gh-Ctz"/>
                                         </constraints>
                                         <state key="normal" title="addAnswer"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="問題文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfF-CP-N2q">
-                                        <rect key="frame" x="30" y="30" width="188" height="21"/>
+                                        <rect key="frame" x="30" y="30" width="188" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.16470588235294117" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fJp-hU-Na5">
-                                        <rect key="frame" x="30" y="59" width="315" height="128"/>
+                                        <rect key="frame" x="30" y="58.5" width="315" height="128"/>
                                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="xFC-AU-xdH"/>
@@ -600,6 +601,18 @@
                                             <action selector="didPushRgstAndEnd:" destination="Zs8-EJ-CBf" eventType="touchUpInside" id="3wt-GX-8eJ"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="M36-B8-bJs">
+                                        <rect key="frame" x="37" y="156.5" width="300" height="56.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登録されました" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0g-pC-JUY" customClass="PaddingLabel" customModule="booq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="56.5"/>
+                                                <color key="backgroundColor" red="0.20000000000000001" green="0.1647058824" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.88235294117647056" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
@@ -611,6 +624,7 @@
                                     <constraint firstItem="r70-C1-XIH" firstAttribute="top" secondItem="DUq-hw-qII" secondAttribute="bottom" constant="10" id="CPE-fi-0Cc"/>
                                     <constraint firstItem="fI6-Ct-baa" firstAttribute="width" secondItem="Zz1-a5-GJe" secondAttribute="width" multiplier="0.75" id="CUM-XK-F36"/>
                                     <constraint firstAttribute="bottom" secondItem="fI6-Ct-baa" secondAttribute="bottom" constant="44" id="F3w-JY-bht"/>
+                                    <constraint firstItem="s0g-pC-JUY" firstAttribute="width" secondItem="Zz1-a5-GJe" secondAttribute="width" multiplier="0.8" id="Kag-EN-M0u"/>
                                     <constraint firstItem="DUq-hw-qII" firstAttribute="top" secondItem="fJp-hU-Na5" secondAttribute="bottom" constant="20" id="Nlq-4C-0B3"/>
                                     <constraint firstItem="fI6-Ct-baa" firstAttribute="top" secondItem="KXd-xB-i9a" secondAttribute="bottom" constant="8" id="T4M-sU-e33"/>
                                     <constraint firstItem="fI6-Ct-baa" firstAttribute="centerX" secondItem="r70-C1-XIH" secondAttribute="centerX" id="Txt-hE-aAi"/>
@@ -618,9 +632,12 @@
                                     <constraint firstItem="OfF-CP-N2q" firstAttribute="leading" secondItem="r70-C1-XIH" secondAttribute="leading" id="VRm-Un-uif"/>
                                     <constraint firstItem="f0O-62-2AC" firstAttribute="top" secondItem="r70-C1-XIH" secondAttribute="bottom" constant="8" symbolic="YES" id="Wsc-cR-IFl"/>
                                     <constraint firstItem="KXd-xB-i9a" firstAttribute="top" secondItem="Zz1-a5-GJe" secondAttribute="top" constant="383" id="fUl-aJ-BfX"/>
+                                    <constraint firstItem="M36-B8-bJs" firstAttribute="centerX" secondItem="Zz1-a5-GJe" secondAttribute="centerX" id="fcx-SO-3nF"/>
                                     <constraint firstItem="fI6-Ct-baa" firstAttribute="centerX" secondItem="Zz1-a5-GJe" secondAttribute="centerX" id="fxm-yk-Nud"/>
                                     <constraint firstAttribute="trailing" secondItem="r70-C1-XIH" secondAttribute="trailing" constant="30" id="hsU-Em-q3J"/>
+                                    <constraint firstItem="s0g-pC-JUY" firstAttribute="height" secondItem="Zz1-a5-GJe" secondAttribute="height" multiplier="0.1" id="kLE-oS-MG0"/>
                                     <constraint firstItem="OfF-CP-N2q" firstAttribute="leading" secondItem="DUq-hw-qII" secondAttribute="leading" id="kNW-db-dgD"/>
+                                    <constraint firstItem="M36-B8-bJs" firstAttribute="centerY" secondItem="Zz1-a5-GJe" secondAttribute="centerY" constant="-100" id="n7E-8p-ucf"/>
                                     <constraint firstItem="OfF-CP-N2q" firstAttribute="width" secondItem="Zz1-a5-GJe" secondAttribute="width" multiplier="0.5" id="nss-pd-cvW"/>
                                     <constraint firstItem="r70-C1-XIH" firstAttribute="trailing" secondItem="f0O-62-2AC" secondAttribute="trailing" id="pbb-hm-fYN"/>
                                     <constraint firstItem="fJp-hU-Na5" firstAttribute="top" secondItem="OfF-CP-N2q" secondAttribute="bottom" constant="8" symbolic="YES" id="vvp-W0-lmS"/>
@@ -656,9 +673,10 @@
                         <outlet property="answerTextField" destination="r70-C1-XIH" id="yQh-kA-pOe"/>
                         <outlet property="bookImageView" destination="TAC-ws-Rmc" id="Oue-Dj-h9i"/>
                         <outlet property="bookTitleLabel" destination="Puo-5T-dDs" id="Qpb-38-Fgs"/>
+                        <outlet property="logLable" destination="s0g-pC-JUY" id="sXz-ty-SWR"/>
                         <outlet property="questionTextField" destination="fJp-hU-Na5" id="8nT-zm-3yi"/>
                         <outlet property="scrollView" destination="Zz1-a5-GJe" id="RhH-qA-OyQ"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="RgstEnd" id="zW1-XZ-iPw"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="RgstEnd" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="zW1-XZ-iPw"/>
                         <segue destination="h6F-p8-wgw" kind="show" identifier="seeQuestion" id="bOC-jA-7oN"/>
                     </connections>
                 </viewController>
@@ -669,7 +687,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-129" y="-1737"/>
+            <point key="canvasLocation" x="-130.40000000000001" y="-1737.481259370315"/>
         </scene>
         <!--Registration View Controller-->
         <scene sceneID="Tig-cP-EpB">
@@ -724,7 +742,7 @@
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="v9y-VT-BbG">
                                             <color key="tintColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
-                                                <segue destination="49e-Tb-3d3" kind="show" id="IEk-sq-IAz"/>
+                                                <segue destination="49e-Tb-3d3" kind="show" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="IEk-sq-IAz"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -917,7 +935,7 @@
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="S7R-eI-ixH">
                                             <color key="tintColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
-                                                <segue destination="49e-Tb-3d3" kind="show" id="tVM-Kp-64M"/>
+                                                <segue destination="49e-Tb-3d3" kind="show" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="tVM-Kp-64M"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -941,7 +959,7 @@
                     </view>
                     <connections>
                         <outlet property="resultTableView" destination="f5n-BN-SaV" id="CXR-oW-5G0"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="returnTabBar" id="J2z-bn-C9x"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="returnTabBar" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="J2z-bn-C9x"/>
                         <segue destination="Tqy-5s-38B" kind="presentation" identifier="showRgstPopUpView" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="pr7-Yi-gKa"/>
                     </connections>
                 </viewController>
@@ -1055,7 +1073,7 @@
                         <outlet property="bookImageView" destination="uBt-DZ-ccp" id="ujo-ol-q7a"/>
                         <outlet property="publishedDate" destination="mkQ-JX-iTj" id="5Xo-Wu-5Mu"/>
                         <outlet property="titleLabel" destination="00x-cK-z8n" id="Oi9-51-auC"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="backToTab" id="dxX-MH-poP"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="backToTab" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="dxX-MH-poP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GU0-5e-s4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1377,7 +1395,7 @@
                         <outlet property="bookTitleLabel" destination="ipp-NC-c4Y" id="oif-V1-yuQ"/>
                         <outlet property="questionTextView" destination="TEU-Mf-wF2" id="sCq-rP-4PB"/>
                         <outlet property="scrollView" destination="tUG-Lh-aaa" id="Rxa-K9-2aL"/>
-                        <segue destination="49e-Tb-3d3" kind="custom" identifier="backToAllQuestionView" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="Vll-pb-MBg"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="backToAllQuestionView" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="Vll-pb-MBg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUa-Gz-Crr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1388,6 +1406,35 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1" y="1251"/>
+        </scene>
+        <!--Log View Controller-->
+        <scene sceneID="F0Q-xb-99s">
+            <objects>
+                <viewController id="n0h-20-Ov0" customClass="LogViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DdR-Sw-ebc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcJ-Zq-fuw">
+                                <rect key="frame" x="37.5" y="310.5" width="300" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LcJ-Zq-fuw" firstAttribute="height" secondItem="DdR-Sw-ebc" secondAttribute="height" multiplier="0.07" id="H49-lA-YfB"/>
+                            <constraint firstItem="LcJ-Zq-fuw" firstAttribute="centerY" secondItem="DdR-Sw-ebc" secondAttribute="centerY" id="X6k-jF-Kf5"/>
+                            <constraint firstItem="LcJ-Zq-fuw" firstAttribute="centerX" secondItem="DdR-Sw-ebc" secondAttribute="centerX" id="aP2-li-tbd"/>
+                            <constraint firstItem="LcJ-Zq-fuw" firstAttribute="width" secondItem="DdR-Sw-ebc" secondAttribute="width" multiplier="0.8" id="hla-4W-6zJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t6B-P5-8ab"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ade-Ru-GWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1157.5999999999999" y="1403.7481259370315"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -1439,7 +1486,8 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="答え ▼" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RzI-KU-JFU">
                                                     <rect key="frame" x="67" y="59.5" width="283" height="88.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -1563,11 +1611,11 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vll-pb-MBg"/>
+        <segue reference="zW1-XZ-iPw"/>
         <segue reference="M7H-SZ-r1x"/>
         <segue reference="pr7-Yi-gKa"/>
         <segue reference="dYe-SM-AWu"/>
-        <segue reference="tax-2p-wjV"/>
+        <segue reference="JUo-dO-6QH"/>
         <segue reference="bOC-jA-7oN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,9 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     @IBOutlet var questionTextField: UITextView!
     @IBOutlet var answerTextField: UITextView!
     @IBOutlet var bookTitleLabel: UILabel!
+    
+    @IBOutlet var logLable: PaddingLabel!
+    
     var theBook: Book!
     var question = ""
     var answers:[String] = []
@@ -28,7 +31,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     @IBAction func tapScreen(_ sender: Any) {
         self.view.endEditing(true)
     }
-    //読み込み時
+    //いつもの
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
@@ -36,7 +39,9 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         answerTextField.delegate = self
         bookImageView.sd_setImage(with: URL(string:theBook.imageLink), completed: nil)
         bookTitleLabel.text = theBook.title
-                
+        logLable.isHidden = true
+        logLable.alpha = 0
+        
         //キーボードを閉じる
         // 仮のサイズでツールバー生成
         let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
@@ -49,6 +54,8 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         kbToolBar.items = [spacer, commitButton]
         questionTextField.inputAccessoryView = kbToolBar
         answerTextField.inputAccessoryView = kbToolBar
+        
+        
     }
     //完了ボタンが押された時
     @objc func commitButtonTapped (){
@@ -182,6 +189,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
             rgstQ()
             answerTextField.text = ""
             questionTextField.text = ""
+            logStr(str: "問題が登録されました")
         }else{
             //どちらかが空白の時
         }
@@ -196,6 +204,32 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         default:
             break
         }
+    }
+    
+    //LogViewを表示
+    func logStr(str: String){
+        self.logLable.alpha = 0
+        logLable.isHidden = false
+        UIView.animate(withDuration: 0.4, animations: {
+            self.logLable.alpha = 1
+        }, completion:nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            UIView.animate(withDuration: 0.4, animations: {
+                self.logLable.alpha = 0
+            }, completion:  {
+                (value: Bool) in
+                self.logLable.isHidden = true
+            })
+        })
+        //チャレンジ
+//        let logViewController = LogViewController()
+//        let label = UILabel(frame: CGRect(x: 10,y: 100,width: 500,height:50))
+//        label.text = "イッッケけけけk"
+//        label.backgroundColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+//        logViewController.view.addSubview(label)
+//        logViewController.modalTransitionStyle = UIModalTransitionStyle(rawValue: 1)!
+//        self.present(logViewController, animated: true, completion: nil)
+        
     }
     
 

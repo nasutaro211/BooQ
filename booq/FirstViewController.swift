@@ -33,8 +33,39 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
     
     @IBAction func deleteButton(_ sender: Any) {
         let button = sender as! UIButton
+
+        // ① UIAlertControllerクラスのインスタンスを生成
+        // タイトル, メッセージ, Alertのスタイルを指定する
+        // 第3引数のpreferredStyleでアラートの表示スタイルを指定する
+        let alert: UIAlertController = UIAlertController(title: "本の削除", message: "この本と登録されている問題を全て削除しますか？", preferredStyle:  UIAlertControllerStyle.alert)
+        
+        // ② Actionの設定
+        // Action初期化時にタイトル, スタイル, 押された時に実行されるハンドラを指定する
+        // 第3引数のUIAlertActionStyleでボタンのスタイルを指定する
+        // OKボタン
+        let defaultAction: UIAlertAction = UIAlertAction(title: "削除", style: UIAlertActionStyle.destructive, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            self.deleteB(tag: button.tag)
+        })
+        // キャンセルボタン
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            print("Cancel")
+        })
+        
+        // ③ UIAlertControllerにActionを追加
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        
+        // ④ Alertを表示
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func deleteB(tag:Int){
         let realm = try! Realm()
-        var deletedBook = realm.object(ofType: Book.self, forPrimaryKey: books[button.tag].ISBN)
+        var deletedBook = realm.object(ofType: Book.self, forPrimaryKey: books[tag].ISBN)
         var deletedQuestions = deletedBook?.questions
         var deletedAnswers:[List<Answer>] = []
         for question in deletedQuestions!{
@@ -46,10 +77,10 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
             }
             realm.delete(deletedBook!.questions)
             realm.delete(deletedBook!)
-     }
+        }
         booksCollectionView.reloadData()
-        
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! BooksCollectionViewCell
         cell.bookImageView.sd_setImage(with: URL(string: books[indexPath.row].imageLink), completed: nil)
@@ -85,7 +116,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate,UICollecti
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return margin
     }  
-    
+    //押されたとき
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "modal", sender: books[indexPath.row])
     }
