@@ -11,6 +11,7 @@ import RealmSwift
 
 class EditQuestionViewController: UIViewController {
     var theQuestion:Question!
+    var from = ""
     
     @IBAction func tapView(_ sender: Any) {
         self.view.endEditing(true)
@@ -59,7 +60,17 @@ class EditQuestionViewController: UIViewController {
             theQuestion.answers[0].answerStr = answerTextView.text
             realm.add(theQuestion, update: true)
         }
-        performSegue(withIdentifier: "backToAllQuestionView", sender: nil)
+        switch from {
+        case "BookQuestionViewController":
+            performSegue(withIdentifier: "toBookQuestionView", sender: nil)
+            break
+        case "SecondViewController":
+            performSegue(withIdentifier: "backToAllQuestionView", sender: nil)
+            break
+        default:
+            break
+        }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,6 +78,10 @@ class EditQuestionViewController: UIViewController {
         case "backToAllQuestionView":
             let destination = segue.destination as! TabBarController
             destination.willAppear = 1
+            return
+        case "toBookQuestionView":
+            let destination = segue.destination as! BookQestionViewController
+            destination.theBook = theQuestion.books.first
             return
         default:
             return

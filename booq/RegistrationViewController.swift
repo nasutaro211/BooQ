@@ -15,7 +15,8 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
     override func viewDidLoad() {
         searchBar.delegate = self
         super.viewDidLoad()
-        
+
+        searchBar.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     

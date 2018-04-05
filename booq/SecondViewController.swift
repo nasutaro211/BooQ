@@ -10,28 +10,14 @@ import UIKit
 import Flurry_iOS_SDK
 import RealmSwift
 
-class SecondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITabBarControllerDelegate,UIGestureRecognizerDelegate {
-    
+class SecondViewController: UIViewController,UITabBarControllerDelegate,UIGestureRecognizerDelegate {
+    //IBOutlet
     @IBOutlet var alertLave: UILabel!
     @IBOutlet var tableView: UITableView!
+    //question一覧
     var questions: Results<Question>!
     
 
-    //いつもの１
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if questions.count != 0
-        {alertLave.isHidden = true}
-        return questions.count
-    }
-    //いつもの２
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
-        cell.questionLabel.text = questions[indexPath.row].questionStr
-        cell.bookImageView.sd_setImage(with: URL(string: questions[indexPath.row].books.first!.imageLink), completed: nil)
-        cell.showAnswerButton.tag = indexPath.row
-        cell.selectionStyle = .none
-        return cell
-    }
     //いつもの０
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +55,7 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
             
         } else if recognizer.state == UIGestureRecognizerState.began  {
             // 長押しされた場合の処理
-            performSegue(withIdentifier: "toDeleteQuestionView", sender: questions[(indexPath?.row)!])
+            performSegue(withIdentifier: "toDeleteQuestionView", sender: questions[questions.count - (indexPath?.row)! - 1])
         }
     }
     
@@ -85,48 +71,18 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
     }
     
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "削除") { (action, index) -> Void in
-//            let realm = try! Realm()
-//            try! realm.write {
-//                realm.delete(self.questions[indexPath.row])
-//            }
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//        deleteButton.backgroundColor = UIColor.red
-//        
-//        return [deleteButton]
-//    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(self.questions[indexPath.row])
-        }
-        tableView.deleteRows(at: [indexPath], with: .automatic)
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        if tableView.isEditing {
-            return .delete
-        }
-        return .none
-    }
-    
-    
-    
     @IBAction func showAnswer(_ sender: Any) {
         //答えの表示からファイト！多分tagの番号のセルをとってなんとかするのが一番よ
         let button = sender as! UIButton
         let indexPath = IndexPath(row: button.tag, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! QuestionTableViewCell
         if cell.answerTextView.text == "答え ▼"{
-            cell.answerTextView.text = "答え ▶︎ " + questions[indexPath.row].answers[0].answerStr
+            cell.answerTextView.text = "答え ▶︎ " + questions[questions.count - indexPath.row - 1].answers[0].answerStr
             //cellの高さをUpdaete
             tableView.beginUpdates()
             tableView.endUpdates()
-            let param = ["book":questions[indexPath.row].books.first!.title,"Question":questions[indexPath.row].questionStr,"Answer":questions[indexPath.row].answers[0].answerStr]
+            //Flurry用
+            let param = ["book":questions[questions.count - indexPath.row - 1].books.first!.title,"Question":questions[questions.count - indexPath.row - 1].questionStr,"Answer":questions[questions.count - indexPath.row - 1].answers[0].answerStr]
             Flurry.logEvent("showAnAnswer",withParameters: param)
         }else{
             cell.answerTextView.text = "答え ▼"
@@ -141,5 +97,24 @@ class SecondViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
 
 
+}
+
+extension SecondViewController:UITableViewDelegate,UITableViewDataSource{
+    //数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if questions.count != 0
+        {alertLave.isHidden = true}
+        return questions.count
+    }
+    //cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
+        let question = questions[questions.count - indexPath.row - 1]
+        cell.questionLabel.text = question.questionStr
+        cell.bookImageView.sd_setImage(with: URL(string: question.books.first!.imageLink), completed: nil)
+        cell.showAnswerButton.tag = indexPath.row
+        cell.selectionStyle = .none
+        return cell
+    }
 }
 

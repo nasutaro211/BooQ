@@ -90,6 +90,7 @@ class DeletePopUpViewController: UIViewController {
         case "toEditQuestionView":
             let destination = segue.destination as! EditQuestionViewController
             destination.theQuestion = sender as! Question
+            destination.from = from
             break
         default:
             break
