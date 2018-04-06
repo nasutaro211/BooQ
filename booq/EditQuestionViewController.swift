@@ -9,29 +9,29 @@
 import UIKit
 import RealmSwift
 
-class EditQuestionViewController: UIViewController {
-    var theQuestion:Question!
-    var from = ""
-    
-    @IBAction func tapView(_ sender: Any) {
-        self.view.endEditing(true)
-    }
-    
-    
+class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollViewDelegate{
     @IBOutlet var bookTitleLabel: UILabel!
     @IBOutlet var questionTextView: UITextView!
     @IBOutlet var answerTextView: UITextView!
     @IBOutlet var bookImageView: UIImageView!
-    var txtActiveView = UITextView()
-    
     @IBOutlet var scrollView: UIScrollView!
+    var txtActiveView = UITextView()
+    var theQuestion:Question!
+    var from = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //viewを作る
         questionTextView.text = theQuestion.questionStr
         answerTextView.text = theQuestion.answers[0].answerStr
         bookImageView.sd_setImage(with: URL(string:(theQuestion.books.first?.imageLink)!), completed: nil)
         bookTitleLabel.text = theQuestion.books.first!.title
+        
+        //tableviewのdelegate
+        questionTextView.delegate = self
+        answerTextView.delegate = self
+        scrollView.delegate = self
         
         //キーボードを閉じる
         // 仮のサイズでツールバー生成
@@ -45,14 +45,12 @@ class EditQuestionViewController: UIViewController {
         kbToolBar.items = [spacer, commitButton]
         questionTextView.inputAccessoryView = kbToolBar
         answerTextView.inputAccessoryView = kbToolBar
-
-        // Do any additional setup after loading the view.
     }
-    
+    //KeyBoard閉じる
     @objc func commitButtonTapped (){
         self.view.endEditing(true)
     }
-    
+    //編集完了したとき
     @IBAction func endEditting(_ sender: Any) {
         let realm = try! Realm()
         try! realm.write {
@@ -70,9 +68,14 @@ class EditQuestionViewController: UIViewController {
         default:
             break
         }
-
     }
     
+    //キーボード以外をタップしたときキーボードを隠す
+    @IBAction func tapView(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+
+    //prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "backToAllQuestionView":
@@ -88,8 +91,18 @@ class EditQuestionViewController: UIViewController {
         }
     }
     
+    //
     @IBAction func pushPeke(_ sender: Any) {
-        performSegue(withIdentifier: "backToAllQuestionView", sender: nil)
+        switch from {
+        case "BookQuestionViewController":
+            performSegue(withIdentifier: "toBookQuestionView", sender: nil)
+            break
+        case "SecondViewController":
+            performSegue(withIdentifier: "backToAllQuestionView", sender: nil)
+            break
+        default:
+            break
+        }
     }
     
     
@@ -111,9 +124,8 @@ class EditQuestionViewController: UIViewController {
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let myBoundSize: CGSize = UIScreen.main.bounds.size
-        var txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
+        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-        
         if txtLimit >= kbdLimit {
             scrollView.contentOffset.y = txtLimit - kbdLimit
         }

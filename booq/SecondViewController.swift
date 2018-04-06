@@ -46,7 +46,6 @@ class SecondViewController: UIViewController,UITabBarControllerDelegate,UIGestur
     }
     
     @objc func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
-        
         // 押された位置でcellのPathを取得
         let point = recognizer.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)
@@ -113,8 +112,12 @@ extension SecondViewController:UITableViewDelegate,UITableViewDataSource{
         cell.questionLabel.text = question.questionStr
         cell.bookImageView.sd_setImage(with: URL(string: question.books.first!.imageLink), completed: nil)
         cell.showAnswerButton.tag = indexPath.row
-        cell.selectionStyle = .none
+        cell.selectionStyle = .gray
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

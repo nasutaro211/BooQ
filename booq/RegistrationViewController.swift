@@ -94,6 +94,11 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
     }
     
     
+    @IBAction func backToTab(_ sender: Any) {
+        self.isEditing = false
+        searchBar.resignFirstResponder()
+        performSegue(withIdentifier: "backToTabfr", sender: nil)
+    }
     
     
 

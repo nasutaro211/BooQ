@@ -334,7 +334,7 @@
                                     <constraint firstAttribute="height" constant="15" id="7N3-a7-Eul"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CCU-Q3-wAc">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CCU-Q3-wAc">
                                 <rect key="frame" x="0.0" y="59" width="375" height="608"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -366,6 +366,7 @@
                                                 </textView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OO-wk-FrY">
                                                     <rect key="frame" x="67" y="59" width="282.5" height="89"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <connections>
                                                         <action selector="showAnswer:" destination="h6F-p8-wgw" eventType="touchUpInside" id="JXV-NZ-I55"/>
                                                     </connections>
@@ -547,13 +548,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0O-62-2AC">
-                                        <rect key="frame" x="253" y="300" width="92" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="92" id="wC0-gh-Ctz"/>
-                                        </constraints>
-                                        <state key="normal" title="addAnswer"/>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="問題文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfF-CP-N2q">
                                         <rect key="frame" x="30" y="30" width="188" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -630,7 +624,6 @@
                                     <constraint firstItem="fI6-Ct-baa" firstAttribute="centerX" secondItem="r70-C1-XIH" secondAttribute="centerX" id="Txt-hE-aAi"/>
                                     <constraint firstAttribute="trailing" secondItem="fJp-hU-Na5" secondAttribute="trailing" constant="30" id="URc-sB-NzY"/>
                                     <constraint firstItem="OfF-CP-N2q" firstAttribute="leading" secondItem="r70-C1-XIH" secondAttribute="leading" id="VRm-Un-uif"/>
-                                    <constraint firstItem="f0O-62-2AC" firstAttribute="top" secondItem="r70-C1-XIH" secondAttribute="bottom" constant="8" symbolic="YES" id="Wsc-cR-IFl"/>
                                     <constraint firstItem="KXd-xB-i9a" firstAttribute="top" secondItem="Zz1-a5-GJe" secondAttribute="top" constant="383" id="fUl-aJ-BfX"/>
                                     <constraint firstItem="M36-B8-bJs" firstAttribute="centerX" secondItem="Zz1-a5-GJe" secondAttribute="centerX" id="fcx-SO-3nF"/>
                                     <constraint firstItem="fI6-Ct-baa" firstAttribute="centerX" secondItem="Zz1-a5-GJe" secondAttribute="centerX" id="fxm-yk-Nud"/>
@@ -639,7 +632,6 @@
                                     <constraint firstItem="OfF-CP-N2q" firstAttribute="leading" secondItem="DUq-hw-qII" secondAttribute="leading" id="kNW-db-dgD"/>
                                     <constraint firstItem="M36-B8-bJs" firstAttribute="centerY" secondItem="Zz1-a5-GJe" secondAttribute="centerY" constant="-100" id="n7E-8p-ucf"/>
                                     <constraint firstItem="OfF-CP-N2q" firstAttribute="width" secondItem="Zz1-a5-GJe" secondAttribute="width" multiplier="0.5" id="nss-pd-cvW"/>
-                                    <constraint firstItem="r70-C1-XIH" firstAttribute="trailing" secondItem="f0O-62-2AC" secondAttribute="trailing" id="pbb-hm-fYN"/>
                                     <constraint firstItem="fJp-hU-Na5" firstAttribute="top" secondItem="OfF-CP-N2q" secondAttribute="bottom" constant="8" symbolic="YES" id="vvp-W0-lmS"/>
                                     <constraint firstItem="fJp-hU-Na5" firstAttribute="centerX" secondItem="r70-C1-XIH" secondAttribute="centerX" id="yS8-ps-oM8"/>
                                 </constraints>
@@ -742,7 +734,7 @@
                                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="v9y-VT-BbG">
                                             <color key="tintColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
-                                                <segue destination="49e-Tb-3d3" kind="show" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="IEk-sq-IAz"/>
+                                                <action selector="backToTab:" destination="rVk-E0-lyd" id="my8-VP-wBZ"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -769,11 +761,12 @@
                     <connections>
                         <outlet property="searchBar" destination="uQK-r6-yxi" id="RSk-NA-ZYf"/>
                         <segue destination="cox-me-OfG" kind="show" identifier="toResultView" id="kk8-u3-jHW"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="backToTabfr" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="EcC-zM-ld2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aF9-En-5mc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="-388"/>
+            <point key="canvasLocation" x="1258" y="-1447"/>
         </scene>
         <!--Bar Code View Controller-->
         <scene sceneID="6j1-M2-ya9">
@@ -1277,7 +1270,7 @@
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUG-Lh-aaa">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tUG-Lh-aaa">
                                         <rect key="frame" x="0.0" y="98" width="375" height="569"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="答え" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNF-0V-onN">
@@ -1295,13 +1288,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fc-zE-2Tk">
-                                                <rect key="frame" x="253" y="301" width="92" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="92" id="pOY-yT-yZz"/>
-                                                </constraints>
-                                                <state key="normal" title="addAnswer"/>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="問題文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puk-5D-o9u">
                                                 <rect key="frame" x="30" y="30" width="188" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1318,7 +1304,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywc-Gf-kHF" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
-                                                <rect key="frame" x="47" y="399" width="281" height="67"/>
+                                                <rect key="frame" x="47" y="393" width="281" height="67"/>
                                                 <color key="backgroundColor" red="0.43921568630000002" green="0.56862745100000001" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="編集完了">
@@ -1338,22 +1324,20 @@
                                         <color key="backgroundColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstItem="Zdt-ix-gKQ" firstAttribute="trailing" secondItem="9Fc-zE-2Tk" secondAttribute="trailing" id="8OP-39-uhX"/>
                                             <constraint firstItem="Zdt-ix-gKQ" firstAttribute="top" secondItem="wNF-0V-onN" secondAttribute="bottom" constant="10" id="HMi-av-uwA"/>
                                             <constraint firstItem="Puk-5D-o9u" firstAttribute="leading" secondItem="tUG-Lh-aaa" secondAttribute="leading" constant="30" id="KDC-6U-TTI"/>
                                             <constraint firstItem="Ywc-Gf-kHF" firstAttribute="centerX" secondItem="tUG-Lh-aaa" secondAttribute="centerX" id="MAu-gX-BWk"/>
                                             <constraint firstItem="Ywc-Gf-kHF" firstAttribute="centerX" secondItem="Zdt-ix-gKQ" secondAttribute="centerX" id="Nls-eX-wmm"/>
                                             <constraint firstItem="wNF-0V-onN" firstAttribute="top" secondItem="TEU-Mf-wF2" secondAttribute="bottom" constant="20" id="P2w-WP-4r0"/>
                                             <constraint firstAttribute="trailing" secondItem="TEU-Mf-wF2" secondAttribute="trailing" constant="30" id="QGR-ii-u7X"/>
-                                            <constraint firstItem="Ywc-Gf-kHF" firstAttribute="top" secondItem="9Fc-zE-2Tk" secondAttribute="bottom" constant="68" id="S95-MG-61M"/>
                                             <constraint firstItem="Puk-5D-o9u" firstAttribute="top" secondItem="tUG-Lh-aaa" secondAttribute="top" constant="30" id="VAz-ey-h6A"/>
                                             <constraint firstAttribute="trailing" secondItem="Zdt-ix-gKQ" secondAttribute="trailing" constant="30" id="bfg-y2-VdP"/>
                                             <constraint firstItem="Puk-5D-o9u" firstAttribute="leading" secondItem="wNF-0V-onN" secondAttribute="leading" id="bhh-tG-ctL"/>
                                             <constraint firstItem="Ywc-Gf-kHF" firstAttribute="width" secondItem="tUG-Lh-aaa" secondAttribute="width" multiplier="0.75" id="guT-sd-dCE"/>
-                                            <constraint firstItem="9Fc-zE-2Tk" firstAttribute="top" secondItem="Zdt-ix-gKQ" secondAttribute="bottom" constant="8" symbolic="YES" id="ilL-Sc-hMX"/>
                                             <constraint firstItem="Puk-5D-o9u" firstAttribute="width" secondItem="tUG-Lh-aaa" secondAttribute="width" multiplier="0.5" id="jhh-Ce-hrv"/>
+                                            <constraint firstItem="Ywc-Gf-kHF" firstAttribute="top" secondItem="Zdt-ix-gKQ" secondAttribute="bottom" constant="100" id="jrZ-gf-Wqt"/>
                                             <constraint firstItem="TEU-Mf-wF2" firstAttribute="centerX" secondItem="Zdt-ix-gKQ" secondAttribute="centerX" id="nkd-dZ-7uI"/>
-                                            <constraint firstAttribute="bottom" secondItem="Ywc-Gf-kHF" secondAttribute="bottom" constant="30" id="tpN-aa-saC"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ywc-Gf-kHF" secondAttribute="bottom" constant="30" id="tpN-aa-saC"/>
                                             <constraint firstItem="TEU-Mf-wF2" firstAttribute="top" secondItem="Puk-5D-o9u" secondAttribute="bottom" constant="8" symbolic="YES" id="tpZ-e5-fDw"/>
                                             <constraint firstItem="Puk-5D-o9u" firstAttribute="leading" secondItem="Zdt-ix-gKQ" secondAttribute="leading" id="wpb-NQ-1kW"/>
                                         </constraints>
@@ -1458,7 +1442,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DcE-Z8-PMO">
+                            <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DcE-Z8-PMO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1494,6 +1478,7 @@
                                                 </textView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F69-JF-s5W">
                                                     <rect key="frame" x="67" y="59.5" width="283" height="88.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <connections>
                                                         <action selector="showAnswer:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="D4O-Sx-HSg"/>
                                                     </connections>
@@ -1615,11 +1600,11 @@
         <image name="question" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vll-pb-MBg"/>
+        <segue reference="gEl-Px-OKV"/>
         <segue reference="M7H-SZ-r1x"/>
         <segue reference="pr7-Yi-gKa"/>
         <segue reference="dYe-SM-AWu"/>
-        <segue reference="JUo-dO-6QH"/>
+        <segue reference="tax-2p-wjV"/>
         <segue reference="gCn-gZ-1gq"/>
     </inferredMetricsTieBreakers>
 </document>
