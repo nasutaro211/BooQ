@@ -12,9 +12,12 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet var searchBar: UISearchBar!
     var books:[VolumeInfo] = []
     
+    @IBOutlet var logLable: PaddingLabel!
+    
     override func viewDidLoad() {
         searchBar.delegate = self
         super.viewDidLoad()
+        logLable.isHidden = true
 
         searchBar.becomeFirstResponder()
         // Do any additional setup after loading the view.
@@ -54,6 +57,19 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
                 self.showBookInfoResult(self.books)
             }else{
                 //ここでないよラベル表示
+                    self.logLable.alpha = 0
+                    self.logLable.isHidden = false
+                    UIView.animate(withDuration: 0.4, animations: {
+                        self.logLable.alpha = 1
+                    }, completion:nil)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                        UIView.animate(withDuration: 0.4, animations: {
+                            self.logLable.alpha = 0
+                        }, completion:  {
+                            (value: Bool) in
+                            self.logLable.isHidden = true
+                        })
+                    })
                 print("ないよ")
             }
         }
@@ -87,6 +103,7 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        searchBar.resignFirstResponder()
         if segue.identifier == "toResultView"{
             let resultView = segue.destination as! SearchResultViewController
             resultView.books = sender as! Array<VolumeInfo>
@@ -96,7 +113,6 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
     
     @IBAction func backToTab(_ sender: Any) {
         self.isEditing = false
-        searchBar.resignFirstResponder()
         performSegue(withIdentifier: "backToTabfr", sender: nil)
     }
     

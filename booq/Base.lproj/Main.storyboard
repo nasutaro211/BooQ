@@ -740,9 +740,17 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="該当する本がありません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bde-gH-bA4" userLabel="Log Lable" customClass="PaddingLabel" customModule="booq" customModuleProvider="target">
+                                <rect key="frame" x="37" y="241" width="300" height="67"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.1647058824" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.88235294117647056" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="bde-gH-bA4" firstAttribute="centerY" secondItem="PGw-sA-FCs" secondAttribute="centerY" constant="-59" id="1We-53-pjg"/>
                             <constraint firstItem="uKs-Kv-U3N" firstAttribute="trailing" secondItem="m4d-PP-bTW" secondAttribute="trailing" id="Aus-n2-z09"/>
                             <constraint firstItem="uKs-Kv-U3N" firstAttribute="leading" secondItem="m4d-PP-bTW" secondAttribute="leading" id="DHW-6e-wDW"/>
                             <constraint firstItem="uQK-r6-yxi" firstAttribute="top" secondItem="uKs-Kv-U3N" secondAttribute="bottom" id="JO4-ah-Z0t"/>
@@ -750,7 +758,10 @@
                             <constraint firstItem="tvr-vk-WQS" firstAttribute="top" secondItem="PGw-sA-FCs" secondAttribute="top" id="bk8-C2-C2m"/>
                             <constraint firstItem="uQK-r6-yxi" firstAttribute="leading" secondItem="m4d-PP-bTW" secondAttribute="leading" id="e4y-0U-Kiz"/>
                             <constraint firstItem="uQK-r6-yxi" firstAttribute="trailing" secondItem="m4d-PP-bTW" secondAttribute="trailing" id="fqb-Ip-qxJ"/>
+                            <constraint firstItem="bde-gH-bA4" firstAttribute="width" secondItem="PGw-sA-FCs" secondAttribute="width" multiplier="0.8" id="ghh-f0-8er"/>
                             <constraint firstItem="m4d-PP-bTW" firstAttribute="trailing" secondItem="tvr-vk-WQS" secondAttribute="trailing" id="hXB-DR-dGK"/>
+                            <constraint firstItem="bde-gH-bA4" firstAttribute="centerX" secondItem="PGw-sA-FCs" secondAttribute="centerX" id="mck-Il-EdS"/>
+                            <constraint firstItem="bde-gH-bA4" firstAttribute="height" secondItem="PGw-sA-FCs" secondAttribute="height" multiplier="0.1" id="nR8-Rv-7aZ"/>
                             <constraint firstItem="tvr-vk-WQS" firstAttribute="leading" secondItem="PGw-sA-FCs" secondAttribute="leading" id="sIf-eR-RPv"/>
                             <constraint firstItem="uKs-Kv-U3N" firstAttribute="top" secondItem="tvr-vk-WQS" secondAttribute="bottom" id="uLw-37-uFa"/>
                             <constraint firstItem="YK6-ak-El3" firstAttribute="top" secondItem="uQK-r6-yxi" secondAttribute="bottom" constant="10" id="xai-ba-8kj"/>
@@ -759,6 +770,7 @@
                         <viewLayoutGuide key="safeArea" id="m4d-PP-bTW"/>
                     </view>
                     <connections>
+                        <outlet property="logLable" destination="bde-gH-bA4" id="4Jc-af-1hn"/>
                         <outlet property="searchBar" destination="uQK-r6-yxi" id="RSk-NA-ZYf"/>
                         <segue destination="cox-me-OfG" kind="show" identifier="toResultView" id="kk8-u3-jHW"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="backToTabfr" customClass="TopToButtomSegue" customModule="booq" customModuleProvider="target" id="EcC-zM-ld2"/>
@@ -804,19 +816,31 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="該当する本がありません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C7-Z6-GCs" userLabel="Log Lable" customClass="PaddingLabel" customModule="booq" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="300.5" width="300" height="67"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.1647058824" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aWD-Sp-muc" secondAttribute="trailing" id="12n-BL-wFQ"/>
+                            <constraint firstItem="6C7-Z6-GCs" firstAttribute="centerY" secondItem="dxC-a0-3gb" secondAttribute="centerY" id="855-wd-yzE"/>
                             <constraint firstItem="aWD-Sp-muc" firstAttribute="top" secondItem="dxC-a0-3gb" secondAttribute="top" id="9XP-BH-hyR"/>
                             <constraint firstItem="SOR-71-m3Y" firstAttribute="leading" secondItem="J8X-wW-aQH" secondAttribute="leading" id="IhP-9L-P5i"/>
+                            <constraint firstItem="6C7-Z6-GCs" firstAttribute="width" secondItem="dxC-a0-3gb" secondAttribute="width" multiplier="0.8" id="aEo-UT-lxj"/>
                             <constraint firstItem="aWD-Sp-muc" firstAttribute="leading" secondItem="dxC-a0-3gb" secondAttribute="leading" id="iwA-gZ-QcT"/>
                             <constraint firstItem="SOR-71-m3Y" firstAttribute="trailing" secondItem="J8X-wW-aQH" secondAttribute="trailing" id="lTc-mZ-RI8"/>
+                            <constraint firstItem="6C7-Z6-GCs" firstAttribute="centerX" secondItem="dxC-a0-3gb" secondAttribute="centerX" id="ldB-jH-dTU"/>
                             <constraint firstItem="SOR-71-m3Y" firstAttribute="top" secondItem="aWD-Sp-muc" secondAttribute="bottom" id="rfo-qX-lHk"/>
+                            <constraint firstItem="6C7-Z6-GCs" firstAttribute="height" secondItem="dxC-a0-3gb" secondAttribute="height" multiplier="0.1" id="uyh-Yt-e2K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J8X-wW-aQH"/>
                     </view>
                     <connections>
+                        <outlet property="logLable" destination="6C7-Z6-GCs" id="WD0-aq-n9R"/>
                         <segue destination="Tqy-5s-38B" kind="presentation" identifier="toAddBookView" modalTransitionStyle="crossDissolve" id="BuD-xS-PTs"/>
                     </connections>
                 </viewController>
@@ -1600,11 +1624,11 @@
         <image name="question" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gEl-Px-OKV"/>
+        <segue reference="EcC-zM-ld2"/>
         <segue reference="M7H-SZ-r1x"/>
-        <segue reference="pr7-Yi-gKa"/>
-        <segue reference="dYe-SM-AWu"/>
+        <segue reference="BuD-xS-PTs"/>
+        <segue reference="mXR-0B-pcB"/>
         <segue reference="tax-2p-wjV"/>
-        <segue reference="gCn-gZ-1gq"/>
+        <segue reference="bOC-jA-7oN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -52,6 +52,7 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
         rgstButton.layer.shadowRadius = 5 // ぼかし量
         super.viewDidLoad()
     }
+
     
     
     //deleteButtonを押したらalert表示

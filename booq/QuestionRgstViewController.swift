@@ -163,6 +163,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         }catch let error{
             print(error)
         }
+        answers = []
         Flurry.logEvent("rgstQCalled")
     }
     
@@ -189,7 +190,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
             rgstQ()
             answerTextField.text = ""
             questionTextField.text = ""
-            logStr(str: "問題が登録されました")
+            logStr()
         }else{
             //どちらかが空白の時
         }
@@ -207,7 +208,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     }
     
     //LogViewを表示
-    func logStr(str: String){
+    func logStr(){
         self.logLable.alpha = 0
         logLable.isHidden = false
         UIView.animate(withDuration: 0.4, animations: {

@@ -8,7 +8,8 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 //    var previewLayer: AVCaptureVideoPreviewLayer?
 //    var captureDevice: AVCaptureDevice?
     
-//    var captureSession:AVCaptureSession?
+    @IBOutlet var logLable: PaddingLabel!
+    //    var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var barCodeFrameView:UIView?
     var book:VolumeInfo!
@@ -21,6 +22,8 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logLable.isHidden = true
         
         // カメラがあるか確認し，取得する
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)//(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
@@ -91,6 +94,7 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                         }else{
                             //ここでないよラベル表示
                             print("ないよ")
+                            self.logStr()
                         }
                     }
                 }
@@ -98,6 +102,35 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
         
     }
+    
+    func logStr(){
+//        self.logLable.alpha = 0
+        logLable.isHidden = false
+        UIView.animate(withDuration: 0.4, animations: {
+            self.logLable.alpha = 1
+        }, completion:nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            UIView.animate(withDuration: 0.4, animations: {
+//                self.logLable.alpha = 0
+            }, completion:  {
+                (value: Bool) in
+//                self.logLable.isHidden = true
+            })
+        })
+        //        //チャレンジ
+        //        let logViewController = LogViewController()
+        //        let label = UILabel(frame: CGRect(x: 10,y: 100,width: 500,height:50))
+        //        label.text = "イッッケけけけk"
+        //        label.backgroundColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+        //        logViewController.view.addSubview(label)
+        //        logViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        //        self.present(logViewController, animated: true, completion: nil)
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        //            self.dismiss(animated: true, completion: nil)
+        //        })
+        
+    }
+
     
     
     func segueAddBookView(){
@@ -116,6 +149,7 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             break
         }
     }
+    
     }
 
 

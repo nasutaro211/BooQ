@@ -96,6 +96,7 @@ class DeletePopUpViewController: UIViewController {
             break
         }
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
