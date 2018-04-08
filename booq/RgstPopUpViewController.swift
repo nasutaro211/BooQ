@@ -15,7 +15,6 @@
 import UIKit
 import RealmSwift
 import Flurry_iOS_SDK
-
 class RgstPopUpViewController: UIViewController {
     @IBOutlet var publishedDate: UILabel!
     @IBOutlet var authorLabel: UILabel!
@@ -66,10 +65,21 @@ class RgstPopUpViewController: UIViewController {
             print(error)
         }
         Flurry.logEvent("AddBook")
-        performSegue(withIdentifier: "backToTab", sender: nil)
+        if from == "SearchResultView"{
+            let presentingView = self.presentingViewController as! SearchResultViewController
+            dismiss(animated: true, completion: {
+                presentingView.performSegue(withIdentifier: "returnTabBar", sender: nil)
+            })
+        }else if from == "BarCodeReader"{
+            let presentingView = self.presentingViewController as! BarCodeViewController
+            dismiss(animated: true, completion: {
+                presentingView.performSegue(withIdentifier: "backToTab", sender: nil)
+            })
+        }
+
         
     }
-
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         for touch: UITouch in touches {

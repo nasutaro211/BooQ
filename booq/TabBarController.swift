@@ -23,6 +23,19 @@ class TabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //問題を登録
+        if segue.identifier == "toQstnRgstView"{
+            let destination = segue.destination as! QuestionRgstViewController
+            destination.theBook = sender as! Book
+            destination.from = "PopUpView"
+        }
+        //問題一覧
+        if segue.identifier == "toBookQuestionView"{
+            let destination = segue.destination as! BookQestionViewController
+            destination.theBook = sender as! Book
+        }
+    }
     
 
     /*

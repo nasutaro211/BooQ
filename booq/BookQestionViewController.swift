@@ -102,8 +102,7 @@ extension BookQestionViewController:UITableViewDataSource,UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookQuestionCell", for: indexPath) as! BookQuestionTableViewCell
         let question = questions[questions.count - indexPath.row - 1]
         cell.questionLabel.text = question.questionStr
-        let url = URL(string: question.books.first!.imageLink)
-        cell.bookImageView.sd_setImage(with: url!, completed: nil)
+        cell.bookImageView.sd_setImage(with: URL(string: question.books.first!.imageLink), completed: nil)
         if cell.bookImageView.image == nil && question.books.first!.imageData != nil{
             cell.bookImageView.image = UIImage(data: question.books.first!.imageData!)
         }

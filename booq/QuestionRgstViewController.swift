@@ -57,8 +57,6 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         kbToolBar.items = [spacer, commitButton]
         questionTextField.inputAccessoryView = kbToolBar
         answerTextField.inputAccessoryView = kbToolBar
-        
-        
     }
     //完了ボタンが押された時
     @objc func commitButtonTapped (){
@@ -225,19 +223,9 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
                 self.logLable.isHidden = true
             })
         })
-//        //チャレンジ
-//        let logViewController = LogViewController()
-//        let label = UILabel(frame: CGRect(x: 10,y: 100,width: 500,height:50))
-//        label.text = "イッッケけけけk"
-//        label.backgroundColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
-//        logViewController.view.addSubview(label)
-//        logViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-//        self.present(logViewController, animated: true, completion: nil)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//            self.dismiss(animated: true, completion: nil)
-//        })
-        
     }
+    
+
     
 
     /*
@@ -251,3 +239,19 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     */
 
 }
+
+extension UIBarButtonItem {
+    enum HiddenItem: Int {
+        case Arrow = 100
+        case Back = 101
+        case Forward = 102
+        case Up = 103
+        case Down = 104
+    }
+    
+    convenience init(barButtonHiddenItem: HiddenItem, target: AnyObject?, action: Selector?) {
+        let systemItem = UIBarButtonSystemItem(rawValue: barButtonHiddenItem.rawValue)
+        self.init(barButtonSystemItem: systemItem!, target: target, action: action)
+    }
+}
+

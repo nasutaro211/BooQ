@@ -90,6 +90,9 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                             print("ないよ")
                             self.logStr()
                             self.guardnerStr = metadataObj.stringValue!
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                                self.performSegue(withIdentifier: "toSelfRgstBookView", sender: metadataObj.stringValue)
+                            })
                         }
                         }
                     }
@@ -104,25 +107,6 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         UIView.animate(withDuration: 0.4, animations: {
             self.logLable.alpha = 1
         }, completion:nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            UIView.animate(withDuration: 0.4, animations: {
-//                self.logLable.alpha = 0
-            }, completion:  {
-                (value: Bool) in
-//                self.logLable.isHidden = true
-            })
-        })
-        //        //チャレンジ
-        //        let logViewController = LogViewController()
-        //        let label = UILabel(frame: CGRect(x: 10,y: 100,width: 500,height:50))
-        //        label.text = "イッッケけけけk"
-        //        label.backgroundColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
-        //        logViewController.view.addSubview(label)
-        //        logViewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        //        self.present(logViewController, animated: true, completion: nil)
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-        //            self.dismiss(animated: true, completion: nil)
-        //        })
         
     }
 
@@ -141,6 +125,9 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             destination.theBook = sender as! VolumeInfo
             destination.from = "BarCodeReader"
             break
+        case "toSelfRgstBookView":
+            let destination = segue.destination as! SelfRgstBookViewController
+            destination.isbn = sender as! String
         default:
             break
         }

@@ -55,6 +55,7 @@ class SearchResultViewController: UIViewController,UITableViewDelegate,UITableVi
         case "showRgstPopUpView"?:
             let destination = segue.destination as! RgstPopUpViewController
             destination.theBook = sender as! VolumeInfo
+            destination.from = "SearchResultView"
             break
         default:
             break

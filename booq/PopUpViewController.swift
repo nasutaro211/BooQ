@@ -16,27 +16,21 @@ class PopUpViewController: UIViewController {
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var bookImageView: UIImageView!
     @IBAction func toQstnRgstView(_ sender: Any) {
-        performSegue(withIdentifier: "toQstnRgstView", sender: theBook)
+        let tabBarController = self.presentingViewController as! TabBarController
+        self.dismiss(animated: false, completion: {
+            tabBarController.performSegue(withIdentifier: "toQstnRgstView", sender: self.theBook)
+        })
     }
     @IBAction func toBookQuestionView(_ sender: Any) {
-        Flurry.logEvent("LookBookQuestion")
-        performSegue(withIdentifier: "toBookQuestionView", sender: theBook)
+        let tabBarController = self.presentingViewController as! TabBarController
+        self.dismiss(animated: false, completion: {
+            Flurry.logEvent("LookBookQuestion")
+            tabBarController.performSegue(withIdentifier: "toBookQuestionView", sender: self.theBook)
+        })
+
     }
     @IBOutlet var titileLabel: UILabel!
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //問題を登録
-        if segue.identifier == "toQstnRgstView"{
-            let destination = segue.destination as! QuestionRgstViewController
-            destination.theBook = sender as! Book
-            destination.from = "PopUpView"
-        }
-        //問題一覧
-        if segue.identifier == "toBookQuestionView"{
-            let destination = segue.destination as! BookQestionViewController
-            destination.theBook = sender as! Book
-        }
-    }
+
     @IBOutlet var seeButton: RoundedButtonm!
     @IBOutlet var rgstButton: RoundedButtonm!
     override func viewDidLoad() {
