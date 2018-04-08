@@ -21,7 +21,7 @@ class RgstPopUpViewController: UIViewController {
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var bookImageView: UIImageView!
-    
+    var from = ""
     var theBook: VolumeInfo!
     
     
@@ -41,8 +41,13 @@ class RgstPopUpViewController: UIViewController {
     }
     
     @IBAction func pushedPeke(_ sender: Any) {
+        if from == "BarCodeReader"{
+            let destination = self.presentingViewController as! BarCodeViewController
+            destination.guardnerStr = ""
+        }
         dismiss(animated: true, completion: nil)
     }
+    
     
     @IBAction func pushedRgstButton(_ sender: Any) {
         let realm = try! Realm()

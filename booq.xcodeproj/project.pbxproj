@@ -12,7 +12,6 @@
 		5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E4205A74FC009EAB05 /* FirstViewController.swift */; };
 		5906C0E7205A74FC009EAB05 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E6205A74FC009EAB05 /* SecondViewController.swift */; };
 		5906C0EA205A74FC009EAB05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5906C0E8205A74FC009EAB05 /* Main.storyboard */; };
-		5906C0EC205A74FC009EAB05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5906C0EB205A74FC009EAB05 /* Assets.xcassets */; };
 		5906C0EF205A74FC009EAB05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5906C0ED205A74FC009EAB05 /* LaunchScreen.storyboard */; };
 		5906C0FA205A74FC009EAB05 /* booqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0F9205A74FC009EAB05 /* booqTests.swift */; };
 		5906C105205A74FC009EAB05 /* booqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C104205A74FC009EAB05 /* booqUITests.swift */; };
@@ -30,6 +29,7 @@
 		5960B1DF206F931C00129CCA /* flurry_user_sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5960B1DE206F931C00129CCA /* flurry_user_sessions.swift */; };
 		59C1766F20763B2200A9A82C /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C1766E20763B2200A9A82C /* LogViewController.swift */; };
 		59D330A1206C8A5D0027A56C /* RgstPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D330A0206C8A5C0027A56C /* RgstPopUpViewController.swift */; };
+		59D484BF2079E171001510B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D484BE2079E171001510B5 /* Assets.xcassets */; };
 		59F45F3B2060AC65003F4C0F /* toUseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F45F3A2060AC64003F4C0F /* toUseCodable.swift */; };
 		59F45F3D2060FCC7003F4C0F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F45F3C2060FCC7003F4C0F /* SearchResultViewController.swift */; };
 		59F45F3F2060FE22003F4C0F /* ResultableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F45F3E2060FE22003F4C0F /* ResultableViewCell.swift */; };
@@ -68,7 +68,6 @@
 		5906C0E4205A74FC009EAB05 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		5906C0E6205A74FC009EAB05 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5906C0E9205A74FC009EAB05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5906C0EB205A74FC009EAB05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5906C0EE205A74FC009EAB05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5906C0F0205A74FC009EAB05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5906C0F5205A74FC009EAB05 /* booqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +91,7 @@
 		5960B1DE206F931C00129CCA /* flurry_user_sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flurry_user_sessions.swift; sourceTree = "<group>"; };
 		59C1766E20763B2200A9A82C /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		59D330A0206C8A5C0027A56C /* RgstPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RgstPopUpViewController.swift; path = /Users/nasutaro211/Desktop/Booq/booq/booq/RgstPopUpViewController.swift; sourceTree = "<absolute>"; };
+		59D484BE2079E171001510B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59F45F3A2060AC64003F4C0F /* toUseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = toUseCodable.swift; path = /Users/nasutaro211/Desktop/Booq/booq/booq/toUseCodable.swift; sourceTree = "<absolute>"; };
 		59F45F3C2060FCC7003F4C0F /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		59F45F3E2060FE22003F4C0F /* ResultableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultableViewCell.swift; sourceTree = "<group>"; };
@@ -168,6 +168,7 @@
 				59D330A0206C8A5C0027A56C /* RgstPopUpViewController.swift */,
 				59F45F3A2060AC64003F4C0F /* toUseCodable.swift */,
 				592E3549205E65AD004F567D /* RealmModels.swift */,
+				59D484BE2079E171001510B5 /* Assets.xcassets */,
 				5906C0E2205A74FC009EAB05 /* AppDelegate.swift */,
 				5960B1DE206F931C00129CCA /* flurry_user_sessions.swift */,
 				5906C0E4205A74FC009EAB05 /* FirstViewController.swift */,
@@ -184,7 +185,6 @@
 				59F992A320753C2D0054E272 /* TopToButtomSegue.swift */,
 				59F45F3C2060FCC7003F4C0F /* SearchResultViewController.swift */,
 				592E354B205F5443004F567D /* BooksCollectionViewCell.swift */,
-				5906C0EB205A74FC009EAB05 /* Assets.xcassets */,
 				592E354F205F648D004F567D /* RegistrationViewController.swift */,
 				5906C0ED205A74FC009EAB05 /* LaunchScreen.storyboard */,
 				5906C0F0205A74FC009EAB05 /* Info.plist */,
@@ -350,7 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5906C0EF205A74FC009EAB05 /* LaunchScreen.storyboard in Resources */,
-				5906C0EC205A74FC009EAB05 /* Assets.xcassets in Resources */,
+				59D484BF2079E171001510B5 /* Assets.xcassets in Resources */,
 				5906C0EA205A74FC009EAB05 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

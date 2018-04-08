@@ -42,6 +42,9 @@ class PopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bookImageView.sd_setImage(with:URL(string: theBook.imageLink), completed: nil)
+        if bookImageView.image == nil && theBook.imageData != nil{
+            bookImageView.image = UIImage(data: theBook.imageData!)
+        }
         titleLabel.text = theBook.title
         authorLabel.text = theBook.authors
         

@@ -38,6 +38,9 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         questionTextField.delegate = self
         answerTextField.delegate = self
         bookImageView.sd_setImage(with: URL(string:theBook.imageLink), completed: nil)
+        if bookImageView.image == nil && theBook.imageData != nil{
+            bookImageView.image = UIImage(data: theBook.imageData!)
+        }
         bookTitleLabel.text = theBook.title
         logLable.isHidden = true
         logLable.alpha = 0

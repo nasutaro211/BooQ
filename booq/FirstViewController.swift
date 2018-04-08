@@ -32,7 +32,7 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
     override func viewDidLoad() {
         booksCollectionView.delegate = self
         booksCollectionView.dataSource = self
-        //初期化のための下三行
+//        初期化のための下三行
 //        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
 //            try! FileManager.default.removeItem(at: fileURL)
 //        }
@@ -134,6 +134,9 @@ extension FirstViewController: UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! BooksCollectionViewCell
         cell.bookImageView.sd_setImage(with: URL(string: books[books.count - indexPath.row - 1].imageLink), completed: nil)
+        if cell.bookImageView.image == nil && books[books.count - indexPath.row - 1].imageData != nil{
+            cell.bookImageView.image = UIImage(data: books[books.count - indexPath.row - 1].imageData!)
+        }
         cell.pekeButton.tag = indexPath.row
         if canEditCollectionView {
             cell.pekeButton.isHidden = false

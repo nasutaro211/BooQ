@@ -112,6 +112,10 @@ extension SecondViewController:UITableViewDelegate,UITableViewDataSource{
         let question = questions[questions.count - indexPath.row - 1]
         cell.questionLabel.text = question.questionStr
         cell.bookImageView.sd_setImage(with: URL(string: question.books.first!.imageLink), completed: nil)
+        if cell.bookImageView.image == nil && question.books.first!.imageData != nil{
+            cell.bookImageView.image = UIImage(data: question.books.first!.imageData!)
+        }
+        
         cell.showAnswerButton.tag = indexPath.row
         cell.selectionStyle = .gray
         return cell

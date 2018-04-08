@@ -26,6 +26,10 @@ class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollV
         questionTextView.text = theQuestion.questionStr
         answerTextView.text = theQuestion.answers[0].answerStr
         bookImageView.sd_setImage(with: URL(string:(theQuestion.books.first?.imageLink)!), completed: nil)
+        if bookImageView.image == nil && theQuestion.books.first?.imageData != nil{
+            bookImageView.image = UIImage(data: (theQuestion.books.first?.imageData!)!)
+        }
+        
         bookTitleLabel.text = theQuestion.books.first!.title
         
         //tableviewのdelegate

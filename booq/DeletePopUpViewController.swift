@@ -24,6 +24,9 @@ class DeletePopUpViewController: UIViewController {
         answerLabel.text = theQuestion.answers[0].answerStr
         questionLabel.text = theQuestion.questionStr
         bookImageView.sd_setImage(with: URL(string: (theQuestion.books.first?.imageLink)!), completed: nil)
+        if bookImageView.image == nil && theQuestion.books.first?.imageData != nil{
+            bookImageView.image = UIImage(data: (theQuestion.books.first?.imageData!)!)
+        }
         
     }
     

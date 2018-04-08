@@ -4,27 +4,23 @@ import AVFoundation
 import Alamofire
 
 class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    let captureSession:AVCaptureSession? = AVCaptureSession();
-//    var previewLayer: AVCaptureVideoPreviewLayer?
-//    var captureDevice: AVCaptureDevice?
-    
+    //道具用意
     @IBOutlet var logLable: PaddingLabel!
-    //    var captureSession:AVCaptureSession?
+    let captureSession:AVCaptureSession? = AVCaptureSession();
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var barCodeFrameView:UIView?
     var book:VolumeInfo!
-    
+    var guardnerStr = ""
     // 読み取り範囲（0 ~ 1.0の範囲で指定）
     let x: CGFloat = 10
     let y: CGFloat = 100
     let width: CGFloat = 300
     let height: CGFloat = 120
-    
+    //いつもの
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //logLableを隠す
         logLable.isHidden = true
-        
         // カメラがあるか確認し，取得する
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)//(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
         guard let captureDevice = deviceDiscoverySession.devices.first else {
@@ -34,10 +30,8 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         do {
             // 取得したDeviceObjectを元にAVCaptureDeviceInputのインスタンスを作成
             let input = try AVCaptureDeviceInput(device: captureDevice)
-            
             // AVCaptureDeviceInputのインスタンスをcaptureSessionのInputDeviceに設定
             captureSession?.addInput(input)
-            
             // AVCaptureMetadataOutputのインスタンスを作成して、captureSessionのOutputDeviceに設定
             let captureMetadataOutput = AVCaptureMetadataOutput()
             captureSession?.addOutput(captureMetadataOutput)
@@ -59,20 +53,19 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 view.addSubview(barCodeFrameView)
                 view.bringSubview(toFront:barCodeFrameView)
             }
-            
         } catch {
             // エラーが起こったらエラーをprint
             print(error)
             return
         }
-
     }
     
-    // 映像からmetadataを取得した場合に呼び出されるデリゲートメソット"
+    // 映像からmetadataを取得した場合に呼び出されるデリゲートメソッド
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         DispatchQueue.main.async{
             // Check if the metadataObjects array is not nil and it contains at least one object.
             if metadataObjects.count == 0 {
+                //緑の枠を消す
                 self.barCodeFrameView?.frame = CGRect.zero
                 return
             }
@@ -80,27 +73,29 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
             //ean13だったら
             if metadataObj.type == AVMetadataObject.ObjectType.ean13 {
-                // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
                 let barCodeObject = self.videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
                 self.barCodeFrameView?.frame = barCodeObject!.bounds
                 //うまく読めたら
                 if metadataObj.stringValue != nil {
+                    if metadataObj.stringValue != self.guardnerStr && Int(metadataObj.stringValue!)!>9784000000000{
                     let url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + metadataObj.stringValue!
                     Alamofire.request(url).response { response in
                         if let data = response.data, let responseData:ResponseData = try? JSONDecoder().decode(ResponseData.self, from: data){
                             self.book = responseData.items.first?.volumeInfo
                             self.book.isbn = metadataObj.stringValue!
                             self.segueAddBookView()
+                            self.guardnerStr = metadataObj.stringValue!
                         }else{
                             //ここでないよラベル表示
                             print("ないよ")
                             self.logStr()
+                            self.guardnerStr = metadataObj.stringValue!
+                        }
                         }
                     }
                 }
             }
         }
-        
     }
     
     func logStr(){
@@ -144,6 +139,7 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         case "toAddBookView"://読み取り成功(GoogleBooksに本ありの時)
             let destination = segue.destination as! RgstPopUpViewController
             destination.theBook = sender as! VolumeInfo
+            destination.from = "BarCodeReader"
             break
         default:
             break

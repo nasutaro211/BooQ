@@ -104,6 +104,9 @@ extension BookQestionViewController:UITableViewDataSource,UITableViewDelegate{
         cell.questionLabel.text = question.questionStr
         let url = URL(string: question.books.first!.imageLink)
         cell.bookImageView.sd_setImage(with: url!, completed: nil)
+        if cell.bookImageView.image == nil && question.books.first!.imageData != nil{
+            cell.bookImageView.image = UIImage(data: question.books.first!.imageData!)
+        }
         cell.showAnswerButton.tag = indexPath.row
         return cell
     }
