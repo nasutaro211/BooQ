@@ -78,22 +78,22 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 //うまく読めたら
                 if metadataObj.stringValue != nil {
                     if metadataObj.stringValue != self.guardnerStr && Int(metadataObj.stringValue!)!>9784000000000{
-                    let url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + metadataObj.stringValue!
-                    Alamofire.request(url).response { response in
-                        if let data = response.data, let responseData:ResponseData = try? JSONDecoder().decode(ResponseData.self, from: data){
-                            self.book = responseData.items.first?.volumeInfo
-                            self.book.isbn = metadataObj.stringValue!
-                            self.segueAddBookView()
-                            self.guardnerStr = metadataObj.stringValue!
-                        }else{
-                            //ここでないよラベル表示
-                            print("ないよ")
-                            self.logStr()
-                            self.guardnerStr = metadataObj.stringValue!
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                                self.performSegue(withIdentifier: "toSelfRgstBookView", sender: metadataObj.stringValue)
-                            })
-                        }
+                        self.guardnerStr = metadataObj.stringValue!
+                        let url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + metadataObj.stringValue!
+                        Alamofire.request(url).response { response in
+                            if let data = response.data, let responseData:ResponseData = try? JSONDecoder().decode(ResponseData.self, from: data){
+                                self.book = responseData.items.first?.volumeInfo
+                                self.book.isbn = metadataObj.stringValue!
+                                self.segueAddBookView()
+                            }else{
+                                //ここでないよラベル表示
+                                print("ないよ")
+                                self.logStr()
+                                self.guardnerStr = metadataObj.stringValue!
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                                    self.performSegue(withIdentifier: "toSelfRgstBookView", sender: metadataObj.stringValue)
+                                })
+                            }
                         }
                     }
                 }
@@ -102,14 +102,14 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func logStr(){
-//        self.logLable.alpha = 0
+        //        self.logLable.alpha = 0
         logLable.isHidden = false
         UIView.animate(withDuration: 0.4, animations: {
             self.logLable.alpha = 1
         }, completion:nil)
         
     }
-
+    
     
     
     func segueAddBookView(){
@@ -133,6 +133,6 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
-    }
+}
 
 
