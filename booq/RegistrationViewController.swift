@@ -41,7 +41,7 @@ class RegistrationViewController: UIViewController,UISearchBarDelegate {
             print("無効なURL")
             return
         }
-        let url = "https://www.googleapis.com/books/v1/volumes?q=" + encodedKeyword + "&printType=books&maxResults=30"
+        let url = "https://www.googleapis.com/books/v1/volumes?q=" + encodedKeyword + "&printType=books&maxResults=40"
         Alamofire.request(url).response { response in
             if let data = response.data, let responseData:ResponseData = try? JSONDecoder().decode(ResponseData.self, from: data){
                 for item in responseData.items{

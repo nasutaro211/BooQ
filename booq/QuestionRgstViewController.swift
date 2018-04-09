@@ -84,14 +84,14 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         notificationCenter.addObserver(self, selector: #selector(QuestionRgstViewController.handleKeyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(QuestionRgstViewController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-
+    
     @objc func handleKeyboardWillShowNotification(_ notification: Notification) {
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let myBoundSize: CGSize = UIScreen.main.bounds.size
         var txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-
+        
         if txtLimit >= kbdLimit {
             scrollView.contentOffset.y = txtLimit - kbdLimit
         }
@@ -100,7 +100,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
         scrollView.contentOffset.y = 0
     }
-
+    
     
     
     @IBAction func pushedPeke(_ sender: Any) {
@@ -188,8 +188,6 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
             //どちらも埋まっている時
             answers.append(answerTextField.text)
             rgstQ()
-            answerTextField.text = ""
-            questionTextField.text = ""
             logStr()
         }else{
             //どちらかが空白の時
@@ -213,8 +211,13 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         logLable.isHidden = false
         UIView.animate(withDuration: 0.4, animations: {
             self.logLable.alpha = 1
-        }, completion:nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        }, completion:{
+            (value: Bool) in
+            
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
+            self.answerTextField.text = ""
+            self.questionTextField.text = ""
             UIView.animate(withDuration: 0.4, animations: {
                 self.logLable.alpha = 0
             }, completion:  {
@@ -224,19 +227,19 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         })
     }
     
-
     
-
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 
