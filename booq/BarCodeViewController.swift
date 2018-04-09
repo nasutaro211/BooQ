@@ -21,6 +21,7 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         super.viewDidLoad()
         //logLableを隠す
         logLable.isHidden = true
+        logLable.alpha  = 0
         // カメラがあるか確認し，取得する
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)//(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
         guard let captureDevice = deviceDiscoverySession.devices.first else {

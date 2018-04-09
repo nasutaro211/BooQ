@@ -16,6 +16,7 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
     @IBOutlet var alertLabel: UILabel!
     var questions: List<Question>!
     var theBook: Book!
+    @IBOutlet var nvbar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 20
+        nvbar.items![0].title = theBook.title
         // UILongPressGestureRecognizer宣言
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.cellLongPressed(recognizer:)))//Selector(("cellLongPressed:")))
         longPressRecognizer.delegate = self
@@ -107,7 +109,11 @@ extension BookQestionViewController:UITableViewDataSource,UITableViewDelegate{
             cell.bookImageView.image = UIImage(data: question.books.first!.imageData!)
         }
         cell.showAnswerButton.tag = indexPath.row
+        cell.selectionStyle = .gray
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }

@@ -10,18 +10,22 @@ import UIKit
 import RealmSwift
 import Flurry_iOS_SDK
 
-class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,UIScrollViewDelegate {
     var isbn:String!
     
     @IBOutlet var bookImageView: UIImageView!
     @IBOutlet var titleTextView: UITextView!
     @IBOutlet var alertLabel: PaddingLabel!
+    var txtActiveView = UITextView()
+    @IBOutlet var scrollView: UIScrollView!
+    
     
     //いつもの
     override func viewDidLoad() {
         super.viewDidLoad()
         let realm = try! Realm()
         alertLabel.isHidden = true
+        alertLabel.alpha = 0
         guard realm.object(ofType: Book.self, forPrimaryKey: isbn) == nil else{
             //すでにあるって怒ってもどる
             //alertで警告(ok押したら一個戻る)
@@ -36,6 +40,60 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
             return
         }
         bookImageView.sd_setImage(with: URL(string: "http://illustrain.com/img/work/2016/illustrain10-hon01.png"), completed: nil)
+        //キーボードを閉じる
+        // 仮のサイズでツールバー生成
+        let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        kbToolBar.barStyle = UIBarStyle.default  // スタイルを設定
+        kbToolBar.sizeToFit()  // 画面幅に合わせてサイズを変更
+        // スペーサー
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        // 閉じるボタン
+        let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(QuestionRgstViewController.commitButtonTapped))
+        kbToolBar.items = [spacer, commitButton]
+        titleTextView.inputAccessoryView = kbToolBar
+        //delegate関係
+        scrollView.delegate = self
+        titleTextView.delegate = self
+    }
+    
+    //完了ボタンが押された時
+    @objc func commitButtonTapped (){
+        self.view.endEditing(true)
+    }
+    //キーボード以外タッチしたらキーボード消える
+    @IBAction func didTouchOutsideofTextView(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
+    
+    //???キーボードに隠れなくする系
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(QuestionRgstViewController.handleKeyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(QuestionRgstViewController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        txtActiveView = textView
+        return true
+    }
+    
+    @objc func handleKeyboardWillShowNotification(_ notification: Notification) {
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let myBoundSize: CGSize = UIScreen.main.bounds.size
+        var txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
+        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        
+        if txtLimit >= kbdLimit {
+            scrollView.contentOffset.y = txtLimit - kbdLimit
+        }
+    }
+    
+    @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
+        scrollView.contentOffset.y = 0
     }
     
     //本の画像を追加のviewを出す

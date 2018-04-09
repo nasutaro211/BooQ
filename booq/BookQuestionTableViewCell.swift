@@ -22,7 +22,7 @@ class BookQuestionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.backgroundColor = UIColor.black
+        self.backgroundColor = UIColor(red: 235/255, green: 225/255, blue: 213/255, alpha: 1.0)//[UIColor colorWithRed:.0 green:225/255.0 blue:.0 alpha:1.0]
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

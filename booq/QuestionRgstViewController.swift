@@ -17,7 +17,6 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     @IBOutlet var questionTextField: UITextView!
     @IBOutlet var answerTextField: UITextView!
     @IBOutlet var bookTitleLabel: UILabel!
-    
     @IBOutlet var logLable: PaddingLabel!
     
     var theBook: Book!
@@ -240,18 +239,4 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
 
 }
 
-extension UIBarButtonItem {
-    enum HiddenItem: Int {
-        case Arrow = 100
-        case Back = 101
-        case Forward = 102
-        case Up = 103
-        case Down = 104
-    }
-    
-    convenience init(barButtonHiddenItem: HiddenItem, target: AnyObject?, action: Selector?) {
-        let systemItem = UIBarButtonSystemItem(rawValue: barButtonHiddenItem.rawValue)
-        self.init(barButtonSystemItem: systemItem!, target: target, action: action)
-    }
-}
 

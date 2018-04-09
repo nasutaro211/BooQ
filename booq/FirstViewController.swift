@@ -19,6 +19,9 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
     @IBOutlet var rgstButton: RoundedButtonm!
     @IBOutlet var booksCollectionView: UICollectionView!
     @IBOutlet var nothingBooksAlertLabel: UILabel!
+    @IBOutlet var EditButton: UIBarButtonItem!
+    @IBOutlet var nvbar: UINavigationBar!
+    
     //本一覧を入れる
     var books: Results<Book>!
     //本の削除ボタンの表示非表示に使う
@@ -100,6 +103,19 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
     //編集ボタンを押したら
     @IBAction func editButton(_ sender: Any) {
         canEditCollectionView = !canEditCollectionView
+        let item = nvbar.items![0]
+
+        if canEditCollectionView{
+            item.rightBarButtonItems?.remove(at: 0)
+            let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(FirstViewController.editButton(_:)))
+            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+            item.rightBarButtonItems?.append(button)
+        }else{
+            item.rightBarButtonItems?.remove(at: 0)
+            let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(FirstViewController.editButton(_:)))
+            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+            item.rightBarButtonItems?.append(button)
+        }
         //バツマークを表示させている
         booksCollectionView.reloadData()
     }

@@ -14,14 +14,12 @@ class DeletePopUpViewController: UIViewController {
     
     var theQuestion:Question!
 
-    @IBOutlet var answerLabel: UILabel!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var bookImageView: UIImageView!
     var from = ""
     //いつもの
     override func viewDidLoad() {
         super.viewDidLoad()
-        answerLabel.text = theQuestion.answers[0].answerStr
         questionLabel.text = theQuestion.questionStr
         bookImageView.sd_setImage(with: URL(string: (theQuestion.books.first?.imageLink)!), completed: nil)
         if bookImageView.image == nil && theQuestion.books.first?.imageData != nil{
