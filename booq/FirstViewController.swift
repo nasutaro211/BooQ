@@ -49,6 +49,12 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
         rgstButton.layer.shadowOpacity = 0.5 // 透明度
         rgstButton.layer.shadowOffset = CGSize(width: 0, height: 5) // 距離
         rgstButton.layer.shadowRadius = 5 // ぼかし量
+        //NavBar
+        let item = nvbar.items![0]
+        item.rightBarButtonItems?.remove(at: 0)
+        let button = editButtonItem
+        button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+        item.rightBarButtonItems?.append(button)
         super.viewDidLoad()
     }
 
@@ -98,24 +104,32 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
     }
     
     //編集ボタンを押したら
-    @IBAction func editButton(_ sender: Any) {
-        canEditCollectionView = !canEditCollectionView
-        let item = nvbar.items![0]
-
-        if canEditCollectionView{
-            item.rightBarButtonItems?.remove(at: 0)
-            let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(FirstViewController.editButton(_:)))
-            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
-            item.rightBarButtonItems?.append(button)
-        }else{
-            item.rightBarButtonItems?.remove(at: 0)
-            let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(FirstViewController.editButton(_:)))
-            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
-            item.rightBarButtonItems?.append(button)
-        }
+//    @IBAction func editButton(_ sender: Any) {
+//        canEditCollectionView = !canEditCollectionView
+//        let item = nvbar.items![0]
+//
+//        if canEditCollectionView{
+//            item.rightBarButtonItems?.remove(at: 0)
+//            let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(FirstViewController.editButton(_:)))
+//            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+//            item.rightBarButtonItems?.append(button)
+//        }else{
+//            item.rightBarButtonItems?.remove(at: 0)
+//            let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(FirstViewController.editButton(_:)))
+//            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+//            item.rightBarButtonItems?.append(button)
+//        }
+        //バツマークを表示させている
+//    }
+    //呼ばれるかな？
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        //バツマーク表示用
+        canEditCollectionView = editing
         //バツマークを表示させている
         booksCollectionView.reloadData()
+        super.setEditing(editing, animated: animated)
     }
+    
     //遷移前
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //collectionViewCellが押されたとき
