@@ -18,7 +18,8 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
     @IBOutlet var alertLabel: PaddingLabel!
     var txtActiveView = UITextView()
     @IBOutlet var scrollView: UIScrollView!
-    
+    var scrollViewHeight : CGFloat = 0
+
     
     //いつもの
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {self.present(alert, animated: true, completion: nil)})
             return
         }
+        
         bookImageView.sd_setImage(with: URL(string: "http://illustrain.com/img/work/2016/illustrain10-hon01.png"), completed: nil)
         //キーボードを閉じる
         // 仮のサイズでツールバー生成
@@ -54,6 +56,8 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
         //delegate関係
         scrollView.delegate = self
         titleTextView.delegate = self
+        // 初期状態の高さを保存-!
+        scrollViewHeight = scrollView.frame.size.height
     }
     
     //完了ボタンが押された時
@@ -84,16 +88,27 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let myBoundSize: CGSize = UIScreen.main.bounds.size
-        var txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
+        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
         
         if txtLimit >= kbdLimit {
             scrollView.contentOffset.y = txtLimit - kbdLimit
         }
+        let keyboard = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
+        
+        // 外枠のサイズを初期の外枠サイズからキーボードサイズ分ひくよー
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.scrollViewHeight - keyboard.height
+        })
+
     }
     
     @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
         scrollView.contentOffset.y = 0
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.view.frame.height
+        })
+
     }
     
     //本の画像を追加のviewを出す

@@ -18,6 +18,8 @@ class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollV
     var txtActiveView = UITextView()
     var theQuestion:Question!
     var from = ""
+    var scrollViewHeight : CGFloat = 0
+
     
     
     override func viewDidLoad() {
@@ -36,7 +38,8 @@ class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollV
         questionTextView.delegate = self
         answerTextView.delegate = self
         scrollView.delegate = self
-        
+        // 初期状態の高さを保存-!
+        scrollViewHeight = scrollView.frame.size.height
         //キーボードを閉じる
         // 仮のサイズでツールバー生成
         let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
@@ -134,9 +137,19 @@ class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollV
         if txtLimit >= kbdLimit {
             scrollView.contentOffset.y = txtLimit - kbdLimit
         }
+        let keyboard = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
+        
+        // 外枠のサイズを初期の外枠サイズからキーボードサイズ分ひくよー
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.scrollViewHeight - keyboard.height
+            
+        })
     }
     @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
         scrollView.contentOffset.y = 0
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.view.frame.height
+        })
     }
     
     

@@ -16,6 +16,7 @@ class PopUpViewController: UIViewController {
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var bookImageView: UIImageView!
     @IBAction func toQstnRgstView(_ sender: Any) {
+        Flurry.logEvent("toQuestionRgstView")
         let tabBarController = self.presentingViewController as! TabBarController
         self.dismiss(animated: false, completion: {
             tabBarController.performSegue(withIdentifier: "toQstnRgstView", sender: self.theBook)

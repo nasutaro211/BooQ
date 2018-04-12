@@ -14,9 +14,6 @@
       location = "group:/Users/nasutaro211/Desktop/Booq/booq/booq/toUseCodable.swift">
    </FileRef>
    <FileRef
-      location = "group:/Users/nasutaro211/Desktop/Booq/booq/booq/RealmModels.swift">
-   </FileRef>
-   <FileRef
       location = "group:booq.xcodeproj">
    </FileRef>
    <FileRef

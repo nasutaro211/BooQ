@@ -25,7 +25,8 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     var from = ""
     var txtActiveView = UITextView()
     @IBOutlet var scrollView: UIScrollView!
-    
+    var scrollViewHeight : CGFloat = 0
+
     //キーボード以外タッチしたらキーボード消える
     @IBAction func tapScreen(_ sender: Any) {
         self.view.endEditing(true)
@@ -44,6 +45,8 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         logLable.isHidden = true
         logLable.alpha = 0
         
+        scrollViewHeight = scrollView.frame.size.height
+
         //キーボードを閉じる
         // 仮のサイズでツールバー生成
         let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
@@ -56,25 +59,49 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         kbToolBar.items = [spacer, commitButton]
         questionTextField.inputAccessoryView = kbToolBar
         answerTextField.inputAccessoryView = kbToolBar
+        questionTextField.tag = 1
+        answerTextField.tag = 2
     }
     //完了ボタンが押された時
     @objc func commitButtonTapped (){
         self.view.endEditing(true)
     }
-    //おそらくいらない
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        for touch: UITouch in touches {
-            let tag = touch.view!.tag
-            if tag == 1 {
-                self.view.endEditing(true)
-            }
-        }
-    }
-    //キーボードに隠れなくするべきtextViewを代入
+    //textViewが編集された時
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        //flurry用
+        var param = [String: String]()
+        switch textView.tag {
+        case 1://questionTextField
+            param["content"] = textView.text
+            Flurry.logEvent("QBeginEditing",withParameters: param)
+            break
+        case 2://answerTextField
+            param["content"] = textView.text
+            Flurry.logEvent("ABeginEditing",withParameters: param)
+            break
+        default:
+            break
+        }
+        //キーボードに隠れなくするべきtextViewを代入
         txtActiveView = textView
         return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        //flurry用
+        var param = [String: String]()
+        switch textView.tag {
+        case 1://questionTextField
+            param["content"] = textView.text
+            Flurry.logEvent("QEndEditing",withParameters: param)
+            break
+        case 2://answerTextField
+            param["content"] = textView.text
+            Flurry.logEvent("AEndEditing",withParameters: param)
+            break
+        default:
+            break
+        }
     }
     //???キーボードに隠れなくする系
     override func viewWillAppear(_ animated: Bool) {
@@ -89,15 +116,23 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let myBoundSize: CGSize = UIScreen.main.bounds.size
-        var txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
+        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
         
         if txtLimit >= kbdLimit {
             scrollView.contentOffset.y = txtLimit - kbdLimit
         }
+        let keyboard = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.scrollViewHeight - keyboard.height
+        })
+
     }
     
     @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.view.frame.height
+        })
         scrollView.contentOffset.y = 0
     }
     
