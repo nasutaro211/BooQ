@@ -205,7 +205,7 @@
                                 <rect key="frame" x="28" y="100" width="319" height="467"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wx-S8-6ad" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="304" width="239" height="56.5"/>
+                                        <rect key="frame" x="40" y="303.5" width="239" height="57"/>
                                         <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="問題を見る">
@@ -559,7 +559,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXd-xB-i9a" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
-                                        <rect key="frame" x="47" y="383" width="281" height="67"/>
+                                        <rect key="frame" x="47" y="383" width="281" height="66.5"/>
                                         <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="続けて登録">
@@ -575,7 +575,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fI6-Ct-baa" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
-                                        <rect key="frame" x="47" y="458" width="281" height="67"/>
+                                        <rect key="frame" x="47" y="457.5" width="281" height="67"/>
                                         <color key="backgroundColor" red="0.43921568630000002" green="0.56862745100000001" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="登録して終了">
@@ -731,7 +731,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="該当する本がありません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bde-gH-bA4" userLabel="Log Lable" customClass="PaddingLabel" customModule="booq" customModuleProvider="target">
-                                <rect key="frame" x="37" y="241" width="300" height="67"/>
+                                <rect key="frame" x="37.5" y="241" width="300" height="67"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.1647058824" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -806,7 +806,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="該当する本がありません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C7-Z6-GCs" userLabel="Log Lable" customClass="PaddingLabel" customModule="booq" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="300.5" width="300" height="67"/>
+                                <rect key="frame" x="37.5" y="300" width="300" height="67"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.1647058824" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1095,7 +1095,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCj-fS-d0P">
-                                <rect key="frame" x="28" y="124" width="319" height="418"/>
+                                <rect key="frame" x="28" y="124" width="319" height="419"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deb-HM-E0T">
                                         <rect key="frame" x="170" y="74" width="129" height="20.5"/>
@@ -1126,7 +1126,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaO-36-ajF" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="327" width="239" height="57"/>
+                                        <rect key="frame" x="40" y="328" width="239" height="57"/>
                                         <color key="backgroundColor" red="0.72941176470588232" green="0.4392156862745098" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="57" id="AhQ-6g-TZB"/>
@@ -1146,7 +1146,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alI-t3-SnN" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="262" width="239" height="57"/>
+                                        <rect key="frame" x="40" y="263" width="239" height="57"/>
                                         <color key="backgroundColor" red="0.43921568630000002" green="0.56862745100000001" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="57" id="EEy-dd-hpw"/>
@@ -1403,7 +1403,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcJ-Zq-fuw">
-                                <rect key="frame" x="37.5" y="310.5" width="300" height="47"/>
+                                <rect key="frame" x="37.5" y="310" width="300" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1432,14 +1432,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="87" y="280" width="202" height="43"/>
+                                <rect key="frame" x="86.5" y="280" width="202" height="43"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="331" width="215" height="17"/>
+                                <rect key="frame" x="79.5" y="331" width="215" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1706,7 +1706,7 @@
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="著名が空欄です" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqc-SJ-Yjg" userLabel="Log Lable" customClass="PaddingLabel" customModule="booq" customModuleProvider="target">
-                                <rect key="frame" x="38" y="270" width="300" height="67"/>
+                                <rect key="frame" x="37.5" y="270" width="300" height="67"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.1647058824" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

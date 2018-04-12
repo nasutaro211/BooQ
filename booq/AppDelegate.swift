@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
         })
         
-        // デフォルトで呼ばれるRealmに今回設定したバージョンのものを設定
+//         デフォルトで呼ばれるRealmに今回設定したバージョンのものを設定
         Realm.Configuration.defaultConfiguration = config
         return true
     }

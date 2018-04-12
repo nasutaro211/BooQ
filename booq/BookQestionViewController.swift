@@ -14,13 +14,13 @@ import SDWebImage
 class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
     @IBOutlet var tableView: UITableView!
     @IBOutlet var alertLabel: UILabel!
-    var questions: List<Question>!
+    var questions: Results<Question>!
     var theBook: Book!
     @IBOutlet var nvbar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questions = theBook.questions
+        questions = theBook.questions.sorted(byKeyPath: "numInBook", ascending: false)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -66,7 +66,7 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
         if indexPath == nil {
         } else if recognizer.state == UIGestureRecognizerState.began  {
             // 長押しされた場合の処理
-            performSegue(withIdentifier: "toDeleteQuestionView", sender: questions[questions.count - (indexPath?.row)! - 1])
+            performSegue(withIdentifier: "toDeleteQuestionView", sender: questions[(indexPath?.row)!])
         }
     }
     
@@ -77,12 +77,12 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
         let indexPath = IndexPath(row: button.tag, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! BookQuestionTableViewCell
         if cell.answerTextView.text == "答え ▼"{
-            cell.answerTextView.text = "答え ▶︎ " + questions[questions.count - indexPath.row - 1].answers[0].answerStr
+            cell.answerTextView.text = "答え ▶︎ " + questions[indexPath.row].answers[0].answerStr
             //cellの高さをUpdaete
             tableView.beginUpdates()
             tableView.endUpdates()
             //Flurry用
-            let param = ["book":questions[questions.count - indexPath.row - 1].books.first!.title,"Question":questions[questions.count - indexPath.row - 1].questionStr,"Answer":questions[questions.count - indexPath.row - 1].answers[0].answerStr]
+            let param = ["book":questions[indexPath.row].books.first!.title,"Question":questions[indexPath.row].questionStr,"Answer":questions[indexPath.row].answers[0].answerStr]
             Flurry.logEvent("showAnAnswer",withParameters: param)
         }else{
             cell.answerTextView.text = "答え ▼"
@@ -102,7 +102,7 @@ extension BookQestionViewController:UITableViewDataSource,UITableViewDelegate{
     //cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookQuestionCell", for: indexPath) as! BookQuestionTableViewCell
-        let question = questions[questions.count - indexPath.row - 1]
+        let question = questions[indexPath.row]
         cell.questionLabel.text = question.questionStr
         cell.bookImageView.sd_setImage(with: URL(string: question.books.first!.imageLink), completed: nil)
         if cell.bookImageView.image == nil && question.books.first!.imageData != nil{
@@ -114,6 +114,10 @@ extension BookQestionViewController:UITableViewDataSource,UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    //並び替えられるセルの番号を指定。今回は全て
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
 
 }

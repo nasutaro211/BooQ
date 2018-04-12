@@ -35,10 +35,6 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
     override func viewDidLoad() {
         booksCollectionView.delegate = self
         booksCollectionView.dataSource = self
-//        初期化のための下三行
-//        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
-//            try! FileManager.default.removeItem(at: fileURL)
-//        }
         //dafault.realmの確認
         let realm = try! Realm()
         books = realm.objects(Book.self)
@@ -100,6 +96,7 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
         //viewをアップデート
         booksCollectionView.reloadData()
     }
+    
     //編集ボタンを押したら
     @IBAction func editButton(_ sender: Any) {
         canEditCollectionView = !canEditCollectionView
