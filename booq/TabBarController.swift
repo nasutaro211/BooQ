@@ -1,24 +1,40 @@
 //
 //  TabBarController.swift
-//  booq
+//  
 //
-//  Created by 中田　優樹 on 2018/04/12.
-//  Copyright © 2018年 nakatayuki. All rights reserved.
+//  Created by 中田　優樹 on 2018/04/02.
 //
 
 import UIKit
 
 class TabBarController: UITabBarController {
+    
+        var willAppear = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+            self.selectedIndex = willAppear // 0 が一番左のタ
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //問題を登録
+        if segue.identifier == "toQstnRgstView"{
+            let destination = segue.destination as! QuestionRgstViewController
+            destination.theBook = sender as! Book
+            destination.from = "PopUpView"
+        }
+        //問題一覧
+        if segue.identifier == "toBookQuestionView"{
+            let destination = segue.destination as! BookQestionViewController
+            destination.theBook = sender as! Book
+        }
     }
     
 

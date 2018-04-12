@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .withCrashReporting(true)
             .withLogLevel(FlurryLogLevelAll))
         // Your code
-        Flurry.logEvent("AppLunch")
         return true
     }
 
