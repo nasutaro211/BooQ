@@ -154,6 +154,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
                     question.answers.append(answerObject)
                 }
                 question.questionID = returnTimestamp()
+                question.numInBook = returnTimestamp()
                 question.questionStr = questionTextField.text!
                 question.registeredDay = Date()
                 question.nextEmergenceDay = return_yyyyMMdd(date: Date(timeInterval: 60*60*24, since: Date()))

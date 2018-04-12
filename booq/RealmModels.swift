@@ -33,6 +33,7 @@ class Question: Object {
     @objc dynamic var questionStr = ""
     @objc dynamic var registeredDay = Date()
     @objc dynamic var nextEmergenceDay = "yyyyMMdd"
+    @objc dynamic var numInBook = ""
     @objc dynamic var consecutiveCorrectTimes = 0
     //答えs
     let answers = List<Answer>()

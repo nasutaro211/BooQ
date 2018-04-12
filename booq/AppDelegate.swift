@@ -8,6 +8,7 @@
 
 import UIKit
 import Flurry_iOS_SDK
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +22,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .init()
             .withCrashReporting(true)
             .withLogLevel(FlurryLogLevelAll))
-        // Your code
+        //マイグレーション
+        let config = Realm.Configuration(
+            // 新しいデータベース構造のバージョンを宣言。
+            //バージョンは以前使っていたバージョンよりも大きいものにする(まだマイグレーションをしたことがないときのバージョンは0)
+            schemaVersion: 1,
+            // 新しいバージョンに書き換えらる時に自動的に呼ばれるブロックを引数に渡す
+            migrationBlock: { migration, oldSchemaVersion in
+                // まだマイグレーションをしたことがないのでoldSchemaVersion == 0
+                if (oldSchemaVersion < 1) {
+                    //ここにマイグレーションする時のコードを書く
+                    migration.enumerateObjects(ofType: Question.className()) { oldObject, newObject in
+                        //ひとまず時系列になるようにする
+                        newObject!["numInBook"] = oldObject!["questionID"] as! String
+                    }
+                }
+        })
+        
+        // デフォルトで呼ばれるRealmに今回設定したバージョンのものを設定
+        Realm.Configuration.defaultConfiguration = config
         return true
     }
 
