@@ -50,7 +50,7 @@ class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollV
         questionTextView.inputAccessoryView = kbToolBar
         answerTextView.inputAccessoryView = kbToolBar
     }
-    //KeyBoard閉じる
+    //KeyBoard閉じるa
     @objc func commitButtonTapped (){
         self.view.endEditing(true)
     }
