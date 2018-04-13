@@ -16,6 +16,7 @@ class SecondViewController: UIViewController,UITabBarControllerDelegate,UIGestur
     @IBOutlet var tableView: UITableView!
     //question一覧
     var questions: Results<Question>!
+    var from = ""
     
 
     //いつもの０
@@ -65,6 +66,11 @@ class SecondViewController: UIViewController,UITabBarControllerDelegate,UIGestur
             let destination = segue.destination as! DeletePopUpViewController
             destination.theQuestion = sender as! Question
             destination.from = "SecondViewController"
+        case "toEditQuestionView":
+            let destination = segue.destination as! EditQuestionViewController
+            destination.theQuestion = sender as! Question
+            destination.from = from
+            break
         default:
             return
         }

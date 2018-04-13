@@ -17,6 +17,7 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
     var questions: Results<Question>!
     var theBook: Book!
     @IBOutlet var nvbar: UINavigationBar!
+    var from = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,12 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.cellLongPressed(recognizer:)))//Selector(("cellLongPressed:")))
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
+        //編集ボタン追加
+//        let item = nvbar.items![0]
+//        item.rightBarButtonItems?.remove(at: 0)
+//        let button = editButtonItem
+//        button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+//        item.rightBarButtonItems?.append(button)
     }
     
     @IBAction func toQuestionRgstVIew(_ sender: Any) {
@@ -47,6 +54,11 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
             let destination = segue.destination as! DeletePopUpViewController
             destination.theQuestion = sender as! Question
             destination.from = "BookQuestionViewController"
+        case "toEditQuestionView":
+            let destination = segue.destination as! EditQuestionViewController
+            destination.theQuestion = sender as! Question
+            destination.from = from
+            break
         default:
             break
         }
@@ -116,7 +128,7 @@ extension BookQestionViewController:UITableViewDataSource,UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
     }
     //並び替えられるセルの番号を指定。今回は全て
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 
