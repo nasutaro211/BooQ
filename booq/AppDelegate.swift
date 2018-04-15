@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             let imageData = oldObject!["imageData"] as! Data
                             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                             let fileURL = documentsURL.appendingPathComponent((oldObject!["ISBN"] as! String))
-                            try! imageData.write(to: fileURL)Nasu0
+                            try! imageData.write(to: fileURL)
                         }
                         })
                 }
