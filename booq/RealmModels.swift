@@ -18,7 +18,8 @@ class Book: Object {
     @objc dynamic var imageLink = "http://illustrain.com/img/work/2016/illustrain10-hon01.png"
     @objc dynamic var title = "タイトルはありません"
     @objc dynamic var authors = ""
-    @objc dynamic var imageData:Data?
+//    @objc dynamic var imageData:Data? ver.0,ver.1
+    @objc dynamic var imageFileURLStr = ""//ver.2~
     //問題s
     let questions = List<Question>()
 }
@@ -33,7 +34,7 @@ class Question: Object {
     @objc dynamic var questionStr = ""
     @objc dynamic var registeredDay = Date()
     @objc dynamic var nextEmergenceDay = "yyyyMMdd"
-    @objc dynamic var numInBook = ""
+    @objc dynamic var numInBook = "" //ver.1~
     @objc dynamic var consecutiveCorrectTimes = 0
     //答えs
     let answers = List<Answer>()

@@ -32,11 +32,11 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
         //編集ボタン追加
-//        let item = nvbar.items![0]
-//        item.rightBarButtonItems?.remove(at: 0)
-//        let button = editButtonItem
-//        button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
-//        item.rightBarButtonItems?.append(button)
+        let item = nvbar.items![0]
+        item.rightBarButtonItems?.remove(at: 0)
+        let button = editButtonItem
+        button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+        item.rightBarButtonItems?.append(button)
     }
     
     @IBAction func toQuestionRgstVIew(_ sender: Any) {
@@ -82,6 +82,15 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
         }
     }
     
+    //右上の編集ボタンを押したら
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        //編集モードへ
+//        tableView.isEditing = editing
+        tableView.setEditing(editing, animated: true)
+
+    }
+    
     
     @IBAction func showAnswer(_ sender: Any) {
         //答えの表示からファイト！多分tagの番号のセルをとってなんとかするのが一番よ
@@ -89,7 +98,7 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
         let indexPath = IndexPath(row: button.tag, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! BookQuestionTableViewCell
         if cell.answerTextView.text == "答え ▼"{
-            cell.answerTextView.text = "答え ▶︎ " + questions[indexPath.row].answers[0].answerStr
+            cell.answerTextView.text = "答え ▶︎ " + "aaa"//questions[indexPath.row].answers[0].answerStr
             //cellの高さをUpdaete
             tableView.beginUpdates()
             tableView.endUpdates()
@@ -116,14 +125,12 @@ extension BookQestionViewController:UITableViewDataSource,UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookQuestionCell", for: indexPath) as! BookQuestionTableViewCell
         let question = questions[indexPath.row]
         cell.questionLabel.text = question.questionStr
-        cell.bookImageView.sd_setImage(with: URL(string: question.books.first!.imageLink), completed: nil)
-        if cell.bookImageView.image == nil && question.books.first!.imageData != nil{
-            cell.bookImageView.image = UIImage(data: question.books.first!.imageData!)
-        }
+        cell.bookImageView.setImage(of: question.books.first!)
         cell.showAnswerButton.tag = indexPath.row
         cell.selectionStyle = .gray
         return cell
     }
+    //押したままを防ぐ
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -131,5 +138,28 @@ extension BookQestionViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    //編集可能
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    //追加・削除の禁止
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.none
+    }
+    //削除アイコン表示分のスペースをインデントさせない
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    //セル移動時の配列データ処理
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let realm = try! Realm()
+        let a = questions[sourceIndexPath.row].numInBook
+        let b = questions[destinationIndexPath.row].numInBook
+        try! realm.write {
+            questions[sourceIndexPath.row].numInBook = b
+            questions[destinationIndexPath.row].numInBook = a
+        }
+    }
+    //tableviewcellの再利用
 
 }

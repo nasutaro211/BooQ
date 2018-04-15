@@ -29,6 +29,7 @@
 		595BA32D2066239E0024E71B /* BookQestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BA32C2066239E0024E71B /* BookQestionViewController.swift */; };
 		595BA32F2068F65C0024E71B /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BA32E2068F65C0024E71B /* RoundedButton.swift */; };
 		5960B1DF206F931C00129CCA /* flurry_user_sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5960B1DE206F931C00129CCA /* flurry_user_sessions.swift */; };
+		599DEE7B208303F0008C3F16 /* OriginalFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599DEE7A208303F0008C3F16 /* OriginalFunc.swift */; };
 		59C1766F20763B2200A9A82C /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C1766E20763B2200A9A82C /* LogViewController.swift */; };
 		59D484BF2079E171001510B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D484BE2079E171001510B5 /* Assets.xcassets */; };
 		59D484C12079E7E3001510B5 /* SelfRgstBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D484C02079E7E3001510B5 /* SelfRgstBookViewController.swift */; };
@@ -92,6 +93,7 @@
 		595BA32C2066239E0024E71B /* BookQestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQestionViewController.swift; sourceTree = "<group>"; };
 		595BA32E2068F65C0024E71B /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		5960B1DE206F931C00129CCA /* flurry_user_sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flurry_user_sessions.swift; sourceTree = "<group>"; };
+		599DEE7A208303F0008C3F16 /* OriginalFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalFunc.swift; sourceTree = "<group>"; };
 		59C1766E20763B2200A9A82C /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		59D484BE2079E171001510B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D484C02079E7E3001510B5 /* SelfRgstBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfRgstBookViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				59D484C02079E7E3001510B5 /* SelfRgstBookViewController.swift */,
+				599DEE7A208303F0008C3F16 /* OriginalFunc.swift */,
 				594D68F4207EEEFD00504345 /* ProjectName-Bridging-Header.h */,
 				594D68F2207EEEF100504345 /* TabBarController.swift */,
 				594D68F9207EEF2600504345 /* RealmModels.swift */,
@@ -541,6 +544,7 @@
 				594D68F8207EEF0E00504345 /* toUseCodable.swift in Sources */,
 				594D68F3207EEEF100504345 /* TabBarController.swift in Sources */,
 				592E3550205F648E004F567D /* RegistrationViewController.swift in Sources */,
+				599DEE7B208303F0008C3F16 /* OriginalFunc.swift in Sources */,
 				595BA32F2068F65C0024E71B /* RoundedButton.swift in Sources */,
 				59C1766F20763B2200A9A82C /* LogViewController.swift in Sources */,
 				595BA32D2066239E0024E71B /* BookQestionViewController.swift in Sources */,

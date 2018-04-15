@@ -160,10 +160,7 @@ extension FirstViewController: UICollectionViewDelegate,UICollectionViewDataSour
     //cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! BooksCollectionViewCell
-        cell.bookImageView.sd_setImage(with: URL(string: books[books.count - indexPath.row - 1].imageLink), completed: nil)
-        if cell.bookImageView.image == nil && books[books.count - indexPath.row - 1].imageData != nil{
-            cell.bookImageView.image = UIImage(data: books[books.count - indexPath.row - 1].imageData!)
-        }
+        cell.bookImageView.setImage(of: books[books.count - indexPath.row - 1])
         cell.pekeButton.tag = indexPath.row
         if canEditCollectionView {
             cell.pekeButton.isHidden = false

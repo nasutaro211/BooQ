@@ -35,10 +35,7 @@ class PopUpViewController: UIViewController {
     @IBOutlet var rgstButton: RoundedButtonm!
     override func viewDidLoad() {
         super.viewDidLoad()
-        bookImageView.sd_setImage(with:URL(string: theBook.imageLink), completed: nil)
-        if bookImageView.image == nil && theBook.imageData != nil{
-            bookImageView.image = UIImage(data: theBook.imageData!)
-        }
+        bookImageView.setImage(of: theBook)
         titleLabel.text = theBook.title
         authorLabel.text = theBook.authors
         
@@ -78,3 +75,5 @@ class PopUpViewController: UIViewController {
 
 
 }
+
+

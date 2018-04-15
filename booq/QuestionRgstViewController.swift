@@ -36,10 +36,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         scrollView.delegate = self
         questionTextField.delegate = self
         answerTextField.delegate = self
-        bookImageView.sd_setImage(with: URL(string:theBook.imageLink), completed: nil)
-        if bookImageView.image == nil && theBook.imageData != nil{
-            bookImageView.image = UIImage(data: theBook.imageData!)
-        }
+        bookImageView.setImage(of: theBook)
         bookTitleLabel.text = theBook.title
         logLable.isHidden = true
         logLable.alpha = 0
@@ -95,6 +92,19 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         if txtLimit >= kbdLimit {
             scrollView.contentOffset.y = txtLimit - kbdLimit
         }
+    }
+    
+    //正規表現
+    func checkEmpty(string: String) -> Bool {
+        let pattern = ".+"
+        guard let regex = try? NSRegularExpression(pattern: pattern,
+                                                   options: NSRegularExpression.Options()) else {
+                                                    return false
+        }
+        
+        return regex.numberOfMatches(in: string,
+                                     options: NSRegularExpression.MatchingOptions(),
+                                     range: NSRange(location: 0, length: string.count)) > 0
     }
     
     @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
@@ -185,13 +195,13 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     }
     
     func pushRgst(){
-        if questionTextField.text != "" && answerTextField.text != "" {
+        if checkEmpty(string: questionTextField.text!) && checkEmpty(string: answerTextField.text) {
             //どちらも埋まっている時
             answers.append(answerTextField.text)
             rgstQ()
             logStr()
         }else{
-            //どちらかが空白の時
+            //ログ表示
         }
     }
     

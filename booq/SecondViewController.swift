@@ -60,6 +60,7 @@ class SecondViewController: UIViewController,UITabBarControllerDelegate,UIGestur
     }
     
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "toDeleteQuestionView":
@@ -95,14 +96,10 @@ class SecondViewController: UIViewController,UITabBarControllerDelegate,UIGestur
             tableView.endUpdates()
         }
    }
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
 extension SecondViewController:UITableViewDelegate,UITableViewDataSource{
@@ -117,11 +114,7 @@ extension SecondViewController:UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
         let question = questions[questions.count - indexPath.row - 1]
         cell.questionLabel.text = question.questionStr
-        cell.bookImageView.sd_setImage(with: URL(string: question.books.first!.imageLink), completed: nil)
-        if cell.bookImageView.image == nil && question.books.first!.imageData != nil{
-            cell.bookImageView.image = UIImage(data: question.books.first!.imageData!)
-        }
-        
+        cell.bookImageView.setImage(of: question.books.first!)
         cell.showAnswerButton.tag = indexPath.row
         cell.selectionStyle = .gray
         return cell

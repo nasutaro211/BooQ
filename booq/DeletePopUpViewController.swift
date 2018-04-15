@@ -21,10 +21,7 @@ class DeletePopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         questionLabel.text = theQuestion.questionStr
-        bookImageView.sd_setImage(with: URL(string: (theQuestion.books.first?.imageLink)!), completed: nil)
-        if bookImageView.image == nil && theQuestion.books.first?.imageData != nil{
-            bookImageView.image = UIImage(data: (theQuestion.books.first?.imageData!)!)
-        }
+        bookImageView.setImage(of: theQuestion.books.first!)
     }
     
     //問題を編集する
