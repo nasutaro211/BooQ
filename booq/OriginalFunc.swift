@@ -13,7 +13,7 @@ extension UIImageView {
     //本から画像を登録
     func setImage(of theBook: Book){
         self.sd_setImage(with:URL(string: theBook.imageLink), completed: nil)
-        if self.image == nil && theBook.imageFileURLStr != ""{
+        if self.image == nil {
             let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
             let documentURL = URL(fileURLWithPath: documentsPath)
             let imageURL = documentURL.appendingPathComponent(theBook.ISBN)

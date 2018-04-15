@@ -152,7 +152,7 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
                 book.ISBN = isbn
                 book.title = titleTextView.text
                 book.imageLink = ""
-                book.imageFileURLStr = self.rgstToDocument(image: bookImageView.image!, as: isbn)
+                self.rgstToDocument(image: bookImageView.image!, as: isbn)
 //                book.imageData = UIImageJPEGRepresentation(bookImageView.image!, 1)//PNGRepresentation(bookImageView.image!)
                 realm.add(book)
                 Flurry.logEvent("AddOriginalBook")
@@ -163,12 +163,11 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
         }
     }
     
-    func rgstToDocument(image: UIImage,as fileName: String) -> String{
+    func rgstToDocument(image: UIImage,as fileName: String){
         let pngImageData = UIImagePNGRepresentation(image)
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fileURL = documentsURL.appendingPathComponent(fileName)
         try! pngImageData!.write(to: fileURL)
-        return fileURL.absoluteString
     }
     
     

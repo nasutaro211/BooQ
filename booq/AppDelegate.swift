@@ -26,21 +26,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let config = Realm.Configuration(
             // 新しいデータベース構造のバージョンを宣言。
             //バージョンは以前使っていたバージョンよりも大きいものにする(まだマイグレーションをしたことがないときのバージョンは0)
-            schemaVersion: 2,
+            schemaVersion: 3,
             // 新しいバージョンに書き換えらる時に自動的に呼ばれるブロックを引数に渡す
             migrationBlock: { migration, oldSchemaVersion in
                 // まだマイグレーションをしたことがないのでoldSchemaVersion == 0
-                if (oldSchemaVersion < 1) {
+                if (oldSchemaVersion < 3) {
                     //ここにマイグレーションする時のコードを書く
                     //Questionsのマイグレーション
                     migration.enumerateObjects(ofType: Question.className()) { oldObject, newObject in
                         //ひとまずnumInBookをマイグレート
                         if (newObject!["numInBook"] as! String) == ""{
+                            //0->1のバージョン移行
                             newObject!["numInBook"] = oldObject!["questionID"] as! String
                         }
                     }
+                    //Bookのマイグレーション
                     migration.enumerateObjects(ofType: Book.className(), { (oldObject, newObject) in
-                        if ((newObject!["imageFileURLStr"] as! String) == "" && oldObject!["imageData"] != nil){
+                        if (oldObject!["imageData"] != nil){
                             let imageData = oldObject!["imageData"] as! Data
                             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                             let fileURL = documentsURL.appendingPathComponent((oldObject!["ISBN"] as! String))

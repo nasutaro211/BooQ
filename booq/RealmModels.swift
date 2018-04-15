@@ -19,7 +19,7 @@ class Book: Object {
     @objc dynamic var title = "タイトルはありません"
     @objc dynamic var authors = ""
 //    @objc dynamic var imageData:Data? ver.0,ver.1
-    @objc dynamic var imageFileURLStr = ""//ver.2~
+//    @objc dynamic var imageFileURLStr = ""//ver.2
     //問題s
     let questions = List<Question>()
 }
