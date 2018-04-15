@@ -137,6 +137,11 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     }
     
     @IBAction func didPushRgstAndCntnue(_ sender: Any) {
+        let button = sender as! UIButton
+        button.isEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            button.isEnabled = true
+        })
         pushRgst()
     }
     
