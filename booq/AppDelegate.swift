@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .withLogLevel(FlurryLogLevelAll))
         //マイグレーション
         let config = Realm.Configuration(
+            //現在出ているアプリのschemaverは[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]//注目
             // 新しいデータベース構造のバージョンを宣言。
             //バージョンは以前使っていたバージョンよりも大きいものにする(まだマイグレーションをしたことがないときのバージョンは0)
             schemaVersion: 3,
@@ -41,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                     //Bookのマイグレーション
+                    if oldSchemaVersion < 2{
                     migration.enumerateObjects(ofType: Book.className(), { (oldObject, newObject) in
                         if (oldObject!["imageData"] != nil){
                             let imageData = oldObject!["imageData"] as! Data
@@ -49,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             try! imageData.write(to: fileURL)
                         }
                         })
+                    }
                 }
         })
         
