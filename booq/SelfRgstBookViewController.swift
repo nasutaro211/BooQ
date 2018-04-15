@@ -164,7 +164,8 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
     }
     
     func rgstToDocument(image: UIImage,as fileName: String){
-        let pngImageData = UIImagePNGRepresentation(image)
+        let originalImage = resizeImage(image: image, w: 50, h: 150)
+        let pngImageData = UIImagePNGRepresentation(originalImage)
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fileURL = documentsURL.appendingPathComponent(fileName)
         try! pngImageData!.write(to: fileURL)

@@ -43,12 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     //Bookのマイグレーション
                     if oldSchemaVersion < 2{
-                    migration.enumerateObjects(ofType: Book.className(), { (oldObject, newObject) in
+                    migration.enumerateObjects(ofType: Book.className(), { oldObject, newObject in
                         if (oldObject!["imageData"] != nil){
                             let imageData = oldObject!["imageData"] as! Data
+                            let image = UIImage(data: imageData)
+                            let originImage = resizeImage(image: image!, w: 50, h: 150)
+                            let pngImageData = UIImagePNGRepresentation(originImage)
                             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                             let fileURL = documentsURL.appendingPathComponent((oldObject!["ISBN"] as! String))
-                            try! imageData.write(to: fileURL)
+                            try! pngImageData!.write(to: fileURL)
                         }
                         })
                     }
