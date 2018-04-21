@@ -27,12 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //現在出ているアプリのschemaverは[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]//注目
             // 新しいデータベース構造のバージョンを宣言。
             //バージョンは以前使っていたバージョンよりも大きいものにする(まだマイグレーションをしたことがないときのバージョンは0)
-            schemaVersion: 3,
+            schemaVersion: 1,
             // 新しいバージョンに書き換えらる時に自動的に呼ばれるブロックを引数に渡す
             migrationBlock: { migration, oldSchemaVersion in
                 // まだマイグレーションをしたことがないのでoldSchemaVersion == 0
-                if (oldSchemaVersion < 3) {
-                    //ここにマイグレーションする時のコードを書く
+                if (oldSchemaVersion < 1) {
+                    /*ここにマイグレーションする時のコードを書く*/
                     //Questionsのマイグレーション
                     migration.enumerateObjects(ofType: Question.className()) { oldObject, newObject in
                         //ひとまずnumInBookをマイグレート
@@ -42,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                     //Bookのマイグレーション
-                    if oldSchemaVersion < 2{
                     migration.enumerateObjects(ofType: Book.className(), { oldObject, newObject in
                         if (oldObject!["imageData"] != nil){
                             let imageData = oldObject!["imageData"] as! Data
@@ -53,8 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             let fileURL = documentsURL.appendingPathComponent((oldObject!["ISBN"] as! String))
                             try! pngImageData!.write(to: fileURL)
                         }
-                        })
-                    }
+                    })
                 }
         })
         
