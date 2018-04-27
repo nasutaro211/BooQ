@@ -18,25 +18,23 @@ class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollV
     var txtActiveView = UITextView()
     var theQuestion:Question!
     var from = ""
-    
-    
+    var scrollViewHeight : CGFloat = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //viewを作る
         questionTextView.text = theQuestion.questionStr
         answerTextView.text = theQuestion.answers[0].answerStr
-        bookImageView.sd_setImage(with: URL(string:(theQuestion.books.first?.imageLink)!), completed: nil)
-        if bookImageView.image == nil && theQuestion.books.first?.imageData != nil{
-            bookImageView.image = UIImage(data: (theQuestion.books.first?.imageData!)!)
-        }
-        
+        bookImageView.setImage(of: theQuestion.books.first!)
         bookTitleLabel.text = theQuestion.books.first!.title
         
         //tableviewのdelegate
         questionTextView.delegate = self
         answerTextView.delegate = self
         scrollView.delegate = self
-        
+        // スクロールビューの初期状態の高さを保存-!
+        scrollViewHeight = scrollView.frame.size.height
+
         //キーボードを閉じる
         // 仮のサイズでツールバー生成
         let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
@@ -50,12 +48,16 @@ class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollV
         questionTextView.inputAccessoryView = kbToolBar
         answerTextView.inputAccessoryView = kbToolBar
     }
-    //KeyBoard閉じる
+    //KeyBoard閉じるa
     @objc func commitButtonTapped (){
         self.view.endEditing(true)
     }
     //編集完了したとき
     @IBAction func endEditting(_ sender: Any) {
+        guard (checkEmpty(string: questionTextView.text!) && checkEmpty(string: answerTextView.text)) else {
+            //ログ表示
+            return
+        }
         let realm = try! Realm()
         try! realm.write {
             theQuestion.questionStr = questionTextView.text
@@ -134,9 +136,18 @@ class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollV
         if txtLimit >= kbdLimit {
             scrollView.contentOffset.y = txtLimit - kbdLimit
         }
+        //スクロールできるようにするため
+        let keyboard = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.scrollViewHeight - keyboard.height
+        })
     }
     @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
         scrollView.contentOffset.y = 0
+        //スクロールできるようにするため
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.view.frame.height
+        })
     }
     
     
@@ -146,6 +157,19 @@ class EditQuestionViewController: UIViewController ,UITextViewDelegate,UIScrollV
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //正規表現チェック
+    func checkEmpty(string: String) -> Bool {
+        let pattern = ".+"
+        guard let regex = try? NSRegularExpression(pattern: pattern,
+                                                   options: NSRegularExpression.Options()) else {
+                                                    return false
+        }
+        
+        return regex.numberOfMatches(in: string,
+                                     options: NSRegularExpression.MatchingOptions(),
+                                     range: NSRange(location: 0, length: string.count)) > 0
     }
     
 

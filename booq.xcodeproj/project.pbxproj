@@ -29,6 +29,7 @@
 		595BA32D2066239E0024E71B /* BookQestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BA32C2066239E0024E71B /* BookQestionViewController.swift */; };
 		595BA32F2068F65C0024E71B /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BA32E2068F65C0024E71B /* RoundedButton.swift */; };
 		5960B1DF206F931C00129CCA /* flurry_user_sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5960B1DE206F931C00129CCA /* flurry_user_sessions.swift */; };
+		599DEE7B208303F0008C3F16 /* OriginalFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599DEE7A208303F0008C3F16 /* OriginalFunc.swift */; };
 		59C1766F20763B2200A9A82C /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C1766E20763B2200A9A82C /* LogViewController.swift */; };
 		59D484BF2079E171001510B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59D484BE2079E171001510B5 /* Assets.xcassets */; };
 		59D484C12079E7E3001510B5 /* SelfRgstBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D484C02079E7E3001510B5 /* SelfRgstBookViewController.swift */; };
@@ -92,6 +93,7 @@
 		595BA32C2066239E0024E71B /* BookQestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQestionViewController.swift; sourceTree = "<group>"; };
 		595BA32E2068F65C0024E71B /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		5960B1DE206F931C00129CCA /* flurry_user_sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flurry_user_sessions.swift; sourceTree = "<group>"; };
+		599DEE7A208303F0008C3F16 /* OriginalFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalFunc.swift; sourceTree = "<group>"; };
 		59C1766E20763B2200A9A82C /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		59D484BE2079E171001510B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D484C02079E7E3001510B5 /* SelfRgstBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfRgstBookViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				59D484C02079E7E3001510B5 /* SelfRgstBookViewController.swift */,
+				599DEE7A208303F0008C3F16 /* OriginalFunc.swift */,
 				594D68F4207EEEFD00504345 /* ProjectName-Bridging-Header.h */,
 				594D68F2207EEEF100504345 /* TabBarController.swift */,
 				594D68F9207EEF2600504345 /* RealmModels.swift */,
@@ -179,9 +182,9 @@
 				5906C0E8205A74FC009EAB05 /* Main.storyboard */,
 				590E06BC2070766D007EB025 /* BarCodeViewController.swift */,
 				595BA32E2068F65C0024E71B /* RoundedButton.swift */,
-				595BA32A206623140024E71B /* BookQuestionTableViewCell.swift */,
 				595BA32C2066239E0024E71B /* BookQestionViewController.swift */,
 				59F45F3E2060FE22003F4C0F /* ResultableViewCell.swift */,
+				595BA32A206623140024E71B /* BookQuestionTableViewCell.swift */,
 				59F45F40206222C6003F4C0F /* PopUpViewController.swift */,
 				59F45F4220622AA5003F4C0F /* QuestionRgstViewController.swift */,
 				59C1766E20763B2200A9A82C /* LogViewController.swift */,
@@ -313,7 +316,7 @@
 				TargetAttributes = {
 					5906C0DE205A74FC009EAB05 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					5906C0F4205A74FC009EAB05 = {
 						CreatedOnToolsVersion = 9.2;
@@ -541,6 +544,7 @@
 				594D68F8207EEF0E00504345 /* toUseCodable.swift in Sources */,
 				594D68F3207EEEF100504345 /* TabBarController.swift in Sources */,
 				592E3550205F648E004F567D /* RegistrationViewController.swift in Sources */,
+				599DEE7B208303F0008C3F16 /* OriginalFunc.swift in Sources */,
 				595BA32F2068F65C0024E71B /* RoundedButton.swift in Sources */,
 				59C1766F20763B2200A9A82C /* LogViewController.swift in Sources */,
 				595BA32D2066239E0024E71B /* BookQestionViewController.swift in Sources */,
@@ -728,13 +732,16 @@
 			baseConfigurationReference = 55301A4AE66AA9751A02844C /* Pods-booq.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3KKXY5S9W2;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = FUYNSQ2NQ6;
 				INFOPLIST_FILE = booq/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eggplant.com.booq;
+				PRODUCT_BUNDLE_IDENTIFIER = tmy.jack.BooQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "957762ce-1ed8-4c6d-9c93-39daff27cb91";
+				PROVISIONING_PROFILE_SPECIFIER = BooQ;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -745,13 +752,16 @@
 			baseConfigurationReference = C51521EBE9C731B538B81912 /* Pods-booq.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3KKXY5S9W2;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = FUYNSQ2NQ6;
 				INFOPLIST_FILE = booq/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eggplant.com.booq;
+				PRODUCT_BUNDLE_IDENTIFIER = tmy.jack.BooQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "957762ce-1ed8-4c6d-9c93-39daff27cb91";
+				PROVISIONING_PROFILE_SPECIFIER = BooQ;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

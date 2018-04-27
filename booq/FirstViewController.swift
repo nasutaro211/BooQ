@@ -35,10 +35,6 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
     override func viewDidLoad() {
         booksCollectionView.delegate = self
         booksCollectionView.dataSource = self
-//        初期化のための下三行
-//        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
-//            try! FileManager.default.removeItem(at: fileURL)
-//        }
         //dafault.realmの確認
         let realm = try! Realm()
         books = realm.objects(Book.self)
@@ -53,6 +49,12 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
         rgstButton.layer.shadowOpacity = 0.5 // 透明度
         rgstButton.layer.shadowOffset = CGSize(width: 0, height: 5) // 距離
         rgstButton.layer.shadowRadius = 5 // ぼかし量
+        //NavBar
+        let item = nvbar.items![0]
+        item.rightBarButtonItems?.remove(at: 0)
+        let button = editButtonItem
+        button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+        item.rightBarButtonItems?.append(button)
         super.viewDidLoad()
     }
 
@@ -100,25 +102,34 @@ class FirstViewController: UIViewController,UITabBarControllerDelegate,UITabBarD
         //viewをアップデート
         booksCollectionView.reloadData()
     }
+    
     //編集ボタンを押したら
-    @IBAction func editButton(_ sender: Any) {
-        canEditCollectionView = !canEditCollectionView
-        let item = nvbar.items![0]
-
-        if canEditCollectionView{
-            item.rightBarButtonItems?.remove(at: 0)
-            let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(FirstViewController.editButton(_:)))
-            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
-            item.rightBarButtonItems?.append(button)
-        }else{
-            item.rightBarButtonItems?.remove(at: 0)
-            let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(FirstViewController.editButton(_:)))
-            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
-            item.rightBarButtonItems?.append(button)
-        }
+//    @IBAction func editButton(_ sender: Any) {
+//        canEditCollectionView = !canEditCollectionView
+//        let item = nvbar.items![0]
+//
+//        if canEditCollectionView{
+//            item.rightBarButtonItems?.remove(at: 0)
+//            let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(FirstViewController.editButton(_:)))
+//            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+//            item.rightBarButtonItems?.append(button)
+//        }else{
+//            item.rightBarButtonItems?.remove(at: 0)
+//            let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(FirstViewController.editButton(_:)))
+//            button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+//            item.rightBarButtonItems?.append(button)
+//        }
+        //バツマークを表示させている
+//    }
+    //呼ばれるかな？
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        //バツマーク表示用
+        canEditCollectionView = editing
         //バツマークを表示させている
         booksCollectionView.reloadData()
+        super.setEditing(editing, animated: animated)
     }
+    
     //遷移前
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //collectionViewCellが押されたとき
@@ -149,10 +160,7 @@ extension FirstViewController: UICollectionViewDelegate,UICollectionViewDataSour
     //cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! BooksCollectionViewCell
-        cell.bookImageView.sd_setImage(with: URL(string: books[books.count - indexPath.row - 1].imageLink), completed: nil)
-        if cell.bookImageView.image == nil && books[books.count - indexPath.row - 1].imageData != nil{
-            cell.bookImageView.image = UIImage(data: books[books.count - indexPath.row - 1].imageData!)
-        }
+        cell.bookImageView.setImage(of: books[books.count - indexPath.row - 1])
         cell.pekeButton.tag = indexPath.row
         if canEditCollectionView {
             cell.pekeButton.isHidden = false

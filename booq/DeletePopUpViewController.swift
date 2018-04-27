@@ -21,16 +21,29 @@ class DeletePopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         questionLabel.text = theQuestion.questionStr
-        bookImageView.sd_setImage(with: URL(string: (theQuestion.books.first?.imageLink)!), completed: nil)
-        if bookImageView.image == nil && theQuestion.books.first?.imageData != nil{
-            bookImageView.image = UIImage(data: (theQuestion.books.first?.imageData!)!)
-        }
-        
+        bookImageView.setImage(of: theQuestion.books.first!)
     }
     
     //問題を編集する
     @IBAction func editQuestion(_ sender: Any) {
-        performSegue(withIdentifier: "toEditQuestionView", sender: theQuestion)
+        switch from {
+        case "BookQuestionViewController":
+            let bookQuestionViewController = self.presentingViewController!  as! BookQestionViewController
+            bookQuestionViewController.from = from
+            self.dismiss(animated: true, completion: {
+                bookQuestionViewController.performSegue(withIdentifier: "toEditQuestionView", sender: self.theQuestion)
+            })
+            break
+        case "SecondViewController":
+            let secondViewController = (self.presentingViewController! as! TabBarController).viewControllers![1] as! SecondViewController
+            secondViewController.from = from
+            self.dismiss(animated: true, completion: {
+                secondViewController.performSegue(withIdentifier: "toEditQuestionView", sender: self.theQuestion)
+            })
+            break
+        default:
+            break
+        }
     }
     //問題を消す
     @IBAction func deleteQuestion(_ sender: Any) {
@@ -74,7 +87,7 @@ class DeletePopUpViewController: UIViewController {
             (self.presentingViewController!  as! BookQestionViewController).tableView.reloadData()
             break
         case "SecondViewController":
-            ((self.presentingViewController! as! UINavigationController).viewControllers[0] as! SecondViewController).tableView.reloadData()
+            ((self.presentingViewController! as! TabBarController).viewControllers![1] as! SecondViewController).tableView.reloadData()
             break
         default:
             break
@@ -85,18 +98,7 @@ class DeletePopUpViewController: UIViewController {
     @IBAction func didPushPeke(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "toEditQuestionView":
-            let destination = segue.destination as! EditQuestionViewController
-            destination.theQuestion = sender as! Question
-            destination.from = from
-            break
-        default:
-            break
-        }
-    }
+
 
     
     override func didReceiveMemoryWarning() {

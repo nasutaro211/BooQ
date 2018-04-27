@@ -10,7 +10,6 @@ import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
 
-    @IBOutlet var answerButtonButtomConstrain: NSLayoutConstraint!
 
     @IBOutlet var answerTextView: UITextView!
     @IBOutlet var showAnswerButton: UIButton!
@@ -22,6 +21,10 @@ class QuestionTableViewCell: UITableViewCell {
 
 
         // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        answerTextView.text = "答え ▼"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

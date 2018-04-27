@@ -135,6 +135,7 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
     
     
     @IBAction func rgstBook(_ sender: Any) {
+        
         let realm = try! Realm()
         do{
             try realm.write {
@@ -151,7 +152,8 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
                 book.ISBN = isbn
                 book.title = titleTextView.text
                 book.imageLink = ""
-                book.imageData = UIImageJPEGRepresentation(bookImageView.image!, 1)//PNGRepresentation(bookImageView.image!)
+                self.rgstToDocument(image: bookImageView.image!, as: isbn)
+//                book.imageData = UIImageJPEGRepresentation(bookImageView.image!, 1)//PNGRepresentation(bookImageView.image!)
                 realm.add(book)
                 Flurry.logEvent("AddOriginalBook")
                 performSegue(withIdentifier: "returnTabBar", sender: nil)
@@ -159,9 +161,16 @@ class SelfRgstBookViewController: UIViewController,UIImagePickerControllerDelega
         }catch let error{
             print(error)
         }
-
-        
     }
+    
+    func rgstToDocument(image: UIImage,as fileName: String){
+        let originalImage = resizeImage(image: image, w: 50, h: 150)
+        let pngImageData = UIImagePNGRepresentation(originalImage)
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let fileURL = documentsURL.appendingPathComponent(fileName)
+        try! pngImageData!.write(to: fileURL)
+    }
+    
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

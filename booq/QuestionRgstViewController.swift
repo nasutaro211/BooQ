@@ -25,6 +25,8 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     var from = ""
     var txtActiveView = UITextView()
     @IBOutlet var scrollView: UIScrollView!
+    var scrollViewHeight : CGFloat = 0
+
     
     //キーボード以外タッチしたらキーボード消える
     @IBAction func tapScreen(_ sender: Any) {
@@ -36,13 +38,13 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         scrollView.delegate = self
         questionTextField.delegate = self
         answerTextField.delegate = self
-        bookImageView.sd_setImage(with: URL(string:theBook.imageLink), completed: nil)
-        if bookImageView.image == nil && theBook.imageData != nil{
-            bookImageView.image = UIImage(data: theBook.imageData!)
-        }
+        bookImageView.setImage(of: theBook)
         bookTitleLabel.text = theBook.title
         logLable.isHidden = true
         logLable.alpha = 0
+        //scrollViewの高さ保持
+        scrollViewHeight = scrollView.frame.size.height
+
         
         //キーボードを閉じる
         // 仮のサイズでツールバー生成
@@ -85,19 +87,41 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         notificationCenter.addObserver(self, selector: #selector(QuestionRgstViewController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    @objc func handleKeyboardWillShowNotification(_ notification: Notification) {
+    @objc func handleKeyboardWillShowNotification(_ notification: Notification){
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let myBoundSize: CGSize = UIScreen.main.bounds.size
-        var txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
+        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
         
         if txtLimit >= kbdLimit {
             scrollView.contentOffset.y = txtLimit - kbdLimit
         }
+        //スクロールできるようにするため
+        let keyboard = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.scrollViewHeight - keyboard.height
+        })
+    }
+    
+    //正規表現
+    func checkEmpty(string: String) -> Bool {
+        let pattern = ".+"
+        guard let regex = try? NSRegularExpression(pattern: pattern,
+                                                   options: NSRegularExpression.Options()) else {
+                                                    return false
+        }
+        
+        return regex.numberOfMatches(in: string,
+                                     options: NSRegularExpression.MatchingOptions(),
+                                     range: NSRange(location: 0, length: string.count)) > 0
     }
     
     @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
+        //スクロールできるようにするため
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.view.frame.height
+        })
         scrollView.contentOffset.y = 0
     }
     
@@ -110,7 +134,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     func back(){
         switch from {
         case "PopUpView":
-            performSegue(withIdentifier: "RgstEnd", sender: nil)
+            performSegue(withIdentifier: "seeQuestion", sender: theBook)
             break
         case "BookQuestionView":
             performSegue(withIdentifier: "seeQuestion", sender: theBook)
@@ -127,6 +151,11 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     }
     
     @IBAction func didPushRgstAndCntnue(_ sender: Any) {
+        let button = sender as! UIButton
+        button.isEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            button.isEnabled = true
+        })
         pushRgst()
     }
     
@@ -154,6 +183,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
                     question.answers.append(answerObject)
                 }
                 question.questionID = returnTimestamp()
+                question.numInBook = returnTimestamp()
                 question.questionStr = questionTextField.text!
                 question.registeredDay = Date()
                 question.nextEmergenceDay = return_yyyyMMdd(date: Date(timeInterval: 60*60*24, since: Date()))
@@ -184,13 +214,13 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     }
     
     func pushRgst(){
-        if questionTextField.text != "" && answerTextField.text != "" {
+        if checkEmpty(string: questionTextField.text!) && checkEmpty(string: answerTextField.text) {
             //どちらも埋まっている時
             answers.append(answerTextField.text)
             rgstQ()
             logStr()
         }else{
-            //どちらかが空白の時
+            //ログ表示
         }
     }
     
