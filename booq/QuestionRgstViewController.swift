@@ -25,6 +25,8 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     var from = ""
     var txtActiveView = UITextView()
     @IBOutlet var scrollView: UIScrollView!
+    var scrollViewHeight : CGFloat = 0
+
     
     //キーボード以外タッチしたらキーボード消える
     @IBAction func tapScreen(_ sender: Any) {
@@ -40,6 +42,9 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         bookTitleLabel.text = theBook.title
         logLable.isHidden = true
         logLable.alpha = 0
+        //scrollViewの高さ保持
+        scrollViewHeight = scrollView.frame.size.height
+
         
         //キーボードを閉じる
         // 仮のサイズでツールバー生成
@@ -82,16 +87,21 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         notificationCenter.addObserver(self, selector: #selector(QuestionRgstViewController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    @objc func handleKeyboardWillShowNotification(_ notification: Notification) {
+    @objc func handleKeyboardWillShowNotification(_ notification: Notification){
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let myBoundSize: CGSize = UIScreen.main.bounds.size
-        var txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
+        let txtLimit = txtActiveView.frame.origin.y + txtActiveView.frame.height + 120
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
         
         if txtLimit >= kbdLimit {
             scrollView.contentOffset.y = txtLimit - kbdLimit
         }
+        //スクロールできるようにするため
+        let keyboard = ((notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue)!
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.scrollViewHeight - keyboard.height
+        })
     }
     
     //正規表現
@@ -108,6 +118,10 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     }
     
     @objc func handleKeyboardWillHideNotification(_ notification: Notification) {
+        //スクロールできるようにするため
+        UIView.animate(withDuration: 0.4, animations: {
+            self.scrollView.frame.size.height = self.view.frame.height
+        })
         scrollView.contentOffset.y = 0
     }
     
@@ -120,7 +134,7 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
     func back(){
         switch from {
         case "PopUpView":
-            performSegue(withIdentifier: "RgstEnd", sender: nil)
+            performSegue(withIdentifier: "seeQuestion", sender: theBook)
             break
         case "BookQuestionView":
             performSegue(withIdentifier: "seeQuestion", sender: theBook)

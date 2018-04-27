@@ -32,11 +32,11 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
         //編集ボタン追加
-        let item = nvbar.items![0]
-        item.rightBarButtonItems?.remove(at: 0)
-        let button = editButtonItem
-        button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
-        item.rightBarButtonItems?.append(button)
+//        let item = nvbar.items![0]
+//        item.rightBarButtonItems?.remove(at: 0)
+//        let button = editButtonItem
+//        button.tintColor = UIColor(displayP3Red: 235/250, green: 235/250, blue: 235/250, alpha: 1)
+//        item.rightBarButtonItems?.append(button)
     }
     
     @IBAction func toQuestionRgstVIew(_ sender: Any) {
@@ -98,7 +98,7 @@ class BookQestionViewController: UIViewController,UIGestureRecognizerDelegate{
         let indexPath = IndexPath(row: button.tag, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! BookQuestionTableViewCell
         if cell.answerTextView.text == "答え ▼"{
-            cell.answerTextView.text = "答え ▶︎ " + "aaa"//questions[indexPath.row].answers[0].answerStr
+            cell.answerTextView.text = "答え ▶︎ " + questions[indexPath.row].answers[0].answerStr
             //cellの高さをUpdaete
             tableView.beginUpdates()
             tableView.endUpdates()

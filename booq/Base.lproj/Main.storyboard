@@ -1393,7 +1393,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4630" y="-2148"/>
+            <point key="canvasLocation" x="4537" y="-3275"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="F0Q-xb-99s">
@@ -1763,7 +1763,7 @@
         <image name="question" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J2z-bn-C9x"/>
+        <segue reference="Vll-pb-MBg"/>
         <segue reference="te2-MQ-rLs"/>
         <segue reference="M7H-SZ-r1x"/>
         <segue reference="pr7-Yi-gKa"/>
