@@ -23,9 +23,8 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         logLable.isHidden = true
         logLable.alpha  = 0
         // カメラがあるか確認し，取得する
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)//(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
+        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
         guard let captureDevice = deviceDiscoverySession.devices.first else {
-            print("Failed to get the camera device")
             return
         }
         do {
@@ -61,6 +60,21 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if videoPreviewLayer == nil{
+            //カメラが取得できないというエラーメッセージを書く
+            let alert: UIAlertController = UIAlertController(title: "カメラが取得できません", message: "設定 → プライバシー → カメラ からBooQにアクセス権限を与えてください", preferredStyle:  UIAlertControllerStyle.alert)
+            // キャンセルボタン
+            let okAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+                // ボタンが押された時の処理を書く（クロージャ実装）
+                (action: UIAlertAction!) -> Void in
+                self.dismiss(animated: true, completion: nil)
+            })
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     // 映像からmetadataを取得した場合に呼び出されるデリゲートメソッド
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         DispatchQueue.main.async{
@@ -89,7 +103,7 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                             }else{
                                 //ここでないよラベル表示
                                 print("ないよ")
-                                self.logStr()
+                                self.logStr("該当する本がありません")
                                 self.guardnerStr = metadataObj.stringValue!
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                                     self.performSegue(withIdentifier: "toSelfRgstBookView", sender: metadataObj.stringValue)
@@ -102,8 +116,9 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
-    func logStr(){
+    func logStr(_ str: String){
         //        self.logLable.alpha = 0
+        logLable.text = str
         logLable.isHidden = false
         UIView.animate(withDuration: 0.4, animations: {
             self.logLable.alpha = 1
