@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E88ADEBC0AD11B95AB45B4E /* Pods_booq_booqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7B25CE99A0AE0A220A5E5C /* Pods_booq_booqTests.framework */; };
 		1F60EEA96D73D9F6568A7F29 /* Pods_booqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B887F231D0BD828BF8F019F0 /* Pods_booqTests.framework */; };
 		5906C0E3205A74FC009EAB05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E2205A74FC009EAB05 /* AppDelegate.swift */; };
 		5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E4205A74FC009EAB05 /* FirstViewController.swift */; };
@@ -41,6 +42,7 @@
 		59F992A420753C2D0054E272 /* TopToButtomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F992A320753C2D0054E272 /* TopToButtomSegue.swift */; };
 		5E48118E3C50E33009689B80 /* Pods_booqUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576F5D7CE050DB7C389DB135 /* Pods_booqUITests.framework */; };
 		750EB8164211C9508F4C6775 /* Pods_booq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9211D73A479752DE371EE95 /* Pods_booq.framework */; };
+		E28314F88DE5191376D995D0 /* Pods_booq_booqUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535AED1EEC7C33586064FAB1 /* Pods_booq_booqUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 /* Begin PBXFileReference section */
 		1B099AB237E83C3BA64F8BD9 /* Pods-booqUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booqUITests/Pods-booqUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3CE7209D4AC3ACDAE02A4854 /* Pods-booqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booqTests/Pods-booqTests.debug.xcconfig"; sourceTree = "<group>"; };
+		484D1919442B6057DE95F7D6 /* Pods-booq-booqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booq-booqTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booq-booqTests/Pods-booq-booqTests.debug.xcconfig"; sourceTree = "<group>"; };
+		535AED1EEC7C33586064FAB1 /* Pods_booq_booqUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booq_booqUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55301A4AE66AA9751A02844C /* Pods-booq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booq/Pods-booq.debug.xcconfig"; sourceTree = "<group>"; };
 		576F5D7CE050DB7C389DB135 /* Pods_booqUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booqUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5906C0DF205A74FC009EAB05 /* booq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = booq.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,9 +109,13 @@
 		59F992A320753C2D0054E272 /* TopToButtomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopToButtomSegue.swift; sourceTree = "<group>"; };
 		5A04AC1CC95823DF2722D095 /* Pods-booqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booqTests/Pods-booqTests.release.xcconfig"; sourceTree = "<group>"; };
 		63DE85F12333A950983E05DE /* Pods-booqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booqUITests/Pods-booqUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		805901CAFADAA5D36F774A5F /* Pods-booq-booqUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booq-booqUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booq-booqUITests/Pods-booq-booqUITests.release.xcconfig"; sourceTree = "<group>"; };
+		94E6A25B93A33FE6A3F63036 /* Pods-booq-booqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booq-booqTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booq-booqTests/Pods-booq-booqTests.release.xcconfig"; sourceTree = "<group>"; };
 		B887F231D0BD828BF8F019F0 /* Pods_booqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9211D73A479752DE371EE95 /* Pods_booq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51521EBE9C731B538B81912 /* Pods-booq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booq.release.xcconfig"; path = "Pods/Target Support Files/Pods-booq/Pods-booq.release.xcconfig"; sourceTree = "<group>"; };
+		C85A47A8F52060D1678ACEFB /* Pods-booq-booqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booq-booqUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booq-booqUITests/Pods-booq-booqUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED7B25CE99A0AE0A220A5E5C /* Pods_booq_booqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_booq_booqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F60EEA96D73D9F6568A7F29 /* Pods_booqTests.framework in Frameworks */,
+				0E88ADEBC0AD11B95AB45B4E /* Pods_booq_booqTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E48118E3C50E33009689B80 /* Pods_booqUITests.framework in Frameworks */,
+				E28314F88DE5191376D995D0 /* Pods_booq_booqUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +232,8 @@
 				B9211D73A479752DE371EE95 /* Pods_booq.framework */,
 				B887F231D0BD828BF8F019F0 /* Pods_booqTests.framework */,
 				576F5D7CE050DB7C389DB135 /* Pods_booqUITests.framework */,
+				ED7B25CE99A0AE0A220A5E5C /* Pods_booq_booqTests.framework */,
+				535AED1EEC7C33586064FAB1 /* Pods_booq_booqUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -235,6 +247,10 @@
 				5A04AC1CC95823DF2722D095 /* Pods-booqTests.release.xcconfig */,
 				63DE85F12333A950983E05DE /* Pods-booqUITests.debug.xcconfig */,
 				1B099AB237E83C3BA64F8BD9 /* Pods-booqUITests.release.xcconfig */,
+				484D1919442B6057DE95F7D6 /* Pods-booq-booqTests.debug.xcconfig */,
+				94E6A25B93A33FE6A3F63036 /* Pods-booq-booqTests.release.xcconfig */,
+				C85A47A8F52060D1678ACEFB /* Pods-booq-booqUITests.debug.xcconfig */,
+				805901CAFADAA5D36F774A5F /* Pods-booq-booqUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";

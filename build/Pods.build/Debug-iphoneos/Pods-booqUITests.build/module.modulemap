@@ -1,6 +1,0 @@
-framework module Pods_booqUITests {
-  umbrella header "Pods-booqUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
