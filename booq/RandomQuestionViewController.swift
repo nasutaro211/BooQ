@@ -15,6 +15,7 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var backCardBtn: UIButton!
     
     var questions: Results<Question>!
+    var randomNumbers: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,6 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = CGSize(width: 300, height: 200 * questions.count)
         
         //乱数配列作成
-        var randomNumbers: [Int] = []
         for i in 0...questions.count-1 {
             randomNumbers.append(i)
         }
@@ -41,14 +41,14 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
         }
         //label配置
         for i in randomNumbers {
-            let questionLabel = UILabel(frame: CGRect(x: 10, y: 30+200*i, width: 280, height: 100))
+            let questionLabel = UILabel(frame: CGRect(x: 10, y: 200*i, width: 280, height: 100))
             questionLabel.textAlignment = NSTextAlignment.center
             questionLabel.font = UIFont.systemFont(ofSize: 20)
-            questionLabel.text = questions[i].questionStr
+            questionLabel.text = questions[randomNumbers[i]].questionStr
             questionLabel.backgroundColor = UIColor.brown
             scrollView.addSubview(questionLabel)
         }
-        //確認よう　あとで消すんやで
+        //スクロールビューの底の確認用　あとで消すんやで
         let label = UILabel(frame: CGRect(x: 0, y: 200*questions.count-30, width: 300, height: 30))
         label.backgroundColor = UIColor.black
         scrollView.addSubview(label)
@@ -63,7 +63,15 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func iDontKnowBtnAc() {
-        self.slideScrollView(slideWidth: 200)
+        //ページ数取得
+        let pageNumber = Int(scrollView.contentOffset.y)/200
+        print("pageNumber = " + String(pageNumber))
+        let answerLabel = UILabel(frame: CGRect(x: 10, y: 100+200*pageNumber, width: 280, height: 100))
+        answerLabel.textAlignment = NSTextAlignment.center
+        answerLabel.font = UIFont.systemFont(ofSize: 20)
+        answerLabel.text = questions[randomNumbers[pageNumber]].answers[0].answerStr
+        answerLabel.backgroundColor = UIColor.brown
+        scrollView.addSubview(answerLabel)
     }
     
     @IBAction func backCardAc() {
