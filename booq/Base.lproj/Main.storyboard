@@ -678,6 +678,203 @@
             </objects>
             <point key="canvasLocation" x="-5306" y="881"/>
         </scene>
+        <!--Random Question View Controller-->
+        <scene sceneID="R0i-bv-xIl">
+            <objects>
+                <viewController id="D4b-8Z-JKX" customClass="RandomQuestionViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6kD-TN-0df">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKh-vJ-YFi">
+                                <rect key="frame" x="37" y="400" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="わかる"/>
+                                <connections>
+                                    <action selector="iKnowBtnAc" destination="D4b-8Z-JKX" eventType="touchUpInside" id="Nfp-CS-UxL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gS-9j-vVn">
+                                <rect key="frame" x="37" y="460" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="わからない"/>
+                                <connections>
+                                    <action selector="iDontKnowBtnAc" destination="D4b-8Z-JKX" eventType="touchUpInside" id="vNW-o1-a1Z"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vZD-l8-XGi">
+                                <rect key="frame" x="37" y="120" width="300" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fR-dx-VSe">
+                                <rect key="frame" x="37" y="70" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="一枚もどる"/>
+                                <connections>
+                                    <action selector="backCardAc" destination="D4b-8Z-JKX" eventType="touchUpInside" id="pdU-BP-qqI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="R7b-wm-qN5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LPS-I5-zWH"/>
+                    <connections>
+                        <outlet property="backCardBtn" destination="6fR-dx-VSe" id="f6K-9V-RO9"/>
+                        <outlet property="scrollView" destination="vZD-l8-XGi" id="i5R-xy-EPH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ml9-0P-aXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3470" y="1684"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Egv-rG-lqT">
+            <objects>
+                <viewController id="mba-zg-SjE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SD1-LC-YIa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7Zj-O4-yVU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z3G-R0-KAG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BJP-n6-Myc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2665" y="1684"/>
+        </scene>
+        <!--check-->
+        <scene sceneID="A1X-pD-txw">
+            <objects>
+                <viewController id="CnH-Au-udb" customClass="CheckQuestionViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3zE-br-nTj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TEi-B1-qBM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <navigationBar contentMode="center" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvk-qM-h02">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="barTintColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="習熟" id="P6t-g4-Lx9"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-Pb-c98">
+                                <rect key="frame" x="37" y="180" width="300" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76300064541544166" green="1" blue="0.99863528661526968" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="今日のチェック"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJB-UE-1a4">
+                                <rect key="frame" x="142" y="298" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76300064540000001" green="1" blue="0.99863528660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="本ごと"/>
+                                <connections>
+                                    <segue destination="mba-zg-SjE" kind="show" id="XKU-VN-jDi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8S-0x-WqF">
+                                <rect key="frame" x="247" y="298" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76300064540000001" green="1" blue="0.99863528660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="グラフ"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlk-Ul-aHR">
+                                <rect key="frame" x="37" y="298" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76300064540000001" green="1" blue="0.99863528660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="ランダム"/>
+                                <connections>
+                                    <segue destination="D4b-8Z-JKX" kind="show" id="AFE-Id-uKF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="b6Z-ni-YLC"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="check" id="mce-Ha-5f0"/>
+                    <connections>
+                        <outlet property="toRandBtn" destination="xlk-Ul-aHR" id="hOl-1e-tki"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IN3-HE-4fx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2964" y="928"/>
+        </scene>
+        <!--others-->
+        <scene sceneID="J8a-GY-3wa">
+            <objects>
+                <viewController id="aeo-5T-FQb" customClass="OthersViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3EC-IL-c6p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lXx-38-B2T">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <navigationBar contentMode="center" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQP-VL-DcA">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="barTintColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="その他" id="p6G-iL-qvw"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlZ-Ca-eSf">
+                                <rect key="frame" x="43" y="170" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76300064540000001" green="1" blue="0.99863528660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="ボタン１"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykE-wR-cGq">
+                                <rect key="frame" x="205" y="331" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76300064540000001" green="1" blue="0.99863528660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="ヘルプ"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYW-uD-vii">
+                                <rect key="frame" x="205" y="170" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76300064540000001" green="1" blue="0.99863528660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="BooQとは"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0f-ky-WVK">
+                                <rect key="frame" x="43" y="331" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.76300064540000001" green="1" blue="0.99863528660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="問い合わせ"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Jbt-x1-CGg"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="others" id="aY3-jR-Nxr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEY-32-Snp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2116" y="928"/>
+        </scene>
         <!--Registration View Controller-->
         <scene sceneID="Tig-cP-EpB">
             <objects>
@@ -1596,6 +1793,8 @@
                         <segue destination="Zs8-EJ-CBf" kind="show" identifier="toQstnRgstView" id="3Cb-Sj-oE4"/>
                         <segue destination="h6F-p8-wgw" kind="show" identifier="toBookQuestionView" id="niy-PH-t6M"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="IkS-sB-447"/>
+                        <segue destination="CnH-Au-udb" kind="relationship" relationship="viewControllers" id="GoW-ME-iaH"/>
+                        <segue destination="aeo-5T-FQb" kind="relationship" relationship="viewControllers" id="6CE-L2-F77"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1763,13 +1962,13 @@
         <image name="question" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="srL-gi-tfp"/>
-        <segue reference="te2-MQ-rLs"/>
+        <segue reference="J2z-bn-C9x"/>
+        <segue reference="X0o-zi-uxR"/>
         <segue reference="M7H-SZ-r1x"/>
-        <segue reference="BuD-xS-PTs"/>
+        <segue reference="pr7-Yi-gKa"/>
         <segue reference="v0b-ea-EUe"/>
-        <segue reference="mXR-0B-pcB"/>
+        <segue reference="dYe-SM-AWu"/>
         <segue reference="tax-2p-wjV"/>
-        <segue reference="gCn-gZ-1gq"/>
+        <segue reference="niy-PH-t6M"/>
     </inferredMetricsTieBreakers>
 </document>
