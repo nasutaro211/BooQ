@@ -20,13 +20,12 @@ class CheckQuestionViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    //遷移前
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //collectionViewCellが押されたとき
-        if segue.identifier == "modal"{
-            let book = sender as! Book
-            let destination = segue.destination as! PopUpViewController
-            destination.theBook = book
-        }
-    }
+    //いらん気がする
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "modal"{
+//            let book = sender as! Book
+//            let destination = segue.destination as! PopUpViewController
+//            destination.theBook = book
+//        }
+//    }
 }

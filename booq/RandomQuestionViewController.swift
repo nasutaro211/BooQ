@@ -167,9 +167,9 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func endBtnAc(sender: UIButton) {
-        let storyboard: UIStoryboard = self.storyboard!
-        let second = storyboard.instantiateViewController(withIdentifier: "resultQuestion")
-        self.present(second, animated: true, completion: nil)
+        let segue = self.storyboard?.instantiateViewController(withIdentifier: "resultQuestion") as! resultQuestionViewController
+        segue.randomNumbers = self.randomNumbers
+        self.present(segue, animated:true, completion: nil)
     }
 
 }

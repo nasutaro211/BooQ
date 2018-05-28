@@ -7,29 +7,65 @@
 //
 
 import UIKit
+import RealmSwift
 
-class resultQuestionViewController: UIViewController {
+class resultQuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet var tableView: UITableView!
+    
+    var questions: Results<Question>!
+    var randomNumbers: [Int] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
+        tableView.isEditing = false
+        
+        //qeustionsをとる
+        let realm = try! Realm()
+        questions = realm.objects(Question.self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func showAnswer(_ sender: Any) {
+        let button = sender as! UIButton
+        let indexPath = IndexPath(row: button.tag, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as! QuestionTableViewCell
+        if cell.answerTextView.text == "答え ▼"{
+            cell.answerTextView.text = "答え ▶︎ " + questions[randomNumbers[indexPath.row]].answers[0].answerStr
+            //cellの高さをUpdaete
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }else{
+            cell.answerTextView.text = "答え ▼"
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
     }
-    */
+    
+    @IBAction func endBtnAc() {
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return randomNumbers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
+        cell.showAnswerButton.tag = indexPath.row
+        cell.selectionStyle = .gray
+        let question = questions[randomNumbers[indexPath.row]]
+        cell.questionLabel.text = question.questionStr
+        cell.bookImageView.setImage(of: question.books.first!)
+        return cell
+    }
 
 }
