@@ -686,6 +686,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKI-wp-78F">
+                                <rect key="frame" x="37" y="460" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="忘れた"/>
+                                <connections>
+                                    <action selector="forgetAc" destination="D4b-8Z-JKX" eventType="touchUpInside" id="Zw0-fg-Xk7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="To4-lq-rct">
+                                <rect key="frame" x="37" y="400" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="思い出した"/>
+                                <connections>
+                                    <action selector="rememberAc" destination="D4b-8Z-JKX" eventType="touchUpInside" id="xmj-6Z-bhP"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKh-vJ-YFi">
                                 <rect key="frame" x="37" y="400" width="300" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -721,6 +737,10 @@
                     <navigationItem key="navigationItem" id="LPS-I5-zWH"/>
                     <connections>
                         <outlet property="backCardBtn" destination="6fR-dx-VSe" id="f6K-9V-RO9"/>
+                        <outlet property="forgetBtn" destination="cKI-wp-78F" id="0Cp-qm-hCr"/>
+                        <outlet property="iDontKnowBtn" destination="8gS-9j-vVn" id="iFe-TX-4kg"/>
+                        <outlet property="iKnowBtn" destination="sKh-vJ-YFi" id="enS-15-H71"/>
+                        <outlet property="rememberBtn" destination="To4-lq-rct" id="v5S-Ho-JEA"/>
                         <outlet property="scrollView" destination="vZD-l8-XGi" id="i5R-xy-EPH"/>
                     </connections>
                 </viewController>

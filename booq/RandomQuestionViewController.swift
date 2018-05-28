@@ -13,9 +13,14 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var backCardBtn: UIButton!
+    @IBOutlet var iKnowBtn: UIButton!
+    @IBOutlet var iDontKnowBtn: UIButton!
+    @IBOutlet var rememberBtn: UIButton!
+    @IBOutlet var forgetBtn: UIButton!
     
     var questions: Results<Question>!
     var randomNumbers: [Int] = []
+    var doYouKnow = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,8 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
         questions = realm.objects(Question.self)
         
         backCardBtn.alpha = 0
+        rememberBtn.alpha = 0
+        forgetBtn.alpha = 0
         
         //ScrollViewの設定
         scrollView.delegate = self
@@ -63,10 +70,19 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func iDontKnowBtnAc() {
+        backCardBtn.alpha = 0
+        iKnowBtn.alpha = 0
+        rememberBtn.alpha = 1
+        self.view.insertSubview(iKnowBtn, belowSubview: rememberBtn)
+        iDontKnowBtn.alpha = 0
+        forgetBtn.alpha = 1
+        self.view.insertSubview(iDontKnowBtn, belowSubview: forgetBtn)
+        
         //ページ数取得
         let pageNumber = Int(scrollView.contentOffset.y)/200
         print("pageNumber = " + String(pageNumber))
         let answerLabel = UILabel(frame: CGRect(x: 10, y: 100+200*pageNumber, width: 280, height: 100))
+        answerLabel.tag = pageNumber + 1 //anwerLabelのtagはページ数＋１
         answerLabel.textAlignment = NSTextAlignment.center
         answerLabel.font = UIFont.systemFont(ofSize: 20)
         answerLabel.text = questions[randomNumbers[pageNumber]].answers[0].answerStr
@@ -76,6 +92,40 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func backCardAc() {
         self.slideScrollView(slideWidth: -200)
+    }
+    
+    @IBAction func rememberAc() {
+        backCardBtn.alpha = 1
+        iKnowBtn.alpha = 1
+        rememberBtn.alpha = 0
+        self.view.insertSubview(rememberBtn, belowSubview: iKnowBtn)
+        iDontKnowBtn.alpha = 1
+        forgetBtn.alpha = 0
+        self.view.insertSubview(forgetBtn, belowSubview: iDontKnowBtn)
+        
+        deleteAnswerLabel()
+        slideScrollView(slideWidth: 200)
+    }
+    
+    @IBAction func forgetAc() {
+        backCardBtn.alpha = 1
+        iKnowBtn.alpha = 1
+        rememberBtn.alpha = 0
+        self.view.insertSubview(rememberBtn, belowSubview: iKnowBtn)
+        iDontKnowBtn.alpha = 1
+        forgetBtn.alpha = 0
+        self.view.insertSubview(forgetBtn, belowSubview: iDontKnowBtn)
+        
+        deleteAnswerLabel()
+        slideScrollView(slideWidth: 200)
+    }
+    
+    func deleteAnswerLabel() {
+        let pageNumber = Int(scrollView.contentOffset.y)/200 + 1
+        if scrollView.viewWithTag(pageNumber) != nil {
+            print(String(pageNumber) + "ページの答え消すでー")
+            scrollView.viewWithTag(pageNumber)?.removeFromSuperview()
+        }
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
