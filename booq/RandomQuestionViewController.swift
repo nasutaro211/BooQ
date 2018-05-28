@@ -35,7 +35,8 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
         
         //ScrollViewの設定
         scrollView.delegate = self
-        scrollView.contentSize = CGSize(width: 300, height: 200 * questions.count)
+        scrollView.contentSize = CGSize(width: 300, height: 200 * questions.count + 200)
+        scrollView.backgroundColor = UIColor.cyan
         
         //乱数配列作成
         for i in 0...questions.count-1 {
@@ -55,10 +56,13 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
             questionLabel.backgroundColor = UIColor.brown
             scrollView.addSubview(questionLabel)
         }
-        //スクロールビューの底の確認用　あとで消すんやで
-        let label = UILabel(frame: CGRect(x: 0, y: 200*questions.count-30, width: 300, height: 30))
-        label.backgroundColor = UIColor.black
-        scrollView.addSubview(label)
+        let endBtn = UIButton(frame: CGRect(x: 25, y: 200*questions.count+25, width: 250, height: 150))
+        endBtn.addTarget(self, action: #selector(RandomQuestionViewController.endBtnAc(sender:)), for: .touchUpInside)
+        endBtn.backgroundColor = UIColor.brown
+        endBtn.titleLabel?.textAlignment = NSTextAlignment.center
+        endBtn.titleLabel?.text = "終了"
+        endBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        scrollView.addSubview(endBtn)
     }
 
     override func didReceiveMemoryWarning() {
@@ -140,7 +144,7 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
         //もうちょい綺麗にできそう
         switch slideWidth {
         case 200:
-            if Int(scrollView.contentOffset.y) <= questions.count*200-400 {
+            if Int(scrollView.contentOffset.y) <= questions.count*200-200 {
                 var offset = CGPoint()
                 offset.x = scrollView.contentOffset.x
                 offset.y = scrollView.contentOffset.y + slideWidth
@@ -160,6 +164,12 @@ class RandomQuestionViewController: UIViewController, UIScrollViewDelegate {
         default:
             print("エラー")
         }
+    }
+    
+    @objc func endBtnAc(sender: UIButton) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let second = storyboard.instantiateViewController(withIdentifier: "resultQuestion")
+        self.present(second, animated: true, completion: nil)
     }
 
 }

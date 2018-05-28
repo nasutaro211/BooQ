@@ -748,6 +748,21 @@
             </objects>
             <point key="canvasLocation" x="-3470" y="1684"/>
         </scene>
+        <!--Result Question View Controller-->
+        <scene sceneID="ynM-gm-GgC">
+            <objects>
+                <viewController storyboardIdentifier="resultQuestion" id="VPo-6T-hHE" customClass="resultQuestionViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iA9-We-Pv9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fj8-Nl-BBv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e45-bv-jcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3471" y="2447"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="Egv-rG-lqT">
             <objects>

@@ -11,6 +11,7 @@
 		1638213920B6C8C200CDDB92 /* OthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638213820B6C8C200CDDB92 /* OthersViewController.swift */; };
 		1638213B20B6C8CD00CDDB92 /* CheckQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638213A20B6C8CD00CDDB92 /* CheckQuestionViewController.swift */; };
 		1638213D20B6CD6F00CDDB92 /* RandomQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638213C20B6CD6F00CDDB92 /* RandomQuestionViewController.swift */; };
+		16B855DB20BBD310000A699B /* resultQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B855DA20BBD310000A699B /* resultQuestionViewController.swift */; };
 		1F60EEA96D73D9F6568A7F29 /* Pods_booqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B887F231D0BD828BF8F019F0 /* Pods_booqTests.framework */; };
 		5906C0E3205A74FC009EAB05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E2205A74FC009EAB05 /* AppDelegate.swift */; };
 		5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906C0E4205A74FC009EAB05 /* FirstViewController.swift */; };
@@ -69,6 +70,7 @@
 		1638213820B6C8C200CDDB92 /* OthersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersViewController.swift; sourceTree = "<group>"; };
 		1638213A20B6C8CD00CDDB92 /* CheckQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckQuestionViewController.swift; sourceTree = "<group>"; };
 		1638213C20B6CD6F00CDDB92 /* RandomQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuestionViewController.swift; sourceTree = "<group>"; };
+		16B855DA20BBD310000A699B /* resultQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultQuestionViewController.swift; sourceTree = "<group>"; };
 		1B099AB237E83C3BA64F8BD9 /* Pods-booqUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booqUITests/Pods-booqUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3CE7209D4AC3ACDAE02A4854 /* Pods-booqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booqTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booqTests/Pods-booqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		484D1919442B6057DE95F7D6 /* Pods-booq-booqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booq-booqTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booq-booqTests/Pods-booq-booqTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				5906C0E6205A74FC009EAB05 /* SecondViewController.swift */,
 				1638213A20B6C8CD00CDDB92 /* CheckQuestionViewController.swift */,
 				1638213C20B6CD6F00CDDB92 /* RandomQuestionViewController.swift */,
+				16B855DA20BBD310000A699B /* resultQuestionViewController.swift */,
 				1638213820B6C8C200CDDB92 /* OthersViewController.swift */,
 				5906C0E8205A74FC009EAB05 /* Main.storyboard */,
 				590E06BC2070766D007EB025 /* BarCodeViewController.swift */,
@@ -594,6 +597,7 @@
 				59F45F3D2060FCC7003F4C0F /* SearchResultViewController.swift in Sources */,
 				5906C0E5205A74FC009EAB05 /* FirstViewController.swift in Sources */,
 				59F992A420753C2D0054E272 /* TopToButtomSegue.swift in Sources */,
+				16B855DB20BBD310000A699B /* resultQuestionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
