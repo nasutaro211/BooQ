@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E88ADEBC0AD11B95AB45B4E /* Pods_booq_booqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7B25CE99A0AE0A220A5E5C /* Pods_booq_booqTests.framework */; };
+		160B200B20D7F6A000DD04AD /* EachQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B200A20D7F6A000DD04AD /* EachQuestionViewController.swift */; };
 		1638213920B6C8C200CDDB92 /* OthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638213820B6C8C200CDDB92 /* OthersViewController.swift */; };
 		1638213B20B6C8CD00CDDB92 /* CheckQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638213A20B6C8CD00CDDB92 /* CheckQuestionViewController.swift */; };
 		1638213D20B6CD6F00CDDB92 /* RandomQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638213C20B6CD6F00CDDB92 /* RandomQuestionViewController.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		160B200A20D7F6A000DD04AD /* EachQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachQuestionViewController.swift; sourceTree = "<group>"; };
 		1638213820B6C8C200CDDB92 /* OthersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersViewController.swift; sourceTree = "<group>"; };
 		1638213A20B6C8CD00CDDB92 /* CheckQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckQuestionViewController.swift; sourceTree = "<group>"; };
 		1638213C20B6CD6F00CDDB92 /* RandomQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuestionViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				1638213C20B6CD6F00CDDB92 /* RandomQuestionViewController.swift */,
 				16B855DA20BBD310000A699B /* resultQuestionViewController.swift */,
 				16B855DD20BD1CAE000A699B /* EachBookQustionViewController.swift */,
+				160B200A20D7F6A000DD04AD /* EachQuestionViewController.swift */,
 				1638213820B6C8C200CDDB92 /* OthersViewController.swift */,
 				5906C0E8205A74FC009EAB05 /* Main.storyboard */,
 				590E06BC2070766D007EB025 /* BarCodeViewController.swift */,
@@ -577,6 +580,7 @@
 				1638213B20B6C8CD00CDDB92 /* CheckQuestionViewController.swift in Sources */,
 				16B855DE20BD1CAE000A699B /* EachBookQustionViewController.swift in Sources */,
 				594D68F3207EEEF100504345 /* TabBarController.swift in Sources */,
+				160B200B20D7F6A000DD04AD /* EachQuestionViewController.swift in Sources */,
 				592E3550205F648E004F567D /* RegistrationViewController.swift in Sources */,
 				599DEE7B208303F0008C3F16 /* OriginalFunc.swift in Sources */,
 				595BA32F2068F65C0024E71B /* RoundedButton.swift in Sources */,

@@ -874,70 +874,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="odA-V0-bk1">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lJQ-pc-dtf">
-                                    <size key="itemSize" width="123" height="148"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="bookCell" reuseIdentifier="bookCell" id="gi4-Ac-5zp" customClass="BooksCollectionViewCell" customModule="booq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lZx-hI-uFa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Cd-mh-cF0" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
-                                                    <rect key="frame" x="83" y="0.0" width="40" height="40"/>
-                                                    <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="4Cd-mh-cF0" secondAttribute="height" multiplier="1:1" id="Evn-rI-A7v"/>
-                                                        <constraint firstAttribute="height" constant="40" id="sOR-sC-1al"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="40"/>
-                                                    <state key="normal">
-                                                        <color key="titleColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds " value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="number">
-                                                            <string key="keyPath">layer.cornerRadius 
-</string>
-                                                            <integer key="value" value="15"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="20"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="deleteButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="8Fg-qq-aTx"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="lZx-hI-uFa" secondAttribute="trailing" id="05N-d0-wga"/>
-                                            <constraint firstItem="4Cd-mh-cF0" firstAttribute="trailing" secondItem="lZx-hI-uFa" secondAttribute="trailing" id="6tw-zl-Wlu"/>
-                                            <constraint firstItem="4Cd-mh-cF0" firstAttribute="top" secondItem="lZx-hI-uFa" secondAttribute="top" id="EfP-rb-0pI"/>
-                                            <constraint firstItem="lZx-hI-uFa" firstAttribute="top" secondItem="gi4-Ac-5zp" secondAttribute="top" id="M0B-GL-sqb"/>
-                                            <constraint firstItem="lZx-hI-uFa" firstAttribute="leading" secondItem="gi4-Ac-5zp" secondAttribute="leading" id="mxb-Nh-K3x"/>
-                                            <constraint firstAttribute="bottom" secondItem="lZx-hI-uFa" secondAttribute="bottom" id="uAx-yN-Wu2"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="bookImageView" destination="lZx-hI-uFa" id="tud-sS-TUF"/>
-                                            <outlet property="pekeButton" destination="4Cd-mh-cF0" id="xP2-W2-QLx"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <navigationBar contentMode="center" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="at7-Ht-8ed">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -954,6 +890,70 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="deviceRGB"/>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nau-du-Fpc">
+                                <rect key="frame" x="-1" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.88235294119999996" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EDC-tG-TlD">
+                                    <size key="itemSize" width="123" height="148"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="bookCell" reuseIdentifier="bookCell" id="dVV-Fg-g5Q" customClass="BooksCollectionViewCell" customModule="booq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ACG-m1-Yyd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="123" height="148"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMv-Zu-ECb" customClass="RoundedButtonm" customModule="booq" customModuleProvider="target">
+                                                    <rect key="frame" x="83" y="0.0" width="40" height="40"/>
+                                                    <color key="backgroundColor" red="0.73333333329999995" green="0.59999999999999998" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="nMv-Zu-ECb" secondAttribute="height" multiplier="1:1" id="UpI-4m-kYs"/>
+                                                        <constraint firstAttribute="height" constant="40" id="bMY-d9-HE7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="40"/>
+                                                    <state key="normal" title="×">
+                                                        <color key="titleColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds " value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number">
+                                                            <string key="keyPath">layer.cornerRadius 
+</string>
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="deleteButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="TJb-TU-dhc"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="nMv-Zu-ECb" firstAttribute="top" secondItem="ACG-m1-Yyd" secondAttribute="top" id="ANc-wF-FE5"/>
+                                            <constraint firstItem="nMv-Zu-ECb" firstAttribute="trailing" secondItem="ACG-m1-Yyd" secondAttribute="trailing" id="Chx-gG-7bO"/>
+                                            <constraint firstItem="ACG-m1-Yyd" firstAttribute="top" secondItem="dVV-Fg-g5Q" secondAttribute="top" id="LW9-zE-4Df"/>
+                                            <constraint firstItem="ACG-m1-Yyd" firstAttribute="leading" secondItem="dVV-Fg-g5Q" secondAttribute="leading" id="QS6-0O-1b5"/>
+                                            <constraint firstAttribute="bottom" secondItem="ACG-m1-Yyd" secondAttribute="bottom" id="VlB-aE-MQi"/>
+                                            <constraint firstAttribute="trailing" secondItem="ACG-m1-Yyd" secondAttribute="trailing" id="hEu-y0-HBx"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="bookImageView" destination="ACG-m1-Yyd" id="B4d-lq-Gyf"/>
+                                            <outlet property="pekeButton" destination="nMv-Zu-ECb" id="FAh-Ie-xwb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="何も本が登録されていません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-Ej-kX8">
                                 <rect key="frame" x="74" y="228" width="225.5" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -961,13 +961,21 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.1647058824" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFv-lV-0KZ">
+                                <rect key="frame" x="87" y="542" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="チェックへ"/>
+                                <connections>
+                                    <action selector="toQuestionAc" destination="mba-zg-SjE" eventType="touchUpInside" id="wP8-Ai-5xn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7Zj-O4-yVU"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z3G-R0-KAG"/>
                     <connections>
-                        <outlet property="booksCollectionView" destination="odA-V0-bk1" id="LUs-65-XmI"/>
+                        <outlet property="booksCollectionView" destination="nau-du-Fpc" id="Gzl-4Q-bUf"/>
                         <outlet property="nothingBooksAlertLabel" destination="M4l-Ej-kX8" id="7hK-bc-nyu"/>
                     </connections>
                 </viewController>
@@ -2186,6 +2194,61 @@
             </objects>
             <point key="canvasLocation" x="5573.6000000000004" y="-89.505247376311857"/>
         </scene>
+        <!--Each Question View Controller-->
+        <scene sceneID="7nR-Rd-xL1">
+            <objects>
+                <viewController storyboardIdentifier="EachQuestion" id="4MJ-mx-au6" customClass="EachQuestionViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xDW-XB-lgY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTR-zs-iNp">
+                                <rect key="frame" x="37" y="460" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="忘れた"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdC-GD-8q0">
+                                <rect key="frame" x="37" y="400" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="思い出した"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tx1-Op-vgU">
+                                <rect key="frame" x="37" y="400" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="わかる"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNz-qW-9mn">
+                                <rect key="frame" x="37" y="460" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="わからない"/>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZJ-Gy-ASU">
+                                <rect key="frame" x="37" y="120" width="300" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEf-Up-BgL">
+                                <rect key="frame" x="37" y="70" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="一枚もどる"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="l9C-EH-2YH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sNn-so-Uft"/>
+                    <connections>
+                        <outlet property="backCardBtn" destination="AEf-Up-BgL" id="dGu-xX-RHc"/>
+                        <outlet property="forgetBtn" destination="KTR-zs-iNp" id="zDV-uJ-GBx"/>
+                        <outlet property="iDontKnowBtn" destination="kNz-qW-9mn" id="uR2-T7-50m"/>
+                        <outlet property="iKnowBtn" destination="Tx1-Op-vgU" id="Hrb-Ov-L7r"/>
+                        <outlet property="rememberBtn" destination="kdC-GD-8q0" id="yjm-0i-49U"/>
+                        <outlet property="scrollView" destination="PZJ-Gy-ASU" id="vAF-fs-dJW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTR-zb-CDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2666" y="2402"/>
+        </scene>
     </scenes>
     <resources>
         <image name="book" width="32" height="32"/>
@@ -2193,12 +2256,12 @@
         <image name="question" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J2z-bn-C9x"/>
-        <segue reference="X0o-zi-uxR"/>
-        <segue reference="M7H-SZ-r1x"/>
+        <segue reference="gEl-Px-OKV"/>
+        <segue reference="S4a-LS-SFW"/>
+        <segue reference="jAD-ha-iTW"/>
         <segue reference="pr7-Yi-gKa"/>
         <segue reference="v0b-ea-EUe"/>
-        <segue reference="dYe-SM-AWu"/>
+        <segue reference="OPE-EV-aQQ"/>
         <segue reference="tax-2p-wjV"/>
         <segue reference="niy-PH-t6M"/>
     </inferredMetricsTieBreakers>

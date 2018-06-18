@@ -14,10 +14,13 @@ class EachBookQustionViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet var booksCollectionView: UICollectionView!
     @IBOutlet var nothingBooksAlertLabel: UILabel!
     
+    var book: Book!
     var books: Results<Book>!
     
     var margin = CGFloat(10)
     var contentSize = CGFloat(50)
+    
+    var checkBool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,6 @@ class EachBookQustionViewController: UIViewController, UICollectionViewDelegate,
         booksCollectionView.dataSource = self
         
         let width = UIScreen.main.bounds.size.width
-        let higth = UIScreen.main.bounds.size.height
         margin = width/18
         contentSize = (width-4*margin)/7
         
@@ -44,6 +46,9 @@ class EachBookQustionViewController: UIViewController, UICollectionViewDelegate,
     
     //数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (books.count != 0){
+            nothingBooksAlertLabel.isHidden = true
+        }
         return books.count
     }
     //cell
@@ -51,7 +56,29 @@ class EachBookQustionViewController: UIViewController, UICollectionViewDelegate,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! BooksCollectionViewCell
         cell.bookImageView.setImage(of: books[books.count - indexPath.row - 1])
         cell.pekeButton.tag = indexPath.row
+        if checkBool == true {
+            cell.pekeButton.alpha = 1
+        } else {
+            cell.pekeButton.alpha = 0
+        }
+        
         return cell
+    }
+    //押されたとき
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("押されたで")
+        if checkBool == true {
+            checkBool = false
+            book = nil
+        } else {
+            checkBool = true
+            book = books[books.count - indexPath.row - 1]
+        }
+        booksCollectionView.reloadData()
+    }
+    //cellの編集の可否
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
     }
     //コンテンツサイズ
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -69,5 +96,13 @@ class EachBookQustionViewController: UIViewController, UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return margin
     }
-
+    
+    @IBAction func toQuestionAc() {
+        if book != nil {
+            let segue = storyboard?.instantiateViewController(withIdentifier: "EachQuestion") as! EachQuestionViewController
+            segue.theBook = book
+            self.present(segue, animated: true, completion: nil)
+        }
+    }
+    
 }
