@@ -20,7 +20,7 @@ class EachBookQustionViewController: UIViewController, UICollectionViewDelegate,
     var margin = CGFloat(10)
     var contentSize = CGFloat(50)
     
-    var checkBool = false
+    var checkBools: [Bool] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,10 @@ class EachBookQustionViewController: UIViewController, UICollectionViewDelegate,
         
         let realm = try! Realm()
         books = realm.objects(Book.self)
+        
+        for _ in 0..<books.count {
+            checkBools.append(false)
+        }
         
         if books.count != 0 {
             nothingBooksAlertLabel.isHidden = true
@@ -56,7 +60,7 @@ class EachBookQustionViewController: UIViewController, UICollectionViewDelegate,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! BooksCollectionViewCell
         cell.bookImageView.setImage(of: books[books.count - indexPath.row - 1])
         cell.pekeButton.tag = indexPath.row
-        if checkBool == true {
+        if checkBools[indexPath.row] == true {
             cell.pekeButton.alpha = 1
         } else {
             cell.pekeButton.alpha = 0
@@ -67,11 +71,11 @@ class EachBookQustionViewController: UIViewController, UICollectionViewDelegate,
     //押されたとき
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("押されたで")
-        if checkBool == true {
-            checkBool = false
+        if checkBools[indexPath.row] == true {
+            checkBools[indexPath.row] = false
             book = nil
         } else {
-            checkBool = true
+            checkBools[indexPath.row] = true
             book = books[books.count - indexPath.row - 1]
         }
         booksCollectionView.reloadData()

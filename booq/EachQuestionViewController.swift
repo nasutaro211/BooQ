@@ -28,7 +28,7 @@ class EachQuestionViewController: UIViewController, UIScrollViewDelegate {
         
         //選択された本のqeustionsをとる
         questions = theBook.questions.sorted(byKeyPath: "numInBook", ascending: false)
-        print("hoge")
+        
         
         //scrolviewの設定
         scrollView.delegate = self
