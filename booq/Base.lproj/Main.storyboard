@@ -2206,21 +2206,25 @@
                                 <rect key="frame" x="37" y="460" width="300" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="忘れた"/>
+                                <connections>
+                                    <action selector="forgetAc" destination="4MJ-mx-au6" eventType="touchUpInside" id="jYI-J8-c8H"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdC-GD-8q0">
                                 <rect key="frame" x="37" y="400" width="300" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="思い出した"/>
+                                <connections>
+                                    <action selector="rememberAc" destination="4MJ-mx-au6" eventType="touchUpInside" id="DTV-vl-N6m"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tx1-Op-vgU">
                                 <rect key="frame" x="37" y="400" width="300" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="わかる"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNz-qW-9mn">
-                                <rect key="frame" x="37" y="460" width="300" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="わからない"/>
+                                <connections>
+                                    <action selector="iKnowBtnAc" destination="4MJ-mx-au6" eventType="touchUpInside" id="OYh-Qh-EeA"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZJ-Gy-ASU">
                                 <rect key="frame" x="37" y="120" width="300" height="200"/>
@@ -2230,6 +2234,17 @@
                                 <rect key="frame" x="37" y="70" width="300" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="一枚もどる"/>
+                                <connections>
+                                    <action selector="backCardAc" destination="4MJ-mx-au6" eventType="touchUpInside" id="wS9-il-vCD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNz-qW-9mn">
+                                <rect key="frame" x="37" y="460" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="わからない"/>
+                                <connections>
+                                    <action selector="iDontKnowBtnAc" destination="4MJ-mx-au6" eventType="touchUpInside" id="lYS-AV-xzL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

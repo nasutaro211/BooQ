@@ -15,6 +15,8 @@ class resultQuestionViewController: UIViewController, UITableViewDelegate, UITab
     
     var questions: Results<Question>!
     var randomNumbers: [Int] = []
+    var subscripts: [Int] = []
+    var flag: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +27,18 @@ class resultQuestionViewController: UIViewController, UITableViewDelegate, UITab
         tableView.estimatedRowHeight = 50
         tableView.isEditing = false
         
-        //qeustionsをとる
-        let realm = try! Realm()
-        questions = realm.objects(Question.self)
+        switch flag {
+        case "RandomQuestion":
+            for i in randomNumbers {
+                subscripts.append(randomNumbers[i])
+            }
+        case "EachQuestion":
+            for i in 0..<questions.count {
+                subscripts.append(i)
+            }
+        default:
+            break
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +50,7 @@ class resultQuestionViewController: UIViewController, UITableViewDelegate, UITab
         let indexPath = IndexPath(row: button.tag, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! QuestionTableViewCell
         if cell.answerTextView.text == "答え ▼"{
-            cell.answerTextView.text = "答え ▶︎ " + questions[randomNumbers[indexPath.row]].answers[0].answerStr
+            cell.answerTextView.text = "答え ▶︎ " + questions[subscripts[indexPath.row]].answers[0].answerStr
             //cellの高さをUpdaete
             tableView.beginUpdates()
             tableView.endUpdates()
@@ -51,18 +62,26 @@ class resultQuestionViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func endBtnAc() {
+        switch flag {
+        case "RandomQuestion":
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        case "EachQuestion":
+            self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        default:
+            break
+        }
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return randomNumbers.count
+        return subscripts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
         cell.showAnswerButton.tag = indexPath.row
         cell.selectionStyle = .gray
-        let question = questions[randomNumbers[indexPath.row]]
+        let question = questions[subscripts[indexPath.row]]
         cell.questionLabel.text = question.questionStr
         cell.bookImageView.setImage(of: question.books.first!)
         return cell
