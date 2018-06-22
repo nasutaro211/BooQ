@@ -16,16 +16,14 @@ class InquiryFormViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //ビューを作成する。
-        let testView = UIView()
-        testView.frame.size.height = 60
-        
-        //「閉じるボタン」を作成する。
-        let closeButton = UIButton(frame:CGRect(x: CGFloat(UIScreen.main.bounds.size.width)-70, y: 0, width: 70, height: 50))
-        closeButton.setTitle("閉じる", for: .normal)
-        closeButton.addTarget(self,action:Selector(("onClickCloseButton:")), for: .touchUpInside)
-        testView.addSubview(closeButton)
-        inquiryTextView.inputAccessoryView = testView
+        //閉じるボタン追加
+        let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        kbToolBar.barStyle = UIBarStyle.default
+        kbToolBar.sizeToFit()
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        let closeButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(InquiryFormViewController.onClickCloseButton))
+        kbToolBar.items = [spacer, closeButton]
+        inquiryTextView.inputAccessoryView = kbToolBar
         
         inquiryTextView.delegate = self
     }
@@ -59,7 +57,12 @@ class InquiryFormViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func sendInquiry() {
+        HttpRequest()
         
+        let alert: UIAlertController = UIAlertController(title: "", message: "送信しました", preferredStyle:  UIAlertControllerStyle.alert)
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
     }
 
 }
