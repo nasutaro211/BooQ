@@ -1103,6 +1103,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.76300064540000001" green="1" blue="0.99863528660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="問い合わせ"/>
+                                <connections>
+                                    <segue destination="m2a-6D-uKt" kind="modal" id="tDm-nF-KmQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1113,6 +1116,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEY-32-Snp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2116" y="928"/>
+        </scene>
+        <!--Inquiry Form View Controller-->
+        <scene sceneID="ZNI-nl-2a8">
+            <objects>
+                <viewController id="m2a-6D-uKt" customClass="InquiryFormViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vp4-5H-SWs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="あああ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5KP-7q-je7">
+                                <rect key="frame" x="39" y="192" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hX-n0-MI6">
+                                <rect key="frame" x="172" y="494" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="送信"/>
+                                <connections>
+                                    <action selector="sendInquiry" destination="m2a-6D-uKt" eventType="touchUpInside" id="1km-mE-AXn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RZW-5f-7iO"/>
+                    </view>
+                    <connections>
+                        <outlet property="inquiryTextView" destination="5KP-7q-je7" id="xtg-Mv-3DJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fzf-UH-bWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1671" y="1684"/>
         </scene>
         <!--Registration View Controller-->
         <scene sceneID="Tig-cP-EpB">
