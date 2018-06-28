@@ -27,6 +27,18 @@ class CheckQuestionViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func toTodayCheckBtnAc() {
+        if questions.count == 0 {
+            let alert: UIAlertController = UIAlertController(title: "警告", message: "問いがありません", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(defaultAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            let segue = self.storyboard?.instantiateViewController(withIdentifier: "TodayCheck") as! TodayCheckViewController
+            self.present(segue, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func toRandomBtnAc() {
         if questions.count == 0 {
             print("遷移したあかんで")
