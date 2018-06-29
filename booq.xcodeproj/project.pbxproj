@@ -104,11 +104,11 @@
 		592E354B205F5443004F567D /* BooksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionViewCell.swift; sourceTree = "<group>"; };
 		592E354F205F648D004F567D /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		593DA8C12066129000AFF879 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
-		594D68F2207EEEF100504345 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = /Users/kajiwarataishin/jack_app/BooQ/booq/TabBarController.swift; sourceTree = "<absolute>"; };
-		594D68F4207EEEFD00504345 /* ProjectName-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ProjectName-Bridging-Header.h"; path = "/Users/kajiwarataishin/jack_app/BooQ/booq/ProjectName-Bridging-Header.h"; sourceTree = "<absolute>"; };
-		594D68F5207EEF0900504345 /* RgstPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RgstPopUpViewController.swift; path = /Users/kajiwarataishin/jack_app/BooQ/booq/RgstPopUpViewController.swift; sourceTree = "<absolute>"; };
-		594D68F7207EEF0E00504345 /* toUseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = toUseCodable.swift; path = /Users/kajiwarataishin/jack_app/BooQ/booq/toUseCodable.swift; sourceTree = "<absolute>"; };
-		594D68F9207EEF2600504345 /* RealmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmModels.swift; path = /Users/kajiwarataishin/jack_app/BooQ/booq/RealmModels.swift; sourceTree = "<absolute>"; };
+		594D68F2207EEEF100504345 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = booq/TabBarController.swift; sourceTree = SOURCE_ROOT; };
+		594D68F4207EEEFD00504345 /* ProjectName-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ProjectName-Bridging-Header.h"; path = "booq/ProjectName-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		594D68F5207EEF0900504345 /* RgstPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RgstPopUpViewController.swift; path = booq/RgstPopUpViewController.swift; sourceTree = SOURCE_ROOT; };
+		594D68F7207EEF0E00504345 /* toUseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = toUseCodable.swift; path = booq/toUseCodable.swift; sourceTree = SOURCE_ROOT; };
+		594D68F9207EEF2600504345 /* RealmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmModels.swift; path = booq/RealmModels.swift; sourceTree = SOURCE_ROOT; };
 		595BA32A206623140024E71B /* BookQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		595BA32C2066239E0024E71B /* BookQestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQestionViewController.swift; sourceTree = "<group>"; };
 		595BA32E2068F65C0024E71B /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -780,7 +780,7 @@
 			baseConfigurationReference = 55301A4AE66AA9751A02844C /* Pods-booq.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: nasutaro211@gmail.com (39ZJHTN9XR)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = FUYNSQ2NQ6;
 				INFOPLIST_FILE = booq/Info.plist;
@@ -800,7 +800,7 @@
 			baseConfigurationReference = C51521EBE9C731B538B81912 /* Pods-booq.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: nasutaro211@gmail.com (39ZJHTN9XR)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = FUYNSQ2NQ6;
 				INFOPLIST_FILE = booq/Info.plist;

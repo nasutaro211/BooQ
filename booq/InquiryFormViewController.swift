@@ -33,7 +33,7 @@ class InquiryFormViewController: UIViewController, UITextViewDelegate {
     }
     
     func HttpRequest() {
-        let url = "https://script.google.com/macros/s/AKfycbyx0B-PgEjBhwg3ZeN9dQxQuypdmPjKgFQNOnAZ8tEWnqPfAoA/exec"
+        let url = "https://script.google.com/macros/s/AKfycbzGIyp0AFNT4LCDApdV_RHiP7IS62JwkoATn6vQvJ0Ham3QCzXX/exec"
         let headers: HTTPHeaders = [
             "Contenttype": "application/json"
         ]
@@ -41,7 +41,9 @@ class InquiryFormViewController: UIViewController, UITextViewDelegate {
             "content": inquiryTextView.text
         ]
         
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+//        Alamofire.request(<#T##url: URLConvertible##URLConvertible#>, method: <#T##HTTPMethod#>, parameters: <#T##Parameters?#>, encoding: <#T##ParameterEncoding#>, headers: <#T##HTTPHeaders?#>)
+        
+        Alamofire.request(url, method: .post, parameters: parameters,encoding: URLEncoding.default, headers: nil).responseJSON { response in
             if let result = response.result.value as? [String: Any] {
                 print(result)
             }
@@ -58,11 +60,11 @@ class InquiryFormViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func sendInquiry() {
         HttpRequest()
-        
-        let alert: UIAlertController = UIAlertController(title: "", message: "送信しました", preferredStyle:  UIAlertControllerStyle.alert)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-        alert.addAction(defaultAction)
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alert: UIAlertController = UIAlertController(title: "", message: "送信しました", preferredStyle:  UIAlertControllerStyle.alert)
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(defaultAction)
+            self.present(alert, animated: true, completion: nil)        }
     }
 
 }

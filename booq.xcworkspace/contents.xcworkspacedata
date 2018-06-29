@@ -2,19 +2,19 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:booq/TabBarController.swift">
+      location = "group:/Users/nasutaro211/App/Booq/booq/booq/TabBarController.swift">
    </FileRef>
    <FileRef
-      location = "group:booq/ProjectName-Bridging-Header.h">
+      location = "group:/Users/nasutaro211/App/Booq/booq/booq/ProjectName-Bridging-Header.h">
    </FileRef>
    <FileRef
-      location = "group:booq/RgstPopUpViewController.swift">
+      location = "group:/Users/nasutaro211/App/Booq/booq/booq/RgstPopUpViewController.swift">
    </FileRef>
    <FileRef
-      location = "group:booq/toUseCodable.swift">
+      location = "group:/Users/nasutaro211/App/Booq/booq/booq/toUseCodable.swift">
    </FileRef>
    <FileRef
-      location = "group:booq/RealmModels.swift">
+      location = "group:/Users/nasutaro211/App/Booq/booq/booq/RealmModels.swift">
    </FileRef>
    <FileRef
       location = "group:booq.xcodeproj">
