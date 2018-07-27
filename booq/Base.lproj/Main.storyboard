@@ -983,21 +983,6 @@
             </objects>
             <point key="canvasLocation" x="-2666.4000000000001" y="1683.5082458770617"/>
         </scene>
-        <!--Today Check View Controller-->
-        <scene sceneID="pGU-iX-1v5">
-            <objects>
-                <viewController storyboardIdentifier="TodayCheck" id="CI4-Yl-g0x" customClass="TodayCheckViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Pzp-FX-HWw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="3Il-eD-HyW"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y1l-lt-K0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3724" y="928"/>
-        </scene>
         <!--check-->
         <scene sceneID="A1X-pD-txw">
             <objects>
@@ -1030,6 +1015,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.76300064541544166" green="1" blue="0.99863528661526968" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="今日のチェック"/>
+                                <connections>
+                                    <action selector="toTodayCheckBtnAc" destination="CnH-Au-udb" eventType="touchUpInside" id="3pF-Rk-g1U"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJB-UE-1a4">
                                 <rect key="frame" x="142" y="298" width="90" height="90"/>
@@ -2316,6 +2304,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTR-zb-CDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2666" y="2402"/>
+        </scene>
+        <!--Today Check View Controller-->
+        <scene sceneID="cbp-NG-EmB">
+            <objects>
+                <viewController storyboardIdentifier="TodayCheck" id="fq4-na-WSk" customClass="TodayCheckViewController" customModule="booq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LAW-GN-g9J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZd-so-DE7">
+                                <rect key="frame" x="37" y="460" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="忘れた"/>
+                                <connections>
+                                    <action selector="forgetAc" destination="fq4-na-WSk" eventType="touchUpInside" id="H6i-5l-MUz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eC-lt-oyC">
+                                <rect key="frame" x="37" y="400" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="思い出した"/>
+                                <connections>
+                                    <action selector="rememberAc" destination="fq4-na-WSk" eventType="touchUpInside" id="f1g-Ey-eGf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8A-Il-xjm">
+                                <rect key="frame" x="37" y="400" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="わかる"/>
+                                <connections>
+                                    <action selector="iKnowBtnAc" destination="fq4-na-WSk" eventType="touchUpInside" id="2X4-Fc-gfy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZc-qg-7dF">
+                                <rect key="frame" x="37" y="460" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="わからない"/>
+                                <connections>
+                                    <action selector="iDontKnowBtnAc" destination="fq4-na-WSk" eventType="touchUpInside" id="Wed-Ad-BYY"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Nk-Ya-ZqH">
+                                <rect key="frame" x="37" y="120" width="300" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNs-Vu-7ND">
+                                <rect key="frame" x="37" y="70" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="一枚もどる"/>
+                                <connections>
+                                    <action selector="backCardAc" destination="fq4-na-WSk" eventType="touchUpInside" id="0tO-DL-Wqn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Vpp-aB-kVv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="98c-dL-vxP"/>
+                    <connections>
+                        <outlet property="backCardBtn" destination="LNs-Vu-7ND" id="DUu-Pg-r5u"/>
+                        <outlet property="forgetBtn" destination="cZd-so-DE7" id="Zsk-Ls-ODR"/>
+                        <outlet property="iDontKnowBtn" destination="JZc-qg-7dF" id="qzB-Ts-QVZ"/>
+                        <outlet property="iKnowBtn" destination="i8A-Il-xjm" id="oEq-0w-KYc"/>
+                        <outlet property="rememberBtn" destination="4eC-lt-oyC" id="K8L-Fa-PP2"/>
+                        <outlet property="scrollView" destination="5Nk-Ya-ZqH" id="mhh-Df-P06"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cl4-jK-u0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3754" y="928"/>
         </scene>
     </scenes>
     <resources>

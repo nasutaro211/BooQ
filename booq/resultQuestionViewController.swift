@@ -14,6 +14,11 @@ class resultQuestionViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet var tableView: UITableView!
     
     var questions: Results<Question>!
+    //追加
+    var questions_new: [String] = []
+    var answers: [String] = []
+    var images: [Book] = []
+    
     var randomNumbers: [Int] = []
     var subscripts: [Int] = []
     var flag: String = ""
@@ -29,16 +34,27 @@ class resultQuestionViewController: UIViewController, UITableViewDelegate, UITab
         
         switch flag {
         case "RandomQuestion":
-            for i in randomNumbers {
+            for i in 0..<questions.count {
+                questions_new.append(questions[randomNumbers[i]].questionStr)
+                answers.append(questions[randomNumbers[i]].answers[0].answerStr)
+                images.append(questions[randomNumbers[i]].books.first!)
+            }
+        case "TodayCheck":
+            for i in 0..<questions_new.count {
                 subscripts.append(randomNumbers[i])
             }
         case "EachQuestion":
             for i in 0..<questions.count {
-                subscripts.append(i)
+                randomNumbers.append(i)
+                questions_new.append(questions[i].questionStr)
+                answers.append(questions[i].answers[0].answerStr)
+                images.append(questions[i].books.first!)
             }
         default:
             break
         }
+        print(questions_new)
+        print(answers)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +66,7 @@ class resultQuestionViewController: UIViewController, UITableViewDelegate, UITab
         let indexPath = IndexPath(row: button.tag, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! QuestionTableViewCell
         if cell.answerTextView.text == "答え ▼"{
-            cell.answerTextView.text = "答え ▶︎ " + questions[subscripts[indexPath.row]].answers[0].answerStr
+            cell.answerTextView.text = "答え ▶︎ " + answers[randomNumbers[indexPath.row]]
             //cellの高さをUpdaete
             tableView.beginUpdates()
             tableView.endUpdates()
@@ -74,16 +90,15 @@ class resultQuestionViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subscripts.count
+        return questions_new.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllQuestionCell", for: indexPath) as! QuestionTableViewCell
         cell.showAnswerButton.tag = indexPath.row
         cell.selectionStyle = .gray
-        let question = questions[subscripts[indexPath.row]]
-        cell.questionLabel.text = question.questionStr
-        cell.bookImageView.setImage(of: question.books.first!)
+        cell.questionLabel.text = questions_new[randomNumbers[indexPath.row]]
+        cell.bookImageView.setImage(of: images[randomNumbers[indexPath.row]])
         return cell
     }
 
