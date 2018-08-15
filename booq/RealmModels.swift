@@ -33,7 +33,7 @@ class Question: Object {
     @objc dynamic var questionID = ""
     @objc dynamic var questionStr = ""
     @objc dynamic var registeredDay = Date()
-    @objc dynamic var nextEmergenceDay = "yyyyMMdd"
+    @objc dynamic var nextEmergenceDay = 0//"yyyyMMdd"→ver.2で変更
     @objc dynamic var numInBook = "" //ver.1~
     @objc dynamic var consecutiveCorrectTimes = 0
     //答えs

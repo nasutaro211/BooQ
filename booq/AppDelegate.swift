@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .withLogLevel(FlurryLogLevelAll))
         //マイグレーション
         let config = Realm.Configuration(
-            //現在出ているアプリのschemaverは[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]//注目
+            //現在出ているアプリのschemaverは[[[[[[[[[[[[[[[1]]]]]]]]]]]]]]]]]//注目
             // 新しいデータベース構造のバージョンを宣言。
             //バージョンは以前使っていたバージョンよりも大きいものにする(まだマイグレーションをしたことがないときのバージョンは0)
-            schemaVersion: 1,
+            schemaVersion: 2,
             // 新しいバージョンに書き換えらる時に自動的に呼ばれるブロックを引数に渡す
             migrationBlock: { migration, oldSchemaVersion in
                 // まだマイグレーションをしたことがないのでoldSchemaVersion == 0
@@ -54,7 +54,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     })
                 }
-        })
+                if (oldSchemaVersion < 2) {
+                    migration.enumerateObjects(ofType: Question.className()) { oldObject, newObject in
+                        let intNED = Int(oldObject!["nextEmergenceDay"] as! String)
+                        newObject!["nextEmergenceDay"] = intNED
+                    }
+
+                }
+                    
+         })
         
         //         デフォルトで呼ばれるRealmに今回設定したバージョンのものを設定
         Realm.Configuration.defaultConfiguration = config

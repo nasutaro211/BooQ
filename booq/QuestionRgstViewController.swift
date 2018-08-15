@@ -205,12 +205,12 @@ class QuestionRgstViewController: UIViewController,UITextViewDelegate,UIScrollVi
         let str = formatter.string(from: now)
         return str
     }
-    func return_yyyyMMdd(date: Date)->String{
+    func return_yyyyMMdd(date: Date)->Int{
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyyMMdd"
         let str = formatter.string(from: date)
-        return str
+        return Int(str)!
     }
     
     func pushRgst(){

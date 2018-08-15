@@ -28,13 +28,21 @@ class CheckQuestionViewController: UIViewController {
     }
     
     @IBAction func toTodayCheckBtnAc() {
-        if questions.count == 0 {
+        let realm = try! Realm()
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        let today_date = Int(formatter.string(from: today) )! + 1
+        let sendQuestions = realm.objects(Question.self).filter("nextEmergenceDay <= %@", today_date)
+        if sendQuestions.count == 0 {
             let alert: UIAlertController = UIAlertController(title: "警告", message: "問いがありません", preferredStyle: UIAlertControllerStyle.alert)
             let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
             alert.addAction(defaultAction)
             present(alert, animated: true, completion: nil)
         } else {
+            print("チェックしちゃうデー")
             let segue = self.storyboard?.instantiateViewController(withIdentifier: "TodayCheck") as! TodayCheckViewController
+            segue.questions = sendQuestions
             self.present(segue, animated: true, completion: nil)
         }
     }

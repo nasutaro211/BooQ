@@ -24,23 +24,16 @@ class TodayCheckViewController: UIViewController, UIScrollViewDelegate {
     var today_images: [Book] = []
     var randomNumbers: [Int] = []
     var doYouKnow = false
+    var question_number = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //nextEmargencyDayが今日のやつを取ってくる
-        let realm = try! Realm()
-        questions = realm.objects(Question.self)
-        let today = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        let today_date = String(Int(formatter.string(from: today))!)
         for object in questions {
-            if object.nextEmergenceDay <= today_date {
-                today_questions.append(object.questionStr)
-                today_answers.append(object.answers[0].answerStr)
-                today_images.append((object.books.first!))
-            }
+            today_questions.append(object.questionStr)
+            today_answers.append(object.answers[0].answerStr)
+            today_images.append((object.books.first!))
         }
         
         backCardBtn.alpha = 0
@@ -85,6 +78,18 @@ class TodayCheckViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func iKnowBtnAc() {
         self.slideScrollView(slideWidth: 200)
+        
+        let realm = try! Realm()
+        var theQuestion = questions[question_number]
+        try! realm.write {
+            theQuestion.nextEmergenceDay = self.cal_next(q: theQuestion)
+            if theQuestion.consecutiveCorrectTimes < 4{
+                    theQuestion.consecutiveCorrectTimes+=1
+            }
+            realm.add(theQuestion, update: true)
+        }
+        
+        question_number += 1
     }
     
     @IBAction func iDontKnowBtnAc() {
@@ -110,6 +115,7 @@ class TodayCheckViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func backCardAc() {
         self.slideScrollView(slideWidth: -200)
+        question_number -= 1
     }
     
     @IBAction func rememberAc() {
@@ -123,6 +129,8 @@ class TodayCheckViewController: UIViewController, UIScrollViewDelegate {
         
         deleteAnswerLabel()
         slideScrollView(slideWidth: 200)
+        
+        question_number += 1
     }
     
     @IBAction func forgetAc() {
@@ -136,6 +144,8 @@ class TodayCheckViewController: UIViewController, UIScrollViewDelegate {
         
         deleteAnswerLabel()
         slideScrollView(slideWidth: 200)
+        
+        question_number += 1
     }
     
     func deleteAnswerLabel() {
@@ -178,6 +188,15 @@ class TodayCheckViewController: UIViewController, UIScrollViewDelegate {
         default:
             print("エラー")
         }
+    }
+    
+    func cal_next(q: Question) -> Int {
+        let intervalArray: [Double] = [5, 14, 30, 90, 360]
+        let today = Date()
+        let resultDate = Date(timeInterval: 86400*intervalArray[q.consecutiveCorrectTimes], since: today)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return Int(formatter.string(from: resultDate))!
     }
     
     @objc func endBtnAc(sender: UIButton) {
